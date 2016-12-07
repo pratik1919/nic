@@ -1,0 +1,242 @@
+html,
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+#wrapper {
+    min-height:100%;
+    position:relative;
+}
+#header {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+#content {
+    padding-bottom:100px; /* Height of the footer element */
+}
+#footer {
+
+    width:100%;
+    height:100px;
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+
+.navbar{
+    border: 0px !important;
+}
+
+.form-control{
+    border-radius: 0px !important;
+}
+
+.btn{
+    border-radius: 0px !important;
+}
+
+.nav li a:hover{
+    background-color: red !important;
+}
+
+.nav li a{
+    color: #ffffff;
+}
+
+.loginDiv{
+    padding-right: 20px;
+    text-align: end;
+}
+
+.mahabirPun-img{
+    position: absolute;
+    margin-left: 0px;
+}
+
+.title{
+    font-family: 'Taviraj', serif;
+    display: inline-block;
+    /*position: absolute;*/
+    /*margin-left: 50px;*/
+}
+
+.title hr{
+     margin-top: 0px;
+     margin-bottom: 0px;
+    border-top: 1px solid #000000;
+}
+
+.center{
+    text-align: center;
+}
+
+.paragraph{
+    margin: 60px 74px 10px;
+    font-family: fantasy;
+    font-size: 19px;
+}
+
+.row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.donation-medium{
+    background-image: url("../img/stock-photo-99699559.jpg");
+    background: cover;
+    background-position: center;
+    color: #ffffff;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: -webkit-pictograph;
+
+
+    -webkit-box-shadow: inset 0px 0px 111px 60px rgba(0,0,0,0.53);
+    -moz-box-shadow: inset 0px 0px 111px 60px rgba(0,0,0,0.53);
+    box-shadow: inset 0px 0px 111px 60px rgba(0,0,0,0.53);
+}
+
+.donation-medium .col-md-3{
+    text-align: center;
+}
+
+.donation-medium .col-md-3 h3{
+    font-weight: 900;
+    margin-bottom: 40px;
+}
+
+.donation-medium .col-md-3 h5{
+    /*font-weight: 900;*/
+    margin-bottom: 40px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.donation-medium .col-md-3 h4{
+    font-weight: 900;
+    margin-bottom: 40px;
+    font-size: 28px;
+}
+
+.donation-medium .col-md-3 h6{
+    /*font-weight: 900;*/
+    margin-bottom: 70px;
+    font-size: 15px;
+}
+
+.goal{
+    margin: 20px 0 20px 0;
+}
+
+.left{
+    text-align: end;
+}
+
+.goal h3{
+    text-align: center;
+}
+
+.work{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 40px;
+    /*margin-bottom: 40px;*/
+    border-top: 3px solid #000000;
+    border-bottom: 3px solid #000000;
+    background-color: #f9f9f9;
+}
+
+p{
+    font-size: 17px;
+}
+
+.videos .center{
+    margin: 30px 0 30px 0;
+}
+
+.support{
+    background-image: url("../img/hand_with_lightbulb.jpg");
+    background: cover;
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #000000;
+    padding: 20px 0 20px 0;
+
+    color: #ffffff;
+}
+
+.footer{
+    padding: 40px 0 20px 0;
+    background-color: #000000;
+    color: #9fae7e;
+}
+
+.last-foot{
+    padding: 10px;
+    text-align: center;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #e10c0c !important;
+    border-color: #337ab7 !important;
+}
+
+
+/*login*/
+
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:#001973;
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    background-color: rgba(42, 39, 255, 0.80);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+
+/*login*/
