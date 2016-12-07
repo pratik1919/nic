@@ -48,7 +48,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Concept Paper</a></li>
-                    <li><a href="#">News</a></li>
+                    <li><a href="a_news.php">News</a></li>
                     <li><a href="#">Participate</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="#">Donors List</a></li>
