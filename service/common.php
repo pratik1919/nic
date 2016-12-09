@@ -18,5 +18,6 @@ function addDonor($name, $amount, $date, $medium, $conn){
 
 function addNews($title, $content, $image, $conn){
     $insertNews = "INSERT INTO `news`(`title`, `content`, `image`) VALUES ('$title', '$content', '$image')";
+
     $conn->query($insertNews);
 }
