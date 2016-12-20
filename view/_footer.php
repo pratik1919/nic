@@ -9,7 +9,9 @@
 
 <div class="row footer">
     <div class="container">
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <a height="400" class="twitter-timeline" href="https://twitter.com/TwitterDev">Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
 
         <div class="col-md-4">
             <h3>सम्पर्क ठेगाना</h3>

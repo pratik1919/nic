@@ -15,4 +15,4 @@ $date = $_POST['date'];
 
 addDonor($name, $amount, $medium, $date, $conn);
 
-header('Location: ../view/a_addDonor.php');
+header('Location: ../view/donorsList.php');

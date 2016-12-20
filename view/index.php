@@ -14,6 +14,11 @@
     <meta charset="UTF-8">
     <title>National Innovation Center</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
+
     <!--[if lt IE 7]>
     <style type="text/css">
         #wrapper {
@@ -30,6 +35,118 @@
         <?php include '_header.php'; ?>
     </div>
     <!-- #header -->
+
+
+    <!--    add content model-->
+    <div id="addContentModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Content</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form" action="../controller/c_addContent.php" method="post" enctype="multipart/form-data">
+
+                        <input type="hidden" name="positionId"/>
+                        <div class="form-group">
+                            <label for="">Title</label>
+                            <input class="form-control" type="text" name="title"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Content</label><br/>
+                                <textarea style="width: 100%;" name="content" id="" cols="30" rows="10" required="">
+                                </textarea>
+                        </div>
+
+                        <input type="submit" value="Add" class="btn btn-primary btn-block"/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--    donation info model-->
+    <div id="addVideoModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Change Video</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form" action="../controller/c_addVideo.php" method="post" enctype="multipart/form-data">
+
+                        <input type="hidden" name="positionId"/>
+                        <div class="form-group">
+                            <label for="">Embed Code</label>
+                            <input class="form-control" type="text" name="code" placeholder="make sure width = 400, height = 220"/>
+                        </div>
+                        <input type="submit" value="Change" class="btn btn-primary btn-block"/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--    donation info model-->
+    <div id="addDonationModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Change Donation Information</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form" action="../controller/c_addDonationInfo.php" method="post" enctype="multipart/form-data">
+
+                        <input type="hidden" name="positionId"/>
+                        <div class="form-group">
+                            <label for="">First Line</label>
+                            <input class="form-control" type="text" name="first"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Second Line</label>
+                            <input class="form-control" type="text" name="second"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Third Line</label>
+                            <input class="form-control" type="text" name="third"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Forth Line</label>
+                            <input class="form-control" type="text" name="forth"/>
+                        </div>
+
+                        <input type="submit" value="Change" class="btn btn-primary btn-block"/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
     <div id="content">
 
@@ -52,14 +169,22 @@
                     </div>
                 </div>
                 <div class="row paragraph">
-                    <p>नेपालमा विज्ञान तथा प्रविधिको विकास प्रतिभाशाली नेपालीहरूबाट नै गर्ने र गराउने महान् अभियान र अति
-                        पुण्य कार्यमा भाग लिनुहोस् र देश विकासको लागि आफू सक्दो मद्दत गर्नुहोस्। हाम्रो सुरुवाती लक्ष्य
-                        रु. ५० करोड हो जसबाट १० देखी १५ मेगावाट सम्मको जल विद्युत् उत्पादन गर्ने हो। सो जलविद्युतबाट
-                        आएको आम्दानीले "राष्ट्रिय आविष्कार केन्द्र" लाई दिगो रूपमा सञ्चालन गर्ने हो। आर्थिक सहयोग गर्ने
-                        चाहनेहरूले यी बैङ्कहरूमा नगद जम्मा गरेर भौचरको फोटो nicnepal.mahabir@gmail.com मा पठाउनु होला
-                        अथवा 9841592361 मा महाबीर पुन लाइ फोन गर्नुस ।
+                    <?php
+                    if (isset($_SESSION['userID'])) {
+                        ?>
+                        <button class="btn btn-block btn-primary" data-position-id="landing-1" data-toggle="modal" data-target="#addContentModal">
+                            Change Content
+                        </button>
+                    <?php
+                    }
+
+                    $content = getContent('landing-1', $conn);
+                    $row = $content->fetch_assoc();
+                    ?>
+                    <p>
+                        <?php echo $row['content']; ?>
                     </p>
-                </div>
+            </div>
             </div>
         </div>
 
@@ -67,30 +192,78 @@
             <h2 class="center">Donate Now</h2>
 
             <div class="col-md-3">
-                <h3>एभरेष्ट बैङ्क, नयाँ बानेश्वर </h3>
-                <h5>राष्ट्रिय आविष्कार केन्द्र खाता नम्बर </h5>
-                <h4>00100105201853</h4>
-                <h6>Swift Code - EVBLNPKA</h6>
+                <?php
+                if (isset($_SESSION['userID'])) {
+                    ?>
+                    <button class="btn btn-block btn-primary" data-position-id="donation-1" data-toggle="modal" data-target="#addDonationModal">
+                        Change Donation Information
+                    </button>
+                <?php
+                }
+
+                $donationInfo = getDonationInfo('donation-1', $conn);
+                $row = $donationInfo->fetch_assoc();
+                ?>
+                <h3><?php echo $row['first']; ?></h3>
+                <h5><?php echo $row['second']; ?></h5>
+                <h4><?php echo $row['third']; ?></h4>
+                <h6><?php echo $row['forth']; ?></h6>
             </div>
             <div class="col-md-3">
-                <h3>हिमालायन बैङ्क </h3>
-                <h5>राष्ट्रिय आविष्कार केन्द्र खाता नम्बर</h5>
-                <h4>01906322060017</h4>
-                <h6>Swift Code - HIMANPKA</h6>
+                <?php
+                if (isset($_SESSION['userID'])) {
+                    ?>
+                    <button class="btn btn-block btn-primary" data-position-id="donation-2" data-toggle="modal" data-target="#addDonationModal">
+                        Change Donation Information
+                    </button>
+                <?php
+                }
+
+                $donationInfo = getDonationInfo('donation-2', $conn);
+                $row = $donationInfo->fetch_assoc();
+                ?>
+                <h3><?php echo $row['first']; ?></h3>
+                <h5><?php echo $row['second']; ?></h5>
+                <h4><?php echo $row['third']; ?></h4>
+                <h6><?php echo $row['forth']; ?></h6>
             </div>
 
             <div class="col-md-3">
-                <h3>eSewa</h3>
-                <h5>नेपालमा</h5>
-                <h4>www.nicnepal.org <br/> /donation</h4>
-                <h6>यसमा कुनै कमिसन काटिने छैन - सौजन्य eSewa Pvt. Ltd.नम्बर</h6>
+                <?php
+                if (isset($_SESSION['userID'])) {
+                    ?>
+                    <button class="btn btn-block btn-primary" data-position-id="donation-3" data-toggle="modal" data-target="#addDonationModal">
+                        Change Donation Information
+                    </button>
+                <?php
+                }
+
+                $donationInfo = getDonationInfo('donation-3', $conn);
+                $row = $donationInfo->fetch_assoc();
+                ?>
+                <h3><?php echo $row['first']; ?></h3>
+                <h5><?php echo $row['second']; ?></h5>
+                <h4><?php echo $row['third']; ?></h4>
+                <h6><?php echo $row['forth']; ?></h6>
             </div>
 
             <div class="col-md-3">
-                <h3> gofundme.com</h3>
-                <h5>बिदेश बाट</h5>
-                <h4>www.gofundme.com/nic-nepal</h4>
-                <h6>तपाईंले दान गरेको रकममा Deerwalk Foundation ले रकम थपेर दिनेछ - सौजन्य Deerwalk Foundation</h6>
+                <?php
+                if (isset($_SESSION['userID'])) {
+                    ?>
+                    <button class="btn btn-block btn-primary" data-position-id="donation-4" data-toggle="modal" data-target="#addDonationModal">
+                        Change Donation Information
+                    </button>
+                <?php
+                }
+
+                $donationInfo = getDonationInfo('donation-4', $conn);
+                $row = $donationInfo->fetch_assoc();
+                ?>
+                <h3><?php echo $row['first']; ?></h3>
+                <h5><?php echo $row['second']; ?></h5>
+                <h4><?php echo $row['third']; ?></h4>
+                <h6><?php echo $row['forth']; ?></h6>
             </div>
         </div>
 
@@ -102,31 +275,67 @@
                 <div class="container">
 
                     <div class="col-md-4">
-                        <h3>Need, Vision, Mission and Goals</h3>
+                        <?php
+                        if (isset($_SESSION['userID'])) {
+                            ?>
+                            <button class="btn btn-block btn-primary" data-position-id="landing-2" data-toggle="modal" data-target="#addContentModal">
+                                Change
+                            </button>
+                        <?php
+                        }
 
-                        <p>Why do we need Innovation Center in Nepal? No developed countries in the world did get to the
-                            position they are now without giving topmost priorities for the development of science,
-                            technology, and innovation in...</p>
+                        $content = getContent('landing-2', $conn);
+                        $row = $content->fetch_assoc();
+                        ?>
+                        <div class="goal-content">
+                        <h3><?php echo $row['title']; ?></h3>
+
+                        <p><?php echo $row['content']; ?></p>
+                        </div>
 
                         <div class="left"><a href="">more</a></div class="left">
                     </div>
 
                     <div class="col-md-4">
-                        <h3>Our Requests</h3>
+                        <?php
+                        if (isset($_SESSION['userID'])) {
+                            ?>
+                            <button class="btn btn-block btn-primary" data-position-id="landing-3" data-toggle="modal" data-target="#addContentModal">
+                                Change
+                            </button>
+                        <?php
+                        }
 
-                        <p> We are seeking support for initial investment from the government or interested groups or
-                            individuals. We have requested the government of Nepal for one time grant of USD 4 million
-                            that will be used for...</p>
+                        $content = getContent('landing-3', $conn);
+                        $row = $content->fetch_assoc();
+                        ?>
+                        <div class="goal-content">
+                            <h3><?php echo $row['title']; ?></h3>
+
+                            <p><?php echo $row['content']; ?></p>
+                        </div>
 
                         <div class="left"><a href="">more</a></div class="left">
                     </div>
 
                     <div class="col-md-4">
-                        <h3>Uniqueness & Sustainability</h3>
+                        <?php
+                        if (isset($_SESSION['userID'])) {
+                            ?>
+                            <button class="btn btn-block btn-primary" data-position-id="landing-4" data-toggle="modal" data-target="#addContentModal">
+                                Change
+                            </button>
+                        <?php
+                        }
 
-                        <p>In Nepali context, the innovation center must be a fully autonomous and should be run by
-                            visionary people. If we rely upon the government grant, the bad thing that will definitely
-                            happen in Nepal is...</p>
+                        $content = getContent('landing-4', $conn);
+                        $row = $content->fetch_assoc();
+                        ?>
+                        <div class="goal-content">
+                            <h3><?php echo $row['title']; ?></h3>
+
+                            <p><?php echo $row['content']; ?></p>
+                        </div>
 
                         <div class="left"><a href="">more</a></div class="left">
                     </div>
@@ -138,36 +347,53 @@
         <div class="row work">
             <div class="container">
                 <div class="col-md-7">
-                    <h3>राष्ट्रिय आविष्कार केन्द्र ( National Innovation Center ) को महान अभियान - नेपाल सरकारको ढोका
-                        छोडेर देश प्रेमी नेपालीहरूको ढोकामा</h3>
+                    <?php
+                    if (isset($_SESSION['userID'])) {
+                        ?>
+                        <button class="btn btn-block btn-primary" data-position-id="landing-5" data-toggle="modal" data-target="#addContentModal">
+                            Change Content
+                        </button>
+                    <?php
+                    }
+
+                    $content = getContent('landing-5', $conn);
+                    $row = $content->fetch_assoc();
+                    ?>
+                    <h3><?php echo $row['title']; ?></h3>
                     <br/><br/>
 
-                    <p>नेपाललाई विकसित देश बनाउनको लागि स्वदेश र विदेशमा बस्ने आम देश भक्त नेपालीहरूका साथै नेपाल
-                        सरकारले निम्न कुराहरूलाई ज्यादै उच्च प्राथमिकता दिऔँ।
-
-                        देशमा भएको सृजनशील र प्रतिभाशाली मानव पुँजी र स्रोतलाई विशेष प्रोत्साहन दिई उनीहरूको प्रतिभाको
-                        अधिकतम उपयोग गरौँ
-                        नेपालमा नै सके सम्मका वैज्ञानिक आविष्कार तथा प्रविधि विकास गर्ने कामलाई उच्च र विशेष प्राथमिकता
-                        प्रदान गरौँ र प्रतिभाशाली नेपालीहरूको प्रतिभालाई मल जल गरौँ
-
-                        नेपालको अर्थ तन्त्र बलियो बनाउन निर्यातमुखी उद्योगहरूलाई अधिकतम प्रोत्साहन दिऔँ। त्यसको लागि
-                        आवश्यक सहयोग प्रदान र अनुकूल वातावरण सृजना गरौँ
-
-                        यी माथि भनिएका कुराहरूलाई साकार पार्ने उदेश्यले "राष्ट्रिय आविष्कार केन्द्र" को स्थापना गरिएको
-                        हो। हामी सबै मिल्यौँ भने र देशमा नै विज्ञान तथा प्रविधिको विकास गर्‍यौँ भने हामीले नै ३० वर्षमा
-                        नेपाललाई एउटा विकसित देश बनाउन पक्कै सकिन्छ। अनि रोजीरोटीको लागी जागिर खोज्न हामी नेपालीहरूले
-                        विदेश धाउनु पर्ने छैन। साथै अपमानित भएर दुख पाउनु पर्ने र ज्यान गुमाउनु पर्ने पनि छैन।
-
-
-                        - महाबीर पुन ( यदि तपाईँलाई मसँग प्रत्यक्ष कुरा गर्न मन छ भने ९८४१५९२३६१ मा फोन गर्नु होला अथवा
-                        nicnepal.mahabir@gmail.com मा इमेल गर्नु होला । )</p>
+                   <p><?php echo $row['content']; ?></p>
                 </div>
                 <div class="col-md-5 videos">
-                    <div class="center">
-                        <img src="../img/Capture.JPG" alt=""/>
+                    <div class="center" style="max-height: 220px; max-width: 400px;">
+                        <?php
+                        if (isset($_SESSION['userID'])) {
+                            ?>
+                            <button class="btn btn-block btn-primary" data-position-id="video-1" data-toggle="modal" data-target="#addVideoModal">
+                                Change Video
+                            </button>
+                        <?php
+                        }
+                        $content = getVideo('video-1', $conn);
+                        $row = $content->fetch_assoc();
+                        echo $row['embed_code'];
+                        ?>
+
                     </div>
-                    <div class="center">
-                        <img src="../img/Capture1.JPG" alt=""/>
+                    <div class="center" style="max-height: 220px; max-width: 400px;">
+                        <?php
+                        if (isset($_SESSION['userID'])) {
+                            ?>
+                            <button style="z-index: 100;" class="btn btn-block btn-primary" data-position-id="video-2" data-toggle="modal" data-target="#addVideoModal">
+                                Change Video
+                            </button>
+                        <?php
+                        }
+                        $content = getVideo('video-2', $conn);
+                        $row = $content->fetch_assoc();
+                        echo $row['embed_code'];
+                        ?>
+
                     </div>
                 </div>
             </div>
@@ -177,32 +403,21 @@
             <div class="container">
                 <div class="col-md-6"></div>
                 <div class="col-md-6">
-                    <h3>सहयोगको लागि हार्दिक अनुरोध (Sincere request for your support)!</h3>
+                    <?php
+                    if (isset($_SESSION['userID'])) {
+                        ?>
+                        <button class="btn btn-block btn-primary" data-position-id="landing-6" data-toggle="modal" data-target="#addContentModal">
+                            Change
+                        </button>
+                    <?php
+                    }
 
-                    <p>विद्यार्थी भाइ बहिनीहरू तथा अविभावक ज्यूहरू, कृषक तथा विभिन्न क्षेत्रका साना ठुला व्यापार उद्योग
-                        गरी
-                        रहनु भएका व्यवसायीज्यूहरू, उद्योगपतिज्यूहरू, शिक्षक/शिक्षिका तथा प्राध्यापक्ज्यूहरू, विभिन्न
-                        सङ्घ
-                        संस्था र नागरिक मञ्चमा संलग्न महानुभावहरू सहित नेपालमा अथवा विदेशमा बसोबास गरिरहनु भएका सम्पूर्ण
-                        सच्चा र देश प्रेमी नेपालीहरू - विज्ञान तथा प्रविधिको माध्यमबाट हाम्रो देशलाई विकसित बनाउने अति
-                        पुण्य
-                        कार्य र महान् अभियानमा भाग लिन छेउको बटनमा क्लिक गरेर विवरण भर्नु होस् र आफू सक्दो आर्थिक तथा
-                        अन्य
-                        सहयोग गर्नको लागी नाम, ठेगाना र सम्पर्क गर्ने माध्यम लेख्नुहोस। अहिलेलाई फारम मात्र भर्नु होस् र
-                        हामी तपाईँहरूलाई सम्पर्क गर्ने छौँ। नेपालमा हाइस्कुल र कलेज पढ्ने भाइ बहिनीहरूले रु. ५० देखि रु.
-                        १००
-                        सम्म, विदेशमा पढ्ने विद्यार्थी भाइ बहिनीहरूले US$ ५० सम्म, कर्मचारीहरूले रु. १००० सम्म, मद्यम
-                        व्यापारी र व्यवसायीहरूले रु. ५,००० सम्म, बैङ्क, सहकारी, ठुला व्यवसायीहरूले रु. १ लाख सम्म,
-                        विदेशमा
-                        बस्ने नेपालीहरूले US$ १०० बराबर सम्म वा यसमा तोकिएको भन्दा बढी रकम दान गर्न अनुरोध छ। यो दान
-                        हामीले
-                        एक पटकको लागि मात्र अनुरोध गरी रहेका छौँ। तपाईहरूले गरेको दानको सम्पूर्ण विवरण एकदमै पारदर्शी
-                        हुने छ
-                        र तपाईँहरूले केन्द्रको तर्फबाट रसिद भरपाइ पाउनु हुने छ। सहयोग पठाउन बैङ्कको विवरण माथि दिइए
-                        अनुसार
-                        छ। (This is a unique and great campaign to help Nepal become a developed country through the
-                        development of science in technology in Nepal. Please click on the button on the right to
-                        participate and we will contact you. ),</p>
+                    $content = getContent('landing-6', $conn);
+                    $row = $content->fetch_assoc();
+                    ?>
+                    <h3><?php echo $row['title']; ?></h3>
+
+                   <p><?php echo $row['content']; ?></p>
                 </div>
             </div>
         </div>
@@ -220,5 +435,26 @@
 
 </div>
 <!-- #wrapper -->
+
+
+
+<script>
+    $('#addContentModal').on('show.bs.modal', function(e){
+        var positionId = $(e.relatedTarget).data('position-id');
+        $(e.currentTarget).find('input[name="positionId"]').val(positionId);
+
+    });
+
+    $('#addDonationModal').on('show.bs.modal', function(e){
+        var positionId = $(e.relatedTarget).data('position-id');
+        $(e.currentTarget).find('input[name="positionId"]').val(positionId);
+
+    });
+    $('#addVideoModal').on('show.bs.modal', function(e){
+        var positionId = $(e.relatedTarget).data('position-id');
+        $(e.currentTarget).find('input[name="positionId"]').val(positionId);
+
+    });
+</script>
 </body>
 </html>

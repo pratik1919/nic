@@ -16,7 +16,7 @@ $password = $_POST['password'];
 $stored_password = "null";
 $role = "null";
 
-$select_from_user = "SELECT id, password, role FROM user WHERE username = '$username'";
+$select_from_user = "SELECT * FROM user WHERE username = '$username'";
 
 $result_from_user = $conn->query($select_from_user);
 
@@ -27,7 +27,10 @@ if(mysqli_num_rows($result_from_user) > 0) {
     if($stored_password == $password){
         $_SESSION['role'] = $row['role'];
         $_SESSION['userID'] = $row['id'];
-        header('Location: ../view/a_landing.php');
+        $_SESSION['userEmail'] = $row['email'];
+        $_SESSION['userUsername'] = $row['username'];
+        $_SESSION['name'] = $row['name'];
+        header('Location: ../view/donorsList.php');
     }else{
         header('Location: ../view/login.php');
     }

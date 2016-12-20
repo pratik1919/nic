@@ -11,13 +11,13 @@ body {
 #header {
     margin-right: 0px !important;
     margin-left: 0px !important;
-    padding: 50px;
 }
 #content {
     padding-bottom:100px; /* Height of the footer element */
 }
 #footer {
 
+    margin-top: 100px;
     width:100%;
     height:100px;
     position:absolute;
@@ -35,6 +35,10 @@ body {
 
 .btn{
     border-radius: 0px !important;
+}
+
+.btn-primary{
+    background-color: #001973 !important;
 }
 
 .nav li a:hover{
@@ -55,11 +59,60 @@ body {
     margin-left: 0px;
 }
 
+.thank{
+    margin-top: 60px;
+    font-family: 'Taviraj', serif;
+    font-size: 50px;
+    color: red;
+    font-variant: small-caps;
+}
+
+.donationInfo{
+    padding: 50px;
+    color: white;
+    font-size: 18px;
+}
+
+.donor{
+    font-size: 45px;
+    font-family: 'Taviraj', serif;
+    color: #001973;
+    font-variant: small-caps;
+}
+
+.thankNote{
+    width: 90%;
+    position: relative;
+    padding: 20px 70px 20px 70px;
+    font-family: 'Taviraj', serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.donorList{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: 'Taviraj', serif;
+    color: #ffffff;
+}
+
 .title{
     font-family: 'Taviraj', serif;
     display: inline-block;
     /*position: absolute;*/
     /*margin-left: 50px;*/
+}
+
+.gradient{
+    background: rgba(73,155,234,0);
+    background: -moz-linear-gradient(top, rgba(73,155,234,0) 2%, rgba(73,155,234,0.27) 28%, rgba(32,124,229,0.92) 92%, rgba(32,124,229,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(2%, rgba(73,155,234,0)), color-stop(28%, rgba(73,155,234,0.27)), color-stop(92%, rgba(32,124,229,0.92)), color-stop(100%, rgba(32,124,229,1)));
+    background: -webkit-linear-gradient(top, rgba(73,155,234,0) 2%, rgba(73,155,234,0.27) 28%, rgba(32,124,229,0.92) 92%, rgba(32,124,229,1) 100%);
+    background: -o-linear-gradient(top, rgba(73,155,234,0) 2%, rgba(73,155,234,0.27) 28%, rgba(32,124,229,0.92) 92%, rgba(32,124,229,1) 100%);
+    background: -ms-linear-gradient(top, rgba(73,155,234,0) 2%, rgba(73,155,234,0.27) 28%, rgba(32,124,229,0.92) 92%, rgba(32,124,229,1) 100%);
+    background: linear-gradient(to bottom, rgba(73,155,234,0) 2%, rgba(73,155,234,0.27) 28%, rgba(32,124,229,0.92) 92%, rgba(32,124,229,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5', GradientType=0 );
 }
 
 .title hr{
@@ -240,4 +293,50 @@ p{
 }
 
 
-/*login*/
+
+.small-news{
+    height: 300px;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.small-news button{
+    /*z-index: 3;*/
+}
+
+.backgroundOverlayBlue {
+    background-color: blue;
+    position:relative;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    padding: 5px;
+    margin: 0px;
+    color: #ffffff;
+    /*z-index: 2;*/
+}
+
+.backgroundOverlayRed {
+    background-color: red;
+    position:relative;
+    width: 100%;
+    height: 50px;
+    opacity: 0.9;
+    overflow: hidden;
+    padding: 5px;
+    margin: 0px;
+    color: #ffffff;
+    /*z-index: 2;*/
+}
+
+.news-content{
+    left: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.goal-content{
+    max-height: 200px;
+    overflow: hidden;
+}
