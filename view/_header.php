@@ -31,6 +31,153 @@ include '../service/common.php';
 </head>
 <body>
 
+
+
+<!--    change file model-->
+<div id="changeFileModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change File</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form" action="../controller/c_upload.php" method="post" enctype="multipart/form-data">
+
+                    <input type="hidden" name="positionId"/>
+
+
+                    <div class="form-group">
+                        <label for="">Choose File</label><br/>
+                        <input type="file" name="file" required=""/>
+                    </div>
+
+                    <input type="submit" value="Add" class="btn btn-primary btn-block"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--    add content model-->
+<div id="addContentModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Content</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form" action="../controller/c_addContent.php" method="post" enctype="multipart/form-data">
+
+                    <input type="hidden" name="positionId"/>
+                    <div class="form-group">
+                        <label for="">Title</label>
+                        <input class="form-control" type="text" name="title"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Content</label><br/>
+                                <textarea style="width: 100%;" name="content" id="" cols="30" rows="10" required="">
+                                </textarea>
+                    </div>
+
+                    <input type="submit" value="Add" class="btn btn-primary btn-block"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--    donation info model-->
+<div id="addVideoModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change Video</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form" action="../controller/c_addVideo.php" method="post" enctype="multipart/form-data">
+
+                    <input type="hidden" name="positionId"/>
+                    <div class="form-group">
+                        <label for="">Embed Code</label>
+                        <input class="form-control" type="text" name="code" placeholder="make sure width = 400, height = 220"/>
+                    </div>
+                    <input type="submit" value="Change" class="btn btn-primary btn-block"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--    donation info model-->
+<div id="addDonationModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change Donation Information</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form" action="../controller/c_addDonationInfo.php" method="post" enctype="multipart/form-data">
+
+                    <input type="hidden" name="positionId"/>
+                    <div class="form-group">
+                        <label for="">First Line</label>
+                        <input class="form-control" type="text" name="first"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Second Line</label>
+                        <input class="form-control" type="text" name="second"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Third Line</label>
+                        <input class="form-control" type="text" name="third"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Forth Line</label>
+                        <input class="form-control" type="text" name="forth"/>
+                    </div>
+
+                    <input type="submit" value="Change" class="btn btn-primary btn-block"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
 <div class="col-lg-2">
     <img src="../img/logo.png" alt=""/>
 </div>
@@ -48,9 +195,18 @@ include '../service/common.php';
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Concept Paper</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Concept Paper
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="conceptPaper.php">Concept Paper</a></li>
+                            <li><a href="nvm.php">Need Vision Mission Goal</a></li>
+                            <li><a href="unique.php ">Uniqueness & Sustainability</a></li>
+                            <li><a href="request.php">Our Request</a></li>
+                        </ul>
+                    </li>
                     <li><a href="news.php">News</a></li>
-                    <li><a href="#">Comming Events</a></li>
+                    <li><a href="events.php">Coming Events</a></li>
                     <li><a href="#">Participate</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="donorsList.php">Donors List</a></li>
@@ -81,7 +237,6 @@ include '../service/common.php';
                             </ul>
                         </li>
                     </ul>
-
                 <?php
                 } else {
                     ?>
@@ -125,7 +280,6 @@ include '../service/common.php';
                 <?php
                 }
                 ?>
-
             </div>
         </div>
     </nav>

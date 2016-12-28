@@ -36,7 +36,6 @@ function addContent($title, $content, $pos, $conn){
     $select = "SELECT * FROM `contents` WHERE `location_code` = '$pos'";
     $r = $conn->query($select);
 
-    echo $select;
     if(isset($r)){
         $delete = "DELETE FROM `contents` WHERE `location_code` = '$pos'";
         $conn->query($delete);
@@ -92,4 +91,15 @@ function getVideo($position, $conn){
     $select = "SELECT * FROM `video` WHERE `location_code` = '$position'";
     $r = $conn->query($select);
     return $r;
+}
+
+function getEvents($conn){
+    $select = "SELECT * FROM `event`";
+    $r = $conn->query($select);
+    return $r;
+}
+
+function addEvent($title, $date, $venue, $desc, $conn){
+    $insertQuery = "INSERT INTO `event`(`title`, `date`, `venu`, `description`) VALUES ('$title', '$date', '$venue','$desc')";
+    $conn->query($insertQuery);
 }
