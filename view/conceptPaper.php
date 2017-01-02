@@ -59,7 +59,7 @@
 //            @readfile($file1);
             ?>
 
-            <embed src="../uploads/<?php echo $content; ?>" style="width: 100% !important; height: 1500px; position: relative;"></embed>
+            <embed src="../uploads/<?php echo $content; ?>" style="width: 100% !important; height: 1180px; position: relative;"></embed>
 
         </div>
     </div>

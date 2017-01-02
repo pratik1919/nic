@@ -38,7 +38,6 @@
     <div id="content">
         <div class="container">
 
-
             <!--    donation info model-->
             <div id="addEventsModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">

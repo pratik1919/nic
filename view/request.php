@@ -46,19 +46,20 @@
                 </button>
             <?php
             }
+
+            $f = getContent('request', $conn);
+            $row = $f->fetch_assoc();
+            $content = $row['content'];
+
+            //            $file1 = "nic/uploads/$content";
+            //            header('Content-type: application/pdf');
+            //            header('Content-Disposition: inline; filename="' . $file1. '"');
+            //            header('Content-Transfer-Encoding: binary');
+            //            header('Accept-Ranges: bytes');
+            //            @readfile($file1);
             ?>
 
-            <header class="entry-header"><header class="entry-header"><header class="entry-header"><header class="entry-header">
-                            <h1 class="entry-title" style="text-align: justify;">Our Requests</h1>
-                        </header>
-                        <div class="entry-content">
-                            <p style="text-align: justify;">We are seeking support for initial investment from the government or interested groups or individuals. We have requested the government of Nepal for one time grant of USD 4 million that will be used for building the 10 MW hydro power station. The approximate cost for building 10 MW hydro power is US$15 million and we need 30% of that as an equity and 70% of the total cost will be taken as loan from commercial banks. However, the government has not given priority to our request. We are also requesting individual donors for donation.</p>
-                            <p style="text-align: justify;">It is not only financial support we are looking for. We are also looking for ideas for starting innovation center or for &nbsp;raising funds. Moreover we are looking for partners interested to help Nepal become a developed country through innovation.</p>
-                            <p style="text-align: justify;">It is very much surprising fact that most of the donor countries or agencies, despite contributing billions of dollars over many years of time for the overall development of Nepal, did not see the need of establishing an innovation center to help Nepal keep its creative and innovative human resources for the development of Nepal. It may be because the government of Nepal did not approach the donor countries or agencies for help to build innovation centers for the development of science and technology in Nepal.</p>
-                            <p style="text-align: justify;">Therefore, donor agencies are also welcomed very much to participate in the new endeavor and contribute to making the concept of the autonomous innovation center work in Nepal. Such support from the donor countries will certainly help Nepal to take its first step towards becoming a developing country and then to a developed country.</p>
-                            <p style="text-align: justify;">If you are interested to participate in this campaign, please fill up the form and submit. We will contact you and tell you how you can send your contribution.</p>
-                        </div>
-                    </header></header></header>
+            <embed src="../uploads/<?php echo $content; ?>" style="width: 100% !important; height: 1180px; position: relative;"></embed>
         </div>
     </div>
 
