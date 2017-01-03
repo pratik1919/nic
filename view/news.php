@@ -40,6 +40,11 @@
 
     <div id="content" class="container">
 
+        <form action="read.php" id="read" method="post">
+            <input type="hidden" id="positionId" name="positionId"/>
+            <input type="hidden" value="news" name="content"/>
+        </form>
+
         <!--    add news model-->
         <div id="addNewsModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -87,13 +92,13 @@
 
         <div class="row">
             <div class="col-md-3">
-
+                <div class="small-news">
                 <?php
                 $news = getNews(1, $conn);
                 $row = $news->fetch_assoc();
                 ?>
 
-                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')">
+                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="1" onclick="submitForm(this)">
                     <?php
                     if (isset($_SESSION['userID'])) {
                         ?>
@@ -109,13 +114,15 @@
                     </div>
 
                 </div>
+</div>
 
                 <?php
                 $news = getNews(2, $conn);
                 $row = $news->fetch_assoc();
                 ?>
 
-                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')">
+                <div class="small-news">
+                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="2" onclick="submitForm(this)">
                     <?php
                     if (isset($_SESSION['userID'])) {
                         ?>
@@ -129,16 +136,17 @@
                         <h4 class="backgroundOverlayBlue"><span style="z-index: 100"><?php echo $row['date']; ?></span></h4>
                         <p class="backgroundOverlayRed"><span style="z-index: 100"><?php echo $row['title']; ?></span></p>
                     </div>
-
                 </div>
             </div>
+            </div>
             <div class="col-md-6">
+                <div class="small-news">
                 <?php
                 $news = getNews(3, $conn);
                 $row = $news->fetch_assoc();
                 ?>
 
-                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 610px;">
+                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 610px;" id="3" onclick="submitForm(this)">
                     <?php
                     if (isset($_SESSION['userID'])) {
                         ?>
@@ -155,6 +163,7 @@
 
                 </div>
             </div>
+                </div>
             <div class="col-md-3">
                 <div class="small-news">
                     <?php
@@ -162,7 +171,7 @@
                     $row = $news->fetch_assoc();
                     ?>
 
-                    <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')">
+                    <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="4" onclick="submitForm(this)">
                         <?php
                         if (isset($_SESSION['userID'])) {
                             ?>
@@ -185,7 +194,7 @@
                     $row = $news->fetch_assoc();
                     ?>
 
-                    <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')">
+                    <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="5" onclick="submitForm(this)">
                         <?php
                         if (isset($_SESSION['userID'])) {
                             ?>
@@ -223,6 +232,13 @@
             $(e.currentTarget).find('input[name="positionId"]').val(positionId);
 
         });
+
+        function submitForm(item){
+           var pos = $(item).attr("id");
+            document.getElementById('positionId').value = pos;
+            var id = '#read';
+            $(id).submit();
+        }
     </script>
 </body>
 </html>

@@ -14,4 +14,8 @@ $code = $_POST['code'];
 
 addVideo($code, $positionID, $conn);
 
-header('Location: ../view/index.php');
+if($positionID = 'part_form'){
+    header('Location: ../view/participate.php');
+}else{
+    header('Location: ../view/index.php');
+}

@@ -110,7 +110,7 @@ include '../service/common.php';
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Change Video</h4>
+                <h4 class="modal-title">Change</h4>
             </div>
             <div class="modal-body">
                 <form class="form" action="../controller/c_addVideo.php" method="post" enctype="multipart/form-data">
@@ -118,7 +118,7 @@ include '../service/common.php';
                     <input type="hidden" name="positionId"/>
                     <div class="form-group">
                         <label for="">Embed Code</label>
-                        <input class="form-control" type="text" name="code" placeholder="make sure width = 400, height = 220"/>
+                        <input class="form-control" type="text" name="code" placeholder="maintain the proper size in embed code"/>
                     </div>
                     <input type="submit" value="Change" class="btn btn-primary btn-block"/>
                 </form>
@@ -207,7 +207,7 @@ include '../service/common.php';
                     </li>
                     <li><a href="news.php">News</a></li>
                     <li><a href="events.php">Coming Events</a></li>
-                    <li><a href="#">Participate</a></li>
+                    <li><a href="participate.php">Participate</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="donorsList.php">Donors List</a></li>
                 </ul>

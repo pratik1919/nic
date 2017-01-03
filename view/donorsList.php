@@ -30,7 +30,7 @@
 </head>
 <body>
 
-<div class="gradient" id="wrapper">
+<div id="wrapper">
 
     <div id="header" class="row">
         <?php include '_header.php'; ?>
@@ -121,54 +121,54 @@
 
 
 
-        <div class="container">
-            <?php
-            $donor = getDonor($conn);
-
-            $i = 1;
-            while($row = $donor->fetch_assoc()){
-                ?>
-            <div class="col-md-4 donorList">
-                <h2>Rs <?php echo $row['amount']; ?>/-</h2>
-                <h3><?php echo $row['name']; ?></h3>
-                <h4><?php echo $row['date']; ?></h4>
-                <h4><?php echo $row['medium']; ?></h4>
-            </div>
-
-                <?php
-                $i++;
-            }
-            ?>
-        </div>
-
-<!---->
-<!--        <table class="table table-striped table-responsive">-->
-<!--            <thead>-->
-<!--            <th>S/N</th>-->
-<!--            <th>Name</th>-->
-<!--            <th>Amount</th>-->
-<!--            <th>Through</th>-->
-<!--            <th>Date</th>-->
-<!--            </thead>-->
-<!---->
+<!--        <div class="container">-->
 <!--            --><?php
 //            $donor = getDonor($conn);
 //
 //            $i = 1;
 //            while($row = $donor->fetch_assoc()){
 //                ?>
-<!--                <tr>-->
-<!--                    <td>--><?php //echo $i; ?><!--</td>-->
-<!--                    <td>--><?php //echo $row['name']; ?><!--</td>-->
-<!--                    <td>--><?php //echo $row['amount']; ?><!--</td>-->
-<!--                    <td>--><?php //echo $row['medium']; ?><!--</td>-->
-<!--                    <td>--><?php //echo $row['date']; ?><!--</td>-->
-<!--                </tr>-->
-<!--            --><?php
+<!--            <div class="col-md-4 donorList">-->
+<!--                <h2>Rs --><?php //echo $row['amount']; ?><!--/-</h2>-->
+<!--                <h3>--><?php //echo $row['name']; ?><!--</h3>-->
+<!--                <h4>--><?php //echo $row['date']; ?><!--</h4>-->
+<!--                <h4>--><?php //echo $row['medium']; ?><!--</h4>-->
+<!--            </div>-->
+<!---->
+<!--                --><?php
 //                $i++;
 //            }
 //            ?>
-<!--        </table>-->
+<!--        </div>-->
+
+
+        <table class="table table-striped table-responsive">
+            <thead>
+            <th>S/N</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Through</th>
+            </thead>
+
+            <?php
+            $donor = getDonor($conn);
+
+            $i = 1;
+            while($row = $donor->fetch_assoc()){
+                ?>
+                <tr>
+                    <td><?php echo $i; ?></td>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['amount']; ?></td>
+                    <td><?php echo $row['medium']; ?></td>
+                    <td><?php echo $row['date']; ?></td>
+                </tr>
+            <?php
+                $i++;
+            }
+            ?>
+        </table>
 
         <hr/>
 <div class="row donationInfo">

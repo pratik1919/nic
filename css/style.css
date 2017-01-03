@@ -43,6 +43,7 @@ body {
 
 .nav li a:hover{
     background-color: red !important;
+    color: #ffffff !important;
 }
 
 .nav li a{
@@ -69,7 +70,7 @@ body {
 
 .donationInfo{
     padding: 50px;
-    color: white;
+    /*color: white;*/
     font-size: 18px;
 }
 
@@ -299,6 +300,10 @@ p{
     background-size: cover;
     position: relative;
     margin-bottom: 10px;
+}
+
+.small-news :hover{
+    cursor: pointer;
 }
 
 .small-news button{
