@@ -44,11 +44,11 @@
 
 
         <div class="container">
-            <div class="col-md-4">
+            <div class="col-md-4" style="position: absolute; z-index: -1; zoom: 80%">
                 <img src="../img/mahabripun_final.png" alt=""/>
             </div>
 
-            <div class="col-md-8">
+            <div class="col-md-8 pull-right">
                 <div class="row">
                     <div class="title col-md-6">
                         <h2>Mahabir Pun</h2>
@@ -64,8 +64,8 @@
                     <?php
                     if (isset($_SESSION['userID'])) {
                         ?>
-                        <button class="btn btn-block btn-primary" data-position-id="landing-1" data-toggle="modal" data-target="#addContentModal">
-                            Change Content
+                        <button class="btn glyphicon glyphicon-pencil" data-position-id="landing-1" data-toggle="modal" data-target="#addContentModal">
+                            Change
                         </button>
                     <?php
                     }
@@ -87,8 +87,8 @@
                 <?php
                 if (isset($_SESSION['userID'])) {
                     ?>
-                    <button class="btn btn-block btn-primary" data-position-id="donation-1" data-toggle="modal" data-target="#addDonationModal">
-                        Change Donation Information
+                    <button class="btn glyphicon glyphicon-pencil" data-position-id="donation-1" data-toggle="modal" data-target="#addDonationModal">
+                        Change
                     </button>
                 <?php
                 }
@@ -105,8 +105,8 @@
                 <?php
                 if (isset($_SESSION['userID'])) {
                     ?>
-                    <button class="btn btn-block btn-primary" data-position-id="donation-2" data-toggle="modal" data-target="#addDonationModal">
-                        Change Donation Information
+                    <button class="btn glyphicon glyphicon-pencil" data-position-id="donation-2" data-toggle="modal" data-target="#addDonationModal">
+                        Change
                     </button>
                 <?php
                 }
@@ -124,8 +124,8 @@
                 <?php
                 if (isset($_SESSION['userID'])) {
                     ?>
-                    <button class="btn btn-block btn-primary" data-position-id="donation-3" data-toggle="modal" data-target="#addDonationModal">
-                        Change Donation Information
+                    <button class="btn glyphicon glyphicon-pencil" data-position-id="donation-3" data-toggle="modal" data-target="#addDonationModal">
+                        Change
                     </button>
                 <?php
                 }
@@ -143,8 +143,8 @@
                 <?php
                 if (isset($_SESSION['userID'])) {
                     ?>
-                    <button class="btn btn-block btn-primary" data-position-id="donation-4" data-toggle="modal" data-target="#addDonationModal">
-                        Change Donation Information
+                    <button class="btn glyphicon glyphicon-pencil" data-position-id="donation-4" data-toggle="modal" data-target="#addDonationModal">
+                        Change
                     </button>
                 <?php
                 }
@@ -170,7 +170,7 @@
                         <?php
                         if (isset($_SESSION['userID'])) {
                             ?>
-                            <button class="btn btn-block btn-primary" data-position-id="landing-2" data-toggle="modal" data-target="#addContentModal">
+                            <button class="btn glyphicon glyphicon-pencil" data-position-id="landing-2" data-toggle="modal" data-target="#addContentModal">
                                 Change
                             </button>
                         <?php
@@ -185,14 +185,14 @@
                         <p><?php echo $row['content']; ?></p>
                         </div>
 
-                        <div class="left"><a href="">more</a></div class="left">
+                        <div class="left"><a href="nvm.php">more</a></div class="left">
                     </div>
 
                     <div class="col-md-4">
                         <?php
                         if (isset($_SESSION['userID'])) {
                             ?>
-                            <button class="btn btn-block btn-primary" data-position-id="landing-3" data-toggle="modal" data-target="#addContentModal">
+                            <button class="btn glyphicon glyphicon-pencil" data-position-id="landing-3" data-toggle="modal" data-target="#addContentModal">
                                 Change
                             </button>
                         <?php
@@ -207,14 +207,14 @@
                             <p><?php echo $row['content']; ?></p>
                         </div>
 
-                        <div class="left"><a href="">more</a></div class="left">
+                        <div class="left"><a href="request.php">more</a></div class="left">
                     </div>
 
                     <div class="col-md-4">
                         <?php
                         if (isset($_SESSION['userID'])) {
                             ?>
-                            <button class="btn btn-block btn-primary" data-position-id="landing-4" data-toggle="modal" data-target="#addContentModal">
+                            <button class="btn glyphicon glyphicon-pencil" data-position-id="landing-4" data-toggle="modal" data-target="#addContentModal">
                                 Change
                             </button>
                         <?php
@@ -229,7 +229,7 @@
                             <p><?php echo $row['content']; ?></p>
                         </div>
 
-                        <div class="left"><a href="">more</a></div class="left">
+                        <div class="left"><a href="unique.php">more</a></div class="left">
                     </div>
 
                 </div>

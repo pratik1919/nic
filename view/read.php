@@ -42,9 +42,12 @@ $content = $_POST['content'];
 
     <?php
     if($content == 'news'){
-        $news = getNews($pos, $conn);
+        $c = getNews($pos, $conn);
     }
-    $row = $news->fetch_assoc();
+    if($content == 'event'){
+        $c = readEvents($pos, $conn);
+    }
+    $row = $c->fetch_assoc();
     ?>
 
     <div id="content" class="container">
@@ -56,7 +59,15 @@ $content = $_POST['content'];
         </form>
 
         <div class="row">
-            <div class="col-md-4 small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 350px;"></div>
+
+            <?php
+            if($content == 'news'){
+                ?>
+                <div class="col-md-4 small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 350px;"></div>
+            <?php
+            }
+            ?>
+
             <div class="col-md-8">
                 <h2><?php echo $row['title']; ?></h2>
                 <h4><?php echo $row['date']; ?></h4>
@@ -65,31 +76,39 @@ $content = $_POST['content'];
         </div>
 
 
-        <div class="row" style="margin-top: 25px;">
-            <h4 style="text-align: center">Other News</h4>
-            <hr/>
-            <?php
-            for($i=1; $i <= 5; $i++){
-                if($i != $pos){
-                    $news = getNews($i, $conn);
-                    $row = $news->fetch_assoc();
-                    ?>
-
-                    <div class="col-lg-3 small-news" style="padding: 5px;">
-
-                        <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="<?php echo $i; ?>" onclick="submitForm(this)">
-                            <div class="news-content">
-                                <h4 class="backgroundOverlayBlue"><span style="z-index: 100"><?php echo $row['date']; ?></span></h4>
-                                <p class="backgroundOverlayRed"><span style="z-index: 100"><?php echo $row['title']; ?></span></p>
-                            </div>
-
-                        </div>
-                    </div>
-            <?php
-                }
-            }
+        <?php
+        if($content == 'news'){
             ?>
-        </div>
+            <div class="row" style="margin-top: 25px;">
+                <h4 style="text-align: center">Other News</h4>
+                <hr/>
+                <?php
+                for($i=1; $i <= 5; $i++){
+                    if($i != $pos){
+                        $news = getNews($i, $conn);
+                        $row = $news->fetch_assoc();
+                        ?>
+
+                        <div class="col-lg-3 small-news" style="padding: 5px;">
+
+                            <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="<?php echo $i; ?>" onclick="submitForm(this)">
+                                <div class="news-content">
+                                    <h4 class="backgroundOverlayBlue"><span style="z-index: 100"><?php echo $row['date']; ?></span></h4>
+                                    <p class="backgroundOverlayRed"><span style="z-index: 100"><?php echo $row['title']; ?></span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    <?php
+                    }
+                }
+                ?>
+            </div>
+        <?php
+        }
+        ?>
+
+
 
 
 

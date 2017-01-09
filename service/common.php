@@ -103,3 +103,15 @@ function addEvent($title, $date, $venue, $desc, $conn){
     $insertQuery = "INSERT INTO `event`(`title`, `date`, `venu`, `description`) VALUES ('$title', '$date', '$venue','$desc')";
     $conn->query($insertQuery);
 }
+
+function getMenu($lang, $conn){
+    $select = "SELECT `$lang`, `path` FROM `header`";
+    $result = $conn->query($select);
+    return $result;
+}
+
+function readEvents($pos, $conn){
+    $select = "SELECT * FROM `event` WHERE `id` = $pos";
+    $r = $conn->query($select);
+    return $r;
+}

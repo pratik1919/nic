@@ -92,22 +92,23 @@
 
         <div class="row">
             <div class="col-md-3">
-                <div class="small-news">
                 <?php
                 $news = getNews(1, $conn);
                 $row = $news->fetch_assoc();
                 ?>
+                <?php
+                if (isset($_SESSION['userID'])) {
+                    ?>
+                    <button class="btn btn-block btn-primary" data-position-id="1" data-toggle="modal" data-target="#addNewsModal">
+                        Change News
+                    </button>
+                <?php
+                }
+                ?>
+                <div class="small-news">
+
 
                 <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="1" onclick="submitForm(this)">
-                    <?php
-                    if (isset($_SESSION['userID'])) {
-                        ?>
-                        <button class="btn btn-block btn-primary" data-position-id="1" data-toggle="modal" data-target="#addNewsModal">
-                            Change News
-                        </button>
-                    <?php
-                    }
-                    ?>
                     <div class="news-content">
                         <h4 class="backgroundOverlayBlue"><span style="z-index: 100"><?php echo $row['date']; ?></span></h4>
                         <p class="backgroundOverlayRed"><span style="z-index: 100"><?php echo $row['title']; ?></span></p>
@@ -120,18 +121,18 @@
                 $news = getNews(2, $conn);
                 $row = $news->fetch_assoc();
                 ?>
+                <?php
+                if (isset($_SESSION['userID'])) {
+                    ?>
+                    <button class="btn btn-block btn-primary" data-position-id="2" data-toggle="modal" data-target="#addNewsModal">
+                        Change News
+                    </button>
+                <?php
+                }
+                ?>
 
                 <div class="small-news">
                 <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="2" onclick="submitForm(this)">
-                    <?php
-                    if (isset($_SESSION['userID'])) {
-                        ?>
-                        <button class="btn btn-block btn-primary" data-position-id="2" data-toggle="modal" data-target="#addNewsModal">
-                            Change News
-                        </button>
-                    <?php
-                    }
-                    ?>
                     <div class="news-content">
                         <h4 class="backgroundOverlayBlue"><span style="z-index: 100"><?php echo $row['date']; ?></span></h4>
                         <p class="backgroundOverlayRed"><span style="z-index: 100"><?php echo $row['title']; ?></span></p>
@@ -140,22 +141,21 @@
             </div>
             </div>
             <div class="col-md-6">
-                <div class="small-news">
                 <?php
                 $news = getNews(3, $conn);
                 $row = $news->fetch_assoc();
                 ?>
-
-                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 610px;" id="3" onclick="submitForm(this)">
-                    <?php
-                    if (isset($_SESSION['userID'])) {
-                        ?>
-                        <button class="btn btn-block btn-primary" data-position-id="3" data-toggle="modal" data-target="#addNewsModal">
-                            Change News
-                        </button>
-                    <?php
-                    }
+                <?php
+                if (isset($_SESSION['userID'])) {
                     ?>
+                    <button class="btn btn-block btn-primary" data-position-id="3" data-toggle="modal" data-target="#addNewsModal">
+                        Change News
+                    </button>
+                <?php
+                }
+                ?>
+                <div class="small-news">
+                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 610px;" id="3" onclick="submitForm(this)">
                     <div class="news-content">
                         <h4 class="backgroundOverlayBlue"><span style="z-index: 100"><?php echo $row['date']; ?></span></h4>
                         <p class="backgroundOverlayRed"><span style="z-index: 100"><?php echo $row['title']; ?></span></p>
@@ -165,22 +165,23 @@
             </div>
                 </div>
             <div class="col-md-3">
-                <div class="small-news">
-                    <?php
-                    $news = getNews(4, $conn);
-                    $row = $news->fetch_assoc();
+                <?php
+                $news = getNews(4, $conn);
+                $row = $news->fetch_assoc();
+                ?>
+                <?php
+                if (isset($_SESSION['userID'])) {
                     ?>
+                    <button class="btn btn-block btn-primary" data-position-id="4" data-toggle="modal" data-target="#addNewsModal">
+                        Change News
+                    </button>
+                <?php
+                }
+                ?>
+                <div class="small-news">
 
                     <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="4" onclick="submitForm(this)">
-                        <?php
-                        if (isset($_SESSION['userID'])) {
-                            ?>
-                            <button class="btn btn-block btn-primary" data-position-id="4" data-toggle="modal" data-target="#addNewsModal">
-                                Change News
-                            </button>
-                        <?php
-                        }
-                        ?>
+
                         <div class="news-content">
                             <h4 class="backgroundOverlayBlue"><span style="z-index: 100"><?php echo $row['date']; ?></span></h4>
                             <p class="backgroundOverlayRed"><span style="z-index: 100"><?php echo $row['title']; ?></span></p>
@@ -188,22 +189,24 @@
 
                     </div>
                 </div>
-                <div class="small-news">
-                    <?php
-                    $news = getNews(5, $conn);
-                    $row = $news->fetch_assoc();
+                <?php
+                $news = getNews(5, $conn);
+                $row = $news->fetch_assoc();
+                ?>
+                <?php
+                if (isset($_SESSION['userID'])) {
                     ?>
+                    <button class="btn btn-block btn-primary" data-position-id="5" data-toggle="modal" data-target="#addNewsModal">
+                        Change News
+                    </button>
+                <?php
+                }
+                ?>
+                <div class="small-news">
+
 
                     <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="5" onclick="submitForm(this)">
-                        <?php
-                        if (isset($_SESSION['userID'])) {
-                            ?>
-                            <button class="btn btn-block btn-primary" data-position-id="5" data-toggle="modal" data-target="#addNewsModal">
-                                Change News
-                            </button>
-                        <?php
-                        }
-                        ?>
+
                         <div class="news-content">
                             <h4 class="backgroundOverlayBlue"><span style="z-index: 100"><?php echo $row['date']; ?></span></h4>
                             <p class="backgroundOverlayRed"><span style="z-index: 100"><?php echo $row['title']; ?></span></p>

@@ -1,9 +1,9 @@
 html,
-body {
-    margin:0;
-    padding:0;
-    height:100%;
-}
+ body {
+     margin:0;
+     padding:0;
+     height:100%;
+ }
 #wrapper {
     min-height:100%;
     position:relative;
@@ -117,8 +117,8 @@ body {
 }
 
 .title hr{
-     margin-top: 0px;
-     margin-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     border-top: 1px solid #000000;
 }
 
@@ -127,7 +127,7 @@ body {
 }
 
 .paragraph{
-    margin: 60px 74px 10px;
+    margin: 20px 74px 10px;
     font-family: fantasy;
     font-size: 19px;
 }
@@ -158,19 +158,19 @@ body {
 
 .donation-medium .col-md-3 h3{
     font-weight: 900;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 
 .donation-medium .col-md-3 h5{
     /*font-weight: 900;*/
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     font-size: 17px;
     font-weight: 600;
 }
 
 .donation-medium .col-md-3 h4{
     font-weight: 900;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 28px;
 }
 
@@ -344,4 +344,10 @@ p{
 .goal-content{
     max-height: 200px;
     overflow: hidden;
+}
+
+.language{
+    position: absolute;
+    top: 62px;
+    left: 77px;
 }

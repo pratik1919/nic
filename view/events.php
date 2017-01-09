@@ -83,6 +83,12 @@
             </div>
 
 
+            <form action="read.php" id="read" method="post">
+                <input type="hidden" id="positionId" name="positionId"/>
+                <input type="hidden" value="event" name="content"/>
+            </form>
+
+
             <?php
             if (isset($_SESSION['userID'])) {
                 ?>
@@ -96,7 +102,7 @@
             while($event = $e->fetch_assoc()){
                 ?>
             <div class="col-lg-3">
-                <div class="thumbnail">
+                <div class="thumbnail small-news" id="<?php echo $event['id']; ?>" onclick="submitForm(this);">
                     <h3><?php echo $event['title']; ?></h3>
                     <h5><?php echo $event['date']; ?></h5>
                     <h5><?php echo $event['venu']; ?></h5>
@@ -108,7 +114,6 @@
             ?>
 
 
-
         </div>
     </div>
 
@@ -118,5 +123,15 @@
         ?>
     </div>
     <!-- #footer -->
+
+    <script>
+        function submitForm(item){
+            var pos = $(item).attr("id");
+            document.getElementById('positionId').value = pos;
+            var id = '#read';
+            $(id).submit();
+        }
+    </script>
+
 </body>
 </html>

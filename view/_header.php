@@ -8,7 +8,14 @@
 
 session_start();
 
+if(!isset($_SESSION['l'])){
+    $_SESSION['language'] = 'english';
+}
+
+
 include '../service/common.php';
+
+$menu = getMenu($_SESSION['language'], $conn);
 
 ?>
 
@@ -180,6 +187,7 @@ include '../service/common.php';
 
 <div class="col-lg-2">
     <img src="../img/logo.png" alt=""/>
+    <div class="language"><a href="../controller/c_changeLanguage.php?lang=english">English</a> / <a href="../controller/c_changeLanguage.php?lang=nepali">नेपाली</a></div>
 </div>
 <div class="col-md-10" style="padding: 0px;">
     <!--<div class="loginDiv"><a href="">login</a></div>-->
@@ -194,34 +202,61 @@ include '../service/common.php';
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php">Home</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Concept Paper
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="conceptPaper.php">Concept Paper</a></li>
-                            <li><a href="nvm.php">Need Vision Mission Goal</a></li>
-                            <li><a href="unique.php ">Uniqueness & Sustainability</a></li>
-                            <li><a href="request.php">Our Request</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="news.php">News</a></li>
-                    <li><a href="events.php">Coming Events</a></li>
-                    <li><a href="participate.php">Participate</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="donorsList.php">Donors List</a></li>
-                </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
 
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                    <?php
+                    while($row = $menu->fetch_assoc()){
+                        ?>
+                        <li><a href="<?php echo $row['path']; ?>"><?php echo $row[$_SESSION['language']]; ?></a></li>
+                    <?php
+                    }
+                    ?>
+
+
+                    <li class="dropdown">
+                        <?php
+                        if($_SESSION['language'] == 'english'){
+                            ?>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Concept Paper
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="conceptPaper.php">Concept Paper</a></li>
+                                <li><a href="nvm.php">Need Vision Mission Goal</a></li>
+                                <li><a href="unique.php ">Uniqueness & Sustainability</a></li>
+                                <li><a href="request.php">Our Request</a></li>
+                            </ul>
+                        <?php
+                        }else{
+                            ?>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">अवधारणा पत्र
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="conceptPaper.php">अवधारणा पत्र</a></li>
+                                <li><a href="nvm.php">आवश्यक, दृष्टि, लक्ष्य</a></li>
+                                <li><a href="unique.php ">अद्वितीय र स्थिरता</a></li>
+                                <li><a href="request.php">हाम्रो अनुरोध</a></li>
+                            </ul>
+                        <?php
+                        }
+                        ?>
+
+                    </li>
+<!--                    <li><a href="news.php">News</a></li>-->
+<!--                    <li><a href="events.php">Coming Events</a></li>-->
+<!--                    <li><a href="participate.php">Participate</a></li>-->
+<!--                    <li><a href="#">Contact Us</a></li>-->
+<!--                    <li><a href="donorsList.php">Donors List</a></li>-->
+                </ul>
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="input-group">-->
+<!--                        <input type="text" class="form-control" placeholder="Search">-->
+<!---->
+<!--                        <div class="input-group-btn">-->
+<!--                            <button class="btn btn-default" type="submit">-->
+<!--                                <i class="glyphicon glyphicon-search"></i>-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </form>-->
 
 
                 <?php
