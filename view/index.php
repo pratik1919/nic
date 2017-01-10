@@ -13,7 +13,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>National Innovation Center</title>
-
+    <link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/style.css"/>
@@ -291,6 +291,33 @@
             </div>
         </div>
 
+        <?php
+        if($_SESSION['language'] == 'nepali') {
+            ?>
+
+
+            <div class="row paper gradient">
+
+                <?php
+                if (isset($_SESSION['userID'])) {
+                    ?>
+                    <button class="btn btn-block btn-primary" data-position-id="overall" data-toggle="modal" data-target="#changeFileModal">
+                        Change file
+                    </button>
+                <?php
+                }
+                ?>
+                <div class="center">
+                    <a href="proposal.php"><h2>आविष्कार केन्द्र बारे विस्तृत विवरण</h2></a>
+                </div>
+            </div>
+
+
+        <?php
+        }
+        ?>
+
+
         <div class="row support">
             <div class="container">
                 <div class="col-md-6"></div>
@@ -343,6 +370,11 @@
 
     });
     $('#addVideoModal').on('show.bs.modal', function(e){
+        var positionId = $(e.relatedTarget).data('position-id');
+        $(e.currentTarget).find('input[name="positionId"]').val(positionId);
+
+    });
+    $('#changeFileModal').on('show.bs.modal', function(e){
         var positionId = $(e.relatedTarget).data('position-id');
         $(e.currentTarget).find('input[name="positionId"]').val(positionId);
 

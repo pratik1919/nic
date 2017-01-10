@@ -30,6 +30,7 @@ if(isset($_FILES['file'])){
                 $pos = $_POST['positionId'];
                     $file_name_new = $pos . '.' . $file_ext;
                     $file_dest = '../uploads/' . $file_name_new;
+            echo $pos;
                     if(move_uploaded_file($file_tmp, $file_dest)){
                         addContent('Null', $file_name_new, $pos, $conn);
                         if($pos == 'conceptPaper'){
@@ -40,10 +41,14 @@ if(isset($_FILES['file'])){
                             header('Location: ../view/unique.php');
                         }elseif($pos == 'request'){
                             header('Location: ../view/request.php');
+                        }elseif($pos == 'overall'){
+                            header('Location: ../view/index.php');
                         }
                     }
 
         }
+    }else{
+        echo 'file not of pdf format.';
     }
 
 }

@@ -16,7 +16,7 @@ $content = $_POST['content'];
 <head lang="en">
     <meta charset="UTF-8">
     <title>National Innovation Center</title>
-
+    <link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/style.css"/>
@@ -104,6 +104,38 @@ $content = $_POST['content'];
                 }
                 ?>
             </div>
+
+
+            <div class="row" style="margin-top: 25px;">
+                <h4 style="text-align: center">Older News</h4>
+                <hr/>
+
+                <table class="table table-responsive table-striped table-hover">
+                    <thead>
+                    <th>Date</th>
+                    <th>Title</th>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $oldNews = getOlderNews($conn);
+                    while($row = $oldNews->fetch_assoc()){
+                        ?>
+                        <tr id="<?php echo $row['position_id']; ?>" onclick="submitForm(this)">
+                            <td><?php echo $row['date']; ?></td>
+                            <td><?php echo $row['title']; ?></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+
+
+
         <?php
         }
         ?>

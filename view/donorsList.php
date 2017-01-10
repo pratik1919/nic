@@ -13,7 +13,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>National Innovation Center</title>
-
+    <link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/style.css"/>
@@ -87,7 +87,19 @@
         <?php
         if(isset($_SESSION['userID'])){
             ?>
-            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#addDonorModal">Add Donors</button>
+            <form action="../controller/uploadExcel.php" method="post" enctype = 'multipart/form-data'>
+                <div class="col-md-2">
+                    <label for="">Upload Excel File: </label>
+                    </div>
+                <div class="col-md-7">
+                    <input type="file" name="uploadFile" required=""/>
+                </div>
+                <div class="col-md-3">
+                <input class="btn btn-primary btn-block" type="submit"/>
+                </div>
+            </form>
+            <hr/>
+<!--            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#addDonorModal">Add Donors</button>-->
         <?php
         }
         ?>

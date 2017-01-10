@@ -12,6 +12,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Student Management</title>
+    <link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Ultra" rel="stylesheet">

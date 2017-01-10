@@ -351,3 +351,16 @@ p{
     top: 62px;
     left: 77px;
 }
+
+
+.paper{
+
+    padding: 30px;
+    background-color: #001973;
+    color: #ffffff;
+}
+
+.paper a{
+    /*text-decoration: none !important;*/
+    color: #ffffff;
+}

@@ -21,9 +21,10 @@ $menu = getMenu($_SESSION['language'], $conn);
 
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head>
     <meta charset="UTF-8">
     <title>National Innovation Center</title>
+
 
 
     <!--    <script src="../bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>-->

@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Pratik
- * Date: 12/6/2016
- * Time: 4:12 PM
+ * Date: 1/10/2017
+ * Time: 3:31 PM
  */
 
 ?>
@@ -24,6 +24,10 @@
         #wrapper {
             height: 100%;
         }
+
+        #element::-webkit-scrollbar {
+            display: none;
+        }
     </style>
     <![endif]-->
 </head>
@@ -39,15 +43,8 @@
         <div class="container">
 
             <?php
-            if (isset($_SESSION['userID'])) {
-                ?>
-                <button class="btn btn-block btn-primary" data-position-id="unique" data-toggle="modal" data-target="#changeFileModal">
-                    Change file
-                </button>
-            <?php
-            }
 
-            $f = getContent('unique', $conn);
+            $f = getContent('overall', $conn);
             $row = $f->fetch_assoc();
             $content = $row['content'];
 
@@ -64,20 +61,13 @@
     </div>
 
 
-<div id="footer">
-    <?php
-    include '_footer.php';
-    ?>
-</div>
-<!-- #footer -->
+    <div id="footer">
+        <?php
+        include '_footer.php';
+        ?>
+    </div>
+    <!-- #footer -->
 </div>
 
-<script>
-    $('#changeFileModal').on('show.bs.modal', function(e){
-        var positionId = $(e.relatedTarget).data('position-id');
-        $(e.currentTarget).find('input[name="positionId"]').val(positionId);
-
-    });
-</script>
 </body>
 </html>

@@ -25,8 +25,17 @@ function addNews($title, $date, $news, $photo, $pos, $conn){
     $select = "SELECT * FROM `news` WHERE `position_id` = $pos";
     $r = $conn->query($select);
     if(isset($r)){
-        $delete = "DELETE FROM `news` WHERE `position_id` = $pos";
-        $conn->query($delete);
+        $getCount = "SELECT `count` FROM `news`";
+        $count = $conn->query($getCount);
+        $row = $count->fetch_assoc();
+        $c = $row['count'];
+        $newCount  = $c + 1;
+
+        $update = "UPDATE `news` SET `position_id` = $newCount WHERE `position_id` = $pos";
+        $conn->query($update);
+
+        $changeCount = "UPDATE `news` SET `count` = $newCount";
+        $conn->query($changeCount);
     }
     $insertQuery = "INSERT INTO `news`(`title`, `date`, `news`, `photo`, `position_id`) VALUES ('$title', '$date', '$news','$photo',$pos)";
     $conn->query($insertQuery);
@@ -112,6 +121,13 @@ function getMenu($lang, $conn){
 
 function readEvents($pos, $conn){
     $select = "SELECT * FROM `event` WHERE `id` = $pos";
+    $r = $conn->query($select);
+    return $r;
+}
+
+
+function getOlderNews($conn){
+    $select = "SELECT * FROM `news` WHERE `position_id` > 5";
     $r = $conn->query($select);
     return $r;
 }
