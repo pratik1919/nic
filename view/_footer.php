@@ -16,6 +16,8 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
+<div style="height: 50px;"></div>
+
 <div class="row footer">
     <div class="container">
         <div class="col-md-4">
