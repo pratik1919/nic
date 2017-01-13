@@ -11,7 +11,7 @@ include '../config/dbConnect.php';
 
 function addDonor($name, $amount, $date, $medium, $conn)
 {
-    $insertQuery = "INSERT INTO `donor`(`name`, `amount`, `medium`, `date`) VALUES ('$name', $amount, '$medium','$date')";
+    $insertQuery = ("INSERT INTO `donor`(`name`, `amount`, `medium`, `date`) VALUES ('$name', $amount, '$medium', '$date')");
     $conn->query($insertQuery);
 }
 
@@ -64,63 +64,89 @@ function addNews($title, $date, $news, $photo, $pos, $conn)
 
 function addContent($title, $content, $pos, $conn)
 {
-    $select = "SELECT * FROM `contents` WHERE `location_code` = '$pos'";
-    $r = $conn->query($select);
+    $select = $conn->prepare("SELECT * FROM `contents` WHERE `location_code` = ?");
+    $select->bind_param("s", $pos);
+    $select->execute();
+    while ($select->fetch()){
 
-    if (isset($r)) {
-        $delete = "DELETE FROM `contents` WHERE `location_code` = '$pos'";
-        $conn->query($delete);
     }
 
-    $insertQuery = "INSERT INTO `contents`(`location_code`, `title`, `content`) VALUES ('$pos', '$title', '$content')";
-    $conn->query($insertQuery);
+    if ($select->num_rows > 0) {
+        $delete = $conn->prepare("DELETE FROM `contents` WHERE `location_code` = ?");
+        $delete->bind_param("s", $pos);
+        $delete->execute();
+    }
+
+    $insertQuery = $conn->prepare("INSERT INTO `contents`(`location_code`, `title`, `content`) VALUES (?,?,?)");
+    $insertQuery->bind_param("sss", $pos, $title, $content);
+    $insertQuery->execute();
 }
 
 function getNews($position, $conn)
 {
-    $select = "SELECT * FROM `news` WHERE `position_id` = $position";
-    $r = $conn->query($select);
+
+
+    $select = $conn->prepare("SELECT * FROM `news` WHERE `position_id` = ?");
+    $select->bind_param("s", $position);
+    $select->execute();
+    $r = $select->get_result();
     return $r;
 }
 
 function getContent($position, $conn)
 {
-    $select = "SELECT * FROM `contents` WHERE `location_code` = '$position'";
-    $r = $conn->query($select);
+    $select = $conn->prepare("SELECT * FROM `contents` WHERE `location_code` = ?");
+    $select->bind_param("s", $position);
+    $select->execute();
+    $r = $select->get_result();
     return $r;
 }
 
 function getDonationInfo($position, $conn)
 {
-    $select = "SELECT * FROM `dontationinfo` WHERE `location_code` = '$position'";
-    $r = $conn->query($select);
+
+    $select = $conn->prepare("SELECT * FROM `dontationinfo` WHERE `location_code` = ?");
+    $select->bind_param("s", $position);
+    $select->execute();
+    $r = $select->get_result();
     return $r;
 }
 
 
 function addDonationInfo($first, $second, $third, $forth, $pos, $conn)
 {
-    $select = "SELECT * FROM `DontationInfo` WHERE `location_code` = '$pos'";
-    $r = $conn->query($select);
+    $select = $conn->prepare("SELECT * FROM `DontationInfo` WHERE `location_code` = ?");
+    $select->bind_param("s", $pos);
+    $select->execute();
+    $r = $select->get_result();
     if (isset($r)) {
-        $delete = "DELETE FROM `DontationInfo` WHERE `location_code` = '$pos'";
-        $conn->query($delete);
+        $delete = $conn->prepare("DELETE FROM `DontationInfo` WHERE `location_code` =  ?");
+        $delete->bind_param("s", $pos);
+        $delete->execute();
     }
-    $insertQuery = "INSERT INTO `DontationInfo`(`location_code`, `first`, `second`, `third`, `forth`) VALUES ('$pos', '$first', '$second', '$third', '$forth')";
-    $conn->query($insertQuery);
+    $insertQuery = $conn->prepare("INSERT INTO `DontationInfo`(`location_code`, `first`, `second`, `third`, `forth`) VALUES (?,?,?,?,?)");
+    $insertQuery->bind_param("sssss",$pos, $first, $second, $third, $forth);
+    $insertQuery->execute();
 }
 
 
 function addVideo($code, $pos, $conn)
 {
-    $select = "SELECT * FROM `video` WHERE `location_code` = '$pos'";
-    $r = $conn->query($select);
+
+
+    $select = $conn->prepare("SELECT * FROM `video` WHERE `location_code` = ?");
+    $select->bind_param("s", $pos);
+    $select->execute();
+    $r = $select->get_result();
     if (isset($r)) {
-        $delete = "DELETE FROM `video` WHERE `location_code` = '$pos'";
-        $conn->query($delete);
+        $delete = $conn->prepare("DELETE FROM `video` WHERE `location_code` = ?");
+        $delete->bind_param("s", $pos);
+        $delete->execute();
     }
-    $insertQuery = "INSERT INTO `video`(`location_code`, `embed_code`) VALUES ('$pos', '$code')";
-    $conn->query($insertQuery);
+    $insertQuery = $conn->prepare("INSERT INTO `video`(`location_code`, `embed_code`) VALUES (?,?)");
+    $insertQuery->bind_param("ss",$pos, $code);
+    $insertQuery->execute();
+
 }
 
 function getVideo($position, $conn)
