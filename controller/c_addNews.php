@@ -16,5 +16,4 @@ $photo =  $_FILES['photo']['name'];
 $photo_tmp = $_FILES['photo']['tmp_name'];
 move_uploaded_file($photo_tmp,"../img/$photo");
 addNews($title, $date, $news, $photo, $positionID, $conn);
-
 header('Location: ../view/news.php');

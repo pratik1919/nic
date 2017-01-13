@@ -64,9 +64,10 @@
                     <?php
                     if (isset($_SESSION['userID'])) {
                         ?>
-                        <button class="btn glyphicon glyphicon-pencil" data-position-id="landing-1" data-toggle="modal" data-target="#addContentModal">
-                            Change
+                        <div class="changeBtnDiv">
+                        <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="landing-1" data-toggle="modal" data-target="#addContentModal">
                         </button>
+                        </div>
                     <?php
                     }
 
@@ -87,9 +88,10 @@
                 <?php
                 if (isset($_SESSION['userID'])) {
                     ?>
-                    <button class="btn glyphicon glyphicon-pencil" data-position-id="donation-1" data-toggle="modal" data-target="#addDonationModal">
-                        Change
+                    <div class="changeBtnDiv">
+                    <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="donation-1" data-toggle="modal" data-target="#addDonationModal">
                     </button>
+                    </div>
                 <?php
                 }
 
@@ -104,10 +106,11 @@
             <div class="col-md-3">
                 <?php
                 if (isset($_SESSION['userID'])) {
-                    ?>
-                    <button class="btn glyphicon glyphicon-pencil" data-position-id="donation-2" data-toggle="modal" data-target="#addDonationModal">
-                        Change
+                ?>
+                <div class="changeBtnDiv">
+                    <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="donation-2" data-toggle="modal" data-target="#addDonationModal">
                     </button>
+                </div>
                 <?php
                 }
 
@@ -124,10 +127,11 @@
                 <?php
                 if (isset($_SESSION['userID'])) {
                     ?>
-                    <button class="btn glyphicon glyphicon-pencil" data-position-id="donation-3" data-toggle="modal" data-target="#addDonationModal">
-                        Change
-                    </button>
-                <?php
+                    <div class="changeBtnDiv">
+                        <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="donation-3" data-toggle="modal" data-target="#addDonationModal">
+                        </button>
+                    </div>
+                    <?php
                 }
 
                 $donationInfo = getDonationInfo('donation-3', $conn);
@@ -143,10 +147,11 @@
                 <?php
                 if (isset($_SESSION['userID'])) {
                     ?>
-                    <button class="btn glyphicon glyphicon-pencil" data-position-id="donation-4" data-toggle="modal" data-target="#addDonationModal">
-                        Change
-                    </button>
-                <?php
+                    <div class="changeBtnDiv">
+                        <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="donation-4" data-toggle="modal" data-target="#addDonationModal">
+                        </button>
+                    </div>
+                    <?php
                 }
 
                 $donationInfo = getDonationInfo('donation-4', $conn);
@@ -170,9 +175,10 @@
                         <?php
                         if (isset($_SESSION['userID'])) {
                             ?>
-                            <button class="btn glyphicon glyphicon-pencil" data-position-id="landing-2" data-toggle="modal" data-target="#addContentModal">
-                                Change
+                            <div class="changeBtnDiv">
+                            <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="landing-2" data-toggle="modal" data-target="#addContentModal">
                             </button>
+                            </div>
                         <?php
                         }
 
@@ -192,9 +198,10 @@
                         <?php
                         if (isset($_SESSION['userID'])) {
                             ?>
-                            <button class="btn glyphicon glyphicon-pencil" data-position-id="landing-3" data-toggle="modal" data-target="#addContentModal">
-                                Change
+                            <div class="changeBtnDiv">
+                            <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="landing-3" data-toggle="modal" data-target="#addContentModal">
                             </button>
+                            </div>
                         <?php
                         }
 
@@ -214,9 +221,10 @@
                         <?php
                         if (isset($_SESSION['userID'])) {
                             ?>
-                            <button class="btn glyphicon glyphicon-pencil" data-position-id="landing-4" data-toggle="modal" data-target="#addContentModal">
-                                Change
+                            <div class="changeBtnDiv">
+                            <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="landing-4" data-toggle="modal" data-target="#addContentModal">
                             </button>
+                            </div>
                         <?php
                         }
 
@@ -242,9 +250,10 @@
                     <?php
                     if (isset($_SESSION['userID'])) {
                         ?>
-                        <button class="btn btn-block btn-primary" data-position-id="landing-5" data-toggle="modal" data-target="#addContentModal">
-                            Change Content
+                        <div class="changeBtnDiv">
+                        <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="landing-5" data-toggle="modal" data-target="#addContentModal">
                         </button>
+                        </div>
                     <?php
                     }
 
@@ -261,9 +270,10 @@
                         <?php
                         if (isset($_SESSION['userID'])) {
                             ?>
-                            <button class="btn btn-block btn-primary" data-position-id="video-1" data-toggle="modal" data-target="#addVideoModal">
-                                Change Video
+                            <div class="changeBtnDiv">
+                            <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="video-1" data-toggle="modal" data-target="#addVideoModal">
                             </button>
+                            </div>
                         <?php
                         }
                         $content = getVideo('video-1', $conn);
@@ -276,9 +286,10 @@
                         <?php
                         if (isset($_SESSION['userID'])) {
                             ?>
-                            <button style="z-index: 100;" class="btn btn-block btn-primary" data-position-id="video-2" data-toggle="modal" data-target="#addVideoModal">
-                                Change Video
+                            <div class="changeBtnDiv">
+                            <button style="z-index: 100;" class="btn btn-default glyphicon glyphicon-pencil" data-position-id="video-2" data-toggle="modal" data-target="#addVideoModal">
                             </button>
+                            </div>
                         <?php
                         }
                         $content = getVideo('video-2', $conn);
@@ -301,14 +312,16 @@
                 <?php
                 if (isset($_SESSION['userID'])) {
                     ?>
-                    <button class="btn btn-block btn-primary" data-position-id="overall" data-toggle="modal" data-target="#changeFileModal">
+                    <div class="changeBtnDiv">
+                    <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="overall" data-toggle="modal" data-target="#changeFileModal">
                         Change file
                     </button>
+                    </div>
                 <?php
                 }
                 ?>
                 <div class="center">
-                    <a href="proposal.php"><h2>आविष्कार केन्द्र बारे विस्तृत विवरण</h2></a>
+                    <a href="proposal.php"><h2 style="color: white;">आविष्कार केन्द्र बारे विस्तृत विवरण</h2></a>
                 </div>
             </div>
 
@@ -325,9 +338,10 @@
                     <?php
                     if (isset($_SESSION['userID'])) {
                         ?>
-                        <button class="btn btn-block btn-primary" data-position-id="landing-6" data-toggle="modal" data-target="#addContentModal">
-                            Change
+                        <div class="changeBtnDiv">
+                        <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="landing-6" data-toggle="modal" data-target="#addContentModal">
                         </button>
+                        </div>
                     <?php
                     }
 

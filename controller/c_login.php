@@ -16,21 +16,26 @@ $password = $_POST['password'];
 $stored_password = "null";
 $role = "null";
 
-$select_from_user = "SELECT * FROM user WHERE username = '$username'";
+$stmt = $conn->prepare("SELECT * FROM user WHERE username = ?");
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$stmt->bind_result($id, $name, $email, $pass, $role, $uname);
+while ($stmt->fetch()){
+    echo $name;
+}
 
-$result_from_user = $conn->query($select_from_user);
 
-if(mysqli_num_rows($result_from_user) > 0) {
-    $row = $result_from_user->fetch_assoc();
-    $stored_password = $row['password'];
+if($stmt->num_rows > 0) {
+    $stmt->fetch();
+    $stored_password = $pass;
 
     if($stored_password == $password){
-        $_SESSION['role'] = $row['role'];
-        $_SESSION['userID'] = $row['id'];
-        $_SESSION['userEmail'] = $row['email'];
-        $_SESSION['userUsername'] = $row['username'];
-        $_SESSION['name'] = $row['name'];
-        header('Location: ../view/donorsList.php');
+        $_SESSION['role'] = $role;
+        $_SESSION['userID'] = $id;
+        $_SESSION['userEmail'] = $email;
+        $_SESSION['userUsername'] = $uname;
+        $_SESSION['name'] = $name;
+        header('Location: ../view/index.php');
     }else{
         header('Location: ../view/login.php');
     }
@@ -38,4 +43,7 @@ if(mysqli_num_rows($result_from_user) > 0) {
     header('Location: ../view/login.php');
 }
 
+
+$stmt->close();
+$mysqli->close();
 

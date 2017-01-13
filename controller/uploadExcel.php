@@ -24,5 +24,5 @@ if(isset($_FILES["uploadFile"]["tmp_name"])){
     }
 
 }else{
-    echo "bitch";
+    echo "not done";
 }
