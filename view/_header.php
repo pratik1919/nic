@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Pratik
+ * User: Sujan
  * Date: 12/6/2016
  * Time: 4:15 PM
  */
@@ -23,9 +23,6 @@ $menu = getMenu($_SESSION['lang'], $conn);
 <head>
     <meta charset="UTF-8">
     <title>National Innovation Center</title>
-
-
-
 
     <!--    <script src="../bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>-->
 
