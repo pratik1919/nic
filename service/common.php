@@ -9,16 +9,19 @@
 include '../config/dbConnect.php';
 
 
-function addDonor($name, $amount, $date, $medium, $conn)
+function addDonor($name, $amount, $date, $medium, $address, $conn)
 {
-    $insertQuery = ("INSERT INTO `donor`(`name`, `amount`, `medium`, `date`) VALUES ('$name', $amount, '$medium', '$date')");
-    $conn->query($insertQuery);
+    $insertQuery = $conn->prepare("INSERT INTO `donor`(`name`, `amount`, `medium`, `date`, `address`) VALUES (?,?,?,?,?)");
+    $insertQuery->bind_param("sssss", $name, $amount, $medium, $date, $address);
+    $insertQuery->execute();
 }
 
-function getDonor($conn)
+function getDonor($med, $conn)
 {
-    $selectQuery = "SELECT * from `donor`";
-    $result = $conn->query($selectQuery);
+    $selectQuery = $conn->prepare("SELECT * from `donor` WHERE `medium` = ?");
+    $selectQuery->bind_param("s", $med);
+    $selectQuery->execute();
+    $result = $selectQuery->get_result();
     return $result;
 }
 

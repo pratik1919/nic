@@ -71,7 +71,7 @@ $content = $_POST['content'];
             <div class="col-md-8">
                 <h2><?php echo $row['title']; ?></h2>
                 <h4><?php echo $row['date']; ?></h4>
-                <p><?php echo $row['news']; ?></p>
+                <p><?php echo $row['description']; ?></p>
             </div>
         </div>
 
@@ -110,7 +110,7 @@ $content = $_POST['content'];
                 <h4 style="text-align: center">Older News</h4>
                 <hr/>
 
-                <table class="table table-responsive table-striped table-hover">
+                <table class="table table-responsive table-striped table-hover read-table">
                     <thead>
                     <th>Date</th>
                     <th>Title</th>

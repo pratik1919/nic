@@ -56,8 +56,8 @@
                         <h4>Founder of NIC</h4>
                     </div>
                     <div class="col-md-6 center">
-                        <button style="margin-top: 35px;" class="btn btn-block btn-success"><span></span> Donate Now!
-                        </button>
+                        <a href="#donationInfo" style="text-decoration: none;"><button style="margin-top: 35px;" class="btn btn-block btn-success"><span></span> Donate Now!
+                        </button></a>
                     </div>
                 </div>
                 <div class="row paragraph">
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <div class="row donation-medium">
+        <div class="row donation-medium" id="donationInfo">
             <h2 class="center">Donate Now</h2>
 
             <div class="col-md-3">
@@ -303,7 +303,7 @@
         </div>
 
         <?php
-        if($_SESSION['language'] == 'nepali') {
+        if($_SESSION['lang'] == 'ne') {
             ?>
 
 

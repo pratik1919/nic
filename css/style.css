@@ -238,6 +238,11 @@ p{
     border-color: #337ab7 !important;
 }
 
+.read-table:hover{
+    cursor: pointer !important;
+    background-color: black;
+}
+
 
 /*login*/
 

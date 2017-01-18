@@ -6,6 +6,9 @@
  * Time: 1:02 PM
  */
 
+
+$med = $_GET['id'];
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +19,19 @@
     <link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--    <script src="../js/jquery.dataTables.min.js"></script>-->
+    <script src="../bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="application/javascript" src="../js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="../css/jquery.dataTables.min.css"/>
+<!--    <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">-->
+<!--    <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">-->
+
+    <link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css">
+
+
+
     <link rel="stylesheet" href="../css/style.css"/>
     <link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
 
@@ -37,7 +53,7 @@
     </div>
     <!-- #header -->
 
-<!--    add donor model-->
+    <!--    add donor model-->
     <div id="addDonorModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -48,29 +64,27 @@
                     <h4 class="modal-title">Add Donor</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form" action="../controller/c_addDonor.php" method="post">
-                        <div class="form-group">
-                            <label for="">Name</label>
-                            <input class="form-control" type="text" name="name" required=""/>
-                        </div>
 
+                    <form action="../controller/uploadExcel.php" method="post" enctype='multipart/form-data'>
+                        <input type="hidden" name="med" value="<?php echo $med; ?>">
                         <div class="form-group">
-                            <label for="">Amount</label>
-                            <input class="form-control" type="number" name="amount" required=""/>
+                            <label for="">Medium:</label>
+                        <select name="med" class="form-control">
+                            <option value="everest">Everest Bank Ltd</option>
+                            <option value="himalayan">Himalayan Bank Ltd</option>
+                            <option value="eSewa">eSewa</option>
+                            <option value="gofundme">gofundme.com</option>
+                        </select>
                         </div>
-
                         <div class="form-group">
-                            <label for="">Medium</label>
-                            <input class="form-control" type="text" name="medium" required=""/>
+                            <label for="">Upload Excel File: </label>
+                            <input type="file" name="uploadFile" required=""/>
                         </div>
+                        <input class="btn btn-primary btn-block" type="submit"/>
 
-                        <div class="form-group">
-                            <label for="">Donation Date</label>
-                            <input class="form-control" type="date" name="date" required=""/>
-                        </div>
-
-                        <input type="submit" value="Add" class="btn btn-primary btn-block"/>
                     </form>
+
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -81,26 +95,15 @@
     </div>
 
 
-
     <div id="content" class="container">
 
         <?php
-        if(isset($_SESSION['userID'])){
+        if (isset($_SESSION['userID'])) {
             ?>
-            <form action="../controller/uploadExcel.php" method="post" enctype = 'multipart/form-data'>
-                <div class="col-md-2">
-                    <label for="">Upload Excel File: </label>
-                    </div>
-                <div class="col-md-7">
-                    <input type="file" name="uploadFile" required=""/>
-                </div>
-                <div class="col-md-3">
-                <input class="btn btn-primary btn-block" type="submit"/>
-                </div>
-            </form>
-            <hr/>
-<!--            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#addDonorModal">Add Donors</button>-->
-        <?php
+
+            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#addDonorModal">Add Donors
+            </button>
+            <?php
         }
         ?>
 
@@ -112,90 +115,121 @@
             </div>
             <div class="col-md-7">
                 <div class="thankNote">
-                    WE want to express our appreciation for your generosity in support of National Innovation Center. Your personal commitment was incredibly helpful and allowed us to reach our goal. Your assistance means so much to us and even more to National Innovation center.
+                    WE want to express our appreciation for your generosity in support of National Innovation Center.
+                    Your personal commitment was incredibly helpful and allowed us to reach our goal. Your assistance
+                    means so much to us and even more to National Innovation center.
                     Thank you from all of us.
                     <hr/>
                 </div>
             </div>
         </div>
-<!---->
-<!--        <div class="row">-->
-<!---->
-<!--            यदि तपाई पनि यस् महादान अभियानलाई सहयोग गर्न चाहनुहुन्छ भने, निम्न अनुसार सहयोग गर्न सक्नु हुने छ !-->
-<!---->
-<!--            1. राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 00100105201853, एभरेष्ट बैङ्क, नयाँ बानेश्वर शाखा काठमाडौँ Swift Code – EVBLNPKA-->
-<!--            2. राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 01906322060017, हिमालायन बैङ्क , ठमेल शाखा,काठमाडौँ Swift Code – HIMANPKA-->
-<!--            3. नेपालमा eSewa Nepalको माध्यमबाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन चाहनु हुन्छ भने यहाँ Click गर्नुहोस् – www.nicnepal.org/donation-->
-<!--            4. बिदेशमा रहनु हुनेहरुले gofundme.com बाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन यहाँ Click गर्नुहोस् – www.gofundme.com/nic-nepal-->
-<!--            आर्थिक सहयोग गर्ने चाहनेहरूले यी बैङ्कहरूमा नगद जम्मा गरेर भौचरको फोटो nicnepal.mahabir@gmail.com मा पठाउनु होला अथवा 9841592361 मा महाबीर पुन लाइ फोन गर्नुस ।-->
-<!--        </div>-->
+        <!---->
+        <!--        <div class="row">-->
+        <!---->
+        <!--            यदि तपाई पनि यस् महादान अभियानलाई सहयोग गर्न चाहनुहुन्छ भने, निम्न अनुसार सहयोग गर्न सक्नु हुने छ !-->
+        <!---->
+        <!--            1. राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 00100105201853, एभरेष्ट बैङ्क, नयाँ बानेश्वर शाखा काठमाडौँ Swift Code – EVBLNPKA-->
+        <!--            2. राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 01906322060017, हिमालायन बैङ्क , ठमेल शाखा,काठमाडौँ Swift Code – HIMANPKA-->
+        <!--            3. नेपालमा eSewa Nepalको माध्यमबाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन चाहनु हुन्छ भने यहाँ Click गर्नुहोस् – www.nicnepal.org/donation-->
+        <!--            4. बिदेशमा रहनु हुनेहरुले gofundme.com बाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन यहाँ Click गर्नुहोस् – www.gofundme.com/nic-nepal-->
+        <!--            आर्थिक सहयोग गर्ने चाहनेहरूले यी बैङ्कहरूमा नगद जम्मा गरेर भौचरको फोटो nicnepal.mahabir@gmail.com मा पठाउनु होला अथवा 9841592361 मा महाबीर पुन लाइ फोन गर्नुस ।-->
+        <!--        </div>-->
 
 
+        <!--        <div class="container">-->
+        <!--            --><?php
+        //            $donor = getDonor($conn);
+        //
+        //            $i = 1;
+        //            while($row = $donor->fetch_assoc()){
+        //                ?>
+        <!--            <div class="col-md-4 donorList">-->
+        <!--                <h2>Rs --><?php //echo $row['amount']; ?><!--/-</h2>-->
+        <!--                <h3>--><?php //echo $row['name']; ?><!--</h3>-->
+        <!--                <h4>--><?php //echo $row['date']; ?><!--</h4>-->
+        <!--                <h4>--><?php //echo $row['medium']; ?><!--</h4>-->
+        <!--            </div>-->
+        <!---->
+        <!--                --><?php
+        //                $i++;
+        //            }
+        //            ?>
+        <!--        </div>-->
 
 
-<!--        <div class="container">-->
-<!--            --><?php
-//            $donor = getDonor($conn);
-//
-//            $i = 1;
-//            while($row = $donor->fetch_assoc()){
-//                ?>
-<!--            <div class="col-md-4 donorList">-->
-<!--                <h2>Rs --><?php //echo $row['amount']; ?><!--/-</h2>-->
-<!--                <h3>--><?php //echo $row['name']; ?><!--</h3>-->
-<!--                <h4>--><?php //echo $row['date']; ?><!--</h4>-->
-<!--                <h4>--><?php //echo $row['medium']; ?><!--</h4>-->
-<!--            </div>-->
-<!---->
-<!--                --><?php
-//                $i++;
-//            }
-//            ?>
-<!--        </div>-->
+        <?php
 
+        switch ($med) {
+            case "himalayan":
+                echo "<legend><h2>Donation through Himalayan Bank Ltd.</h2></legend>";
+                break;
+            case "everest":
+                echo "<h2>Donation through Everest Bank Ltd.</h2>";
+                break;
+            case "eSewa":
+                echo "<h2>Donation through eSewa.</h2>";
+                break;
+            case "gofundme":
+                echo "<h2>Donation through gofundme.</h2>";
+                break;
+        }
+        ?>
 
-        <table class="table table-striped table-responsive">
+        <table class="table table-striped table-bordered dt-responsive nowrap" id="donation-table">
             <thead>
             <th>S/N</th>
+            <th>Received Date</th>
             <th>Name</th>
             <th>Amount</th>
-            <th>Date</th>
-            <th>Through</th>
+            <th>Address</th>
             </thead>
 
             <?php
-            $donor = getDonor($conn);
+            $donor = getDonor($med, $conn);
 
             $i = 1;
-            while($row = $donor->fetch_assoc()){
+            while ($row = $donor->fetch_assoc()) {
                 ?>
                 <tr>
                     <td><?php echo $i; ?></td>
+                    <td><?php echo $row['date']; ?></td>
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['amount']; ?></td>
-                    <td><?php echo $row['medium']; ?></td>
-                    <td><?php echo $row['date']; ?></td>
+                    <td><?php echo $row['address']; ?></td>
                 </tr>
-            <?php
+                <?php
                 $i++;
             }
             ?>
         </table>
 
         <hr/>
-<div class="row donationInfo">
-        यदि तपाई पनि यस् महादान अभियानलाई सहयोग गर्न चाहनुहुन्छ भने, निम्न अनुसार सहयोग गर्न सक्नु हुने छ!
-    <br/>
-    <ol>
-        <li>राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 00100105201853, एभरेष्ट बैङ्क, नयाँ बानेश्वर शाखा काठमाडौँ Swift Code – EVBLNPKA</li>
-        <li>राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 01906322060017, हिमालायन बैङ्क , ठमेल शाखा,काठमाडौँ Swift Code – HIMANPKA</li>
-        <li>नेपालमा eSewa Nepal को माध्यमबाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन चाहनु हुन्छ भने यहाँ Click गर्नुहोस्< – www.nicnepal.org/donation</li>
-        <li>बिदेशमा रहनु हुनेहरुले gofundme.com बाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन यहाँ Click गर्नुहोस<a href="https://www.gofundme.com/nic-nepal"> –  www.gofundme.com/nic-nepal
-            </a> आर्थिक सहयोग गर्ने चाहनेहरूले यी बैङ्कहरूमा नगद जम्मा गरेर भौचरको फोटो nicnepal.mahabir@gmail.com मा पठाउनु होला अथवा 9841592361 मा महाबीर पुन लाइ फोन गर्नुस ।</li>
-    </ol>
+        <div class="row donationInfo">
+            यदि तपाई पनि यस् महादान अभियानलाई सहयोग गर्न चाहनुहुन्छ भने, निम्न अनुसार सहयोग गर्न सक्नु हुने छ!
+            <br/>
+            <ol>
+                <li>राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 00100105201853, एभरेष्ट बैङ्क, नयाँ बानेश्वर शाखा काठमाडौँ
+                    Swift Code – EVBLNPKA
+                </li>
+                <li>राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 01906322060017, हिमालायन बैङ्क , ठमेल शाखा,काठमाडौँ Swift
+                    Code – HIMANPKA
+                </li>
+                <li>नेपालमा eSewa Nepal को माध्यमबाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन चाहनु हुन्छ भने यहाँ
+                    Click गर्नुहोस्< – www.nicnepal.org/donation
+                </li>
+                <li>बिदेशमा रहनु हुनेहरुले gofundme.com बाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन यहाँ Click
+                    गर्नुहोस<a href="https://www.gofundme.com/nic-nepal"> – www.gofundme.com/nic-nepal
+                    </a> आर्थिक सहयोग गर्ने चाहनेहरूले यी बैङ्कहरूमा नगद जम्मा गरेर भौचरको फोटो
+                    nicnepal.mahabir@gmail.com मा पठाउनु होला अथवा 9841592361 मा महाबीर पुन लाइ फोन गर्नुस ।
+                </li>
+            </ol>
 
-</div>
+        </div>
     </div>
+
+    <script>
+        $('#donation-table').dataTable();
+    </script>
 
     <div id="footer">
         <?php

@@ -9,6 +9,6 @@
 
 session_start();
 $_SESSION['l'] = 1;
-$_SESSION['language'] = $_GET['lang'];
+$_SESSION['lang'] = $_GET['lang'];
 
 header('Location: ../view/index.php');

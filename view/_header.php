@@ -9,13 +9,12 @@
 session_start();
 
 if(!isset($_SESSION['l'])){
-    $_SESSION['language'] = 'english';
+    $_SESSION['lang'] = 'en';
 }
-
 
 include '../service/common.php';
 
-$menu = getMenu($_SESSION['language'], $conn);
+$menu = getMenu($_SESSION['lang'], $conn);
 
 ?>
 
@@ -24,6 +23,7 @@ $menu = getMenu($_SESSION['language'], $conn);
 <head>
     <meta charset="UTF-8">
     <title>National Innovation Center</title>
+
 
 
 
@@ -188,7 +188,7 @@ $menu = getMenu($_SESSION['language'], $conn);
 
 <div class="col-lg-2">
     <img src="../img/logo.png" alt=""/>
-    <div class="language"><a href="../controller/c_changeLanguage.php?lang=english">English</a> / <a href="../controller/c_changeLanguage.php?lang=nepali">नेपाली</a></div>
+    <div class="language"><a href="../controller/c_changeLanguage.php?lang=en">English</a> / <a href="../controller/c_changeLanguage.php?lang=ne">नेपाली</a></div>
 </div>
 <div class="col-md-10" style="padding: 0px;">
     <!--<div class="loginDiv"><a href="">login</a></div>-->
@@ -207,15 +207,44 @@ $menu = getMenu($_SESSION['language'], $conn);
                     <?php
                     while($row = $menu->fetch_assoc()){
                         ?>
-                        <li><a href="<?php echo $row['path']; ?>"><?php echo $row[$_SESSION['language']]; ?></a></li>
+                        <li><a href="<?php echo $row['path']; ?>"><?php echo $row[$_SESSION['lang']]; ?></a></li>
                     <?php
                     }
                     ?>
 
+                    <li class="dropdown">
+                        <?php
+                        if($_SESSION['lang'] == 'en'){
+                            ?>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Donor List
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="donorsList.php?id=everest">Everest Bank Ltd.</a></li>
+                                <li><a href="donorsList.php?id=himalayan">Himalayan Bank Ltd.</a></li>
+                                <li><a href="donorsList.php?id=eSewa">eSewa</a></li>
+                                <li><a href="donorsList.php?id=gofundme">gofundme.com</a></li>
+                            </ul>
+                            <?php
+//                        }else{
+//                            ?>
+<!--                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">अवधारणा पत्र-->
+<!--                                <span class="caret"></span></a>-->
+<!--                            <ul class="dropdown-menu">-->
+<!--                                <li><a href="conceptPaper.php">अवधारणा पत्र</a></li>-->
+<!--                                <li><a href="nvm.php">आवश्यक, दृष्टि, लक्ष्य</a></li>-->
+<!--                                <li><a href="unique.php ">अद्वितीय र स्थिरता</a></li>-->
+<!--                                <li><a href="request.php">हाम्रो अनुरोध</a></li>-->
+<!--                            </ul>-->
+<!--                            --><?php
+                        }
+                        ?>
+                    </li>
+
+
 
                     <li class="dropdown">
                         <?php
-                        if($_SESSION['language'] == 'english'){
+                        if($_SESSION['lang'] == 'en'){
                             ?>
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Concept Paper
                                 <span class="caret"></span></a>
@@ -239,7 +268,6 @@ $menu = getMenu($_SESSION['language'], $conn);
                         <?php
                         }
                         ?>
-
                     </li>
 <!--                    <li><a href="news.php">News</a></li>-->
 <!--                    <li><a href="events.php">Coming Events</a></li>-->
