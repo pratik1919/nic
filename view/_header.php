@@ -89,6 +89,14 @@ $menu = getMenu($_SESSION['lang'], $conn);
 
                     <input type="hidden" name="positionId"/>
                     <div class="form-group">
+                        <label for="">Language</label>
+                        <select name="lang" id="">
+                            <option value="ne">Nepali</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="">Title</label>
                         <input class="form-control" type="text" name="title"/>
                     </div>
@@ -98,6 +106,8 @@ $menu = getMenu($_SESSION['lang'], $conn);
                                 <textarea style="width: 100%;" name="content" id="" cols="30" rows="10" required="">
                                 </textarea>
                     </div>
+
+
 
                     <input type="submit" value="Add" class="btn btn-primary btn-block"/>
                 </form>

@@ -12,7 +12,8 @@ include '../service/common.php';
 $positionID = $_POST['positionId'];
 $title = $_POST['title'];
 $content = $_POST['content'];
+$lang = $_POST['lang'];
 
-addContent($title, $content, $positionID, $conn);
+addContent($title, $content, $positionID, $lang, $conn);
 
 header('Location: ../view/index.php');

@@ -65,30 +65,33 @@ function addNews($title, $date, $news, $photo, $pos, $conn)
 
 }
 
-function addContent($title, $content, $pos, $conn)
+function addContent($title, $content, $pos, $lang, $conn)
 {
-    $select = $conn->prepare("SELECT * FROM `contents` WHERE `location_code` = ?");
-    $select->bind_param("s", $pos);
+    $select = $conn->prepare("SELECT ? FROM `contents` WHERE `location_code` = ?");
+    $select->bind_param("ss", $lang, $pos);
     $select->execute();
     while ($select->fetch()){
 
     }
 
     if ($select->num_rows > 0) {
-        $delete = $conn->prepare("DELETE FROM `contents` WHERE `location_code` = ?");
-        $delete->bind_param("s", $pos);
-        $delete->execute();
+        $til =  $lang."_title";
+        $update = $conn->prepare("UPDATE `contents` SET $lang = ?, $til = ? WHERE `location_code` = ?");
+        $update->bind_param("sss", $content, $title, $pos);
+        $update->execute();
+        if ($update == false) {
+            trigger_error($update->mysqli->error, E_USER_ERROR);
+        }
+    }else{
+        $insertQuery = $conn->prepare("INSERT INTO `contents`(`location_code`, `.$lang._title`, ?) VALUES (?,?,?)");
+        $insertQuery->bind_param("ssss", $lang, $pos, $title, $content);
+        $insertQuery->execute();
     }
 
-    $insertQuery = $conn->prepare("INSERT INTO `contents`(`location_code`, `title`, `content`) VALUES (?,?,?)");
-    $insertQuery->bind_param("sss", $pos, $title, $content);
-    $insertQuery->execute();
 }
 
 function getNews($position, $conn)
 {
-
-
     $select = $conn->prepare("SELECT * FROM `news` WHERE `position_id` = ?");
     $select->bind_param("s", $position);
     $select->execute();

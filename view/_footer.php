@@ -19,10 +19,10 @@
 
 <div class="row footer">
     <div class="container">
-        <div class="col-md-4">
-            <div class="fb-page" data-href="https://www.facebook.com/mahabirnwp/" height="400" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-            </div>
-        </div>
+<!--        <div class="col-md-4">-->
+<!--            <div class="fb-page" data-href="https://www.facebook.com/mahabirnwp/" height="400" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">-->
+<!--            </div>-->
+<!--        </div>-->
 
         <div class="col-md-4">
             <h3>सम्पर्क ठेगाना</h3>
@@ -40,24 +40,8 @@
             </p>
         </div>
 
-        <div class="col-md-4">
-            <h3>Contact Us <br/> ( सम्पर्क गर्नु होस् )</h3>
-
-            <form class="form" action="">
-                <div class="form-group">
-                    <label>तपाईको नाम ( Name ) (*)</label>
-                    <input class="form-control" type="text" name="name"/>
-                </div>
-                <div class="form-group">
-                    <label>तपाईको इमेल ( Email ) (*)</label>
-                    <input class="form-control" type="text" name="email"/>
-                </div>
-                <div class="form-group">
-                    <label>तपाईको संदेश ( Message )</label>
-                    <textarea class="form-control" type="text" name="message"></textarea>
-                </div>
-                <input type="submit" value="Send" class="btn btn-block btn-success"/>
-            </form>
+        <div class="col-md-8">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.9167479162234!2d85.32276965373359!3d27.722036795758285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1910bccf84a5%3A0x6810677f1c5a1da9!2sShivabhakta+Marg%2C+Kathmandu+44600!5e0!3m2!1sen!2snp!4v1484823721355" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
     </div>
 </div>

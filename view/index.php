@@ -36,10 +36,6 @@
     </div>
     <!-- #header -->
 
-
-
-
-
     <div id="content">
 
 
@@ -75,7 +71,7 @@
                     $row = $content->fetch_assoc();
                     ?>
                     <p>
-                        <?php echo $row['content']; ?>
+                        <?php echo $row[$_SESSION['lang']]; ?>
                     </p>
             </div>
             </div>
@@ -186,9 +182,9 @@
                         $row = $content->fetch_assoc();
                         ?>
                         <div class="goal-content">
-                        <h3><?php echo $row['title']; ?></h3>
+                        <h3><?php echo $row[$_SESSION['lang'].'_title']; ?></h3>
 
-                        <p><?php echo $row['content']; ?></p>
+                        <p><?php echo $row[$_SESSION['lang']]; ?></p>
                         </div>
 
                         <div class="left"><a href="nvm.php">more</a></div class="left">
@@ -209,9 +205,9 @@
                         $row = $content->fetch_assoc();
                         ?>
                         <div class="goal-content">
-                            <h3><?php echo $row['title']; ?></h3>
+                            <h3><?php echo $row[$_SESSION['lang'].'_title']; ?></h3>
 
-                            <p><?php echo $row['content']; ?></p>
+                            <p><?php echo $row[$_SESSION['lang']]; ?></p>
                         </div>
 
                         <div class="left"><a href="request.php">more</a></div class="left">
@@ -232,9 +228,9 @@
                         $row = $content->fetch_assoc();
                         ?>
                         <div class="goal-content">
-                            <h3><?php echo $row['title']; ?></h3>
+                            <h3><?php echo $row[$_SESSION['lang'].'_title']; ?></h3>
 
-                            <p><?php echo $row['content']; ?></p>
+                            <p><?php echo $row[$_SESSION['lang']]; ?></p>
                         </div>
 
                         <div class="left"><a href="unique.php">more</a></div class="left">
@@ -260,10 +256,10 @@
                     $content = getContent('landing-5', $conn);
                     $row = $content->fetch_assoc();
                     ?>
-                    <h3><?php echo $row['title']; ?></h3>
+                    <h3><?php echo $row[$_SESSION['lang'].'_title']; ?></h3>
                     <br/><br/>
 
-                   <p><?php echo $row['content']; ?></p>
+                   <p><?php echo $row[$_SESSION['lang']]; ?></p>
                 </div>
                 <div class="col-md-5 videos">
                     <div class="center" style="max-height: 220px; max-width: 400px;">
@@ -348,9 +344,9 @@
                     $content = getContent('landing-6', $conn);
                     $row = $content->fetch_assoc();
                     ?>
-                    <h3><?php echo $row['title']; ?></h3>
+                    <h3><?php echo $row[$_SESSION['lang'].'_title']; ?></h3>
 
-                   <p><?php echo $row['content']; ?></p>
+                   <p><?php echo $row[$_SESSION['lang']]; ?></p>
                 </div>
             </div>
         </div>

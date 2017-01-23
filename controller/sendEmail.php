@@ -33,12 +33,12 @@ if(isset($_POST['name'])){
         $mail->Host = "smtp.gmail.com";
 // set the SMTP port for the GMAIL server
         $mail->Port = "465";
-        $mail->From="pratik.budhathoki@gmail.com";
+        $mail->From = $admin_email;
         $mail->FromName='NIC';
         $mail->AddAddress("pratik.budhathoki@deerwalk.edu.np");
         $mail->Subject  =  'Contact Us Email';
         $mail->IsHTML(true);
-        $mail->Body    = 'Hello! '.$name.' wants to contact NIC. <br><br>His email:'.$email.' <br><br>Best Wishes,<br>NIC';
+        $mail->Body    = 'Hello! '.$name.' wants to contact NIC. <br><br>His email: '.$email.' <br><br>Says: '.$message.' <br><br>Best Wishes,<br>NIC';
 
         if($mail->Send())
         {
