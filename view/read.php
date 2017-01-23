@@ -71,8 +71,18 @@ $content = $_POST['content'];
             <div class="col-md-8">
                 <h2><?php echo $row['title']; ?></h2>
                 <h4><?php echo $row['date']; ?></h4>
+                <?php
+                if($content == 'news'){
+                    ?>
+                    <p><?php echo $row['news']; ?></p>
+                    <?php
+                }else{
+   ?>
+                    <p><?php echo $row['description']; ?></p>
 
-                <p><?php echo $row['description']; ?></p>
+                    <?php
+                }
+                ?>
             </div>
         </div>
 
@@ -140,6 +150,9 @@ $content = $_POST['content'];
         <?php
         }
         ?>
+
+
+
 
 
 
