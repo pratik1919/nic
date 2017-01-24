@@ -16,8 +16,20 @@
     <link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../jquery-ui-1.12.1.custom/jquery-ui.min.css"/>
     <link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
+
+
+    <script>
+        $(function () {
+
+            $( "#datetime-local" ).datepicker({
+                minDate: 0
+            });
+        });
+    </script>
 
     <!--[if lt IE 7]>
     <style type="text/css">
@@ -53,22 +65,26 @@
 
                                 <div class="form-group">
                                     <label for="">Event Title</label>
-                                    <input class="form-control" type="text" name="title"/>
+                                    <input class="form-control" type="text" name="title"  required=""/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Date - Time</label>
-                                    <input class="form-control" type="datetime-local" name="date"/>
+                                    <label for="">Date</label>
+                                    <input id="datetime-local" class="form-control" type="text" name="date" required=""/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Time</label>
+                                    <input  class="form-control" type="time" name="time" required=""/>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Venue</label>
-                                    <input class="form-control" type="text" name="venue"/>
+                                    <input class="form-control" type="text" name="venue" required=""/>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Description</label>
-                                    <textarea class="form-control" name="description" id="" cols="30" rows="10" width="100%"></textarea>
+                                    <textarea class="form-control" name="description" id="" cols="30" rows="10" width="100%" required=""></textarea>
                                 </div>
 
                                 <input type="submit" value="Change" class="btn btn-primary btn-block"/>
@@ -105,6 +121,7 @@
                 <div class="thumbnail small-news" id="<?php echo $event['id']; ?>" onclick="submitForm(this);">
                     <h3><?php echo $event['title']; ?></h3>
                     <h5><?php echo $event['date']; ?></h5>
+                    <h5><?php echo $event['time']; ?></h5>
                     <h5><?php echo $event['venu']; ?></h5>
                     <p><?php echo $event['description']; ?></p>
                 </div>
