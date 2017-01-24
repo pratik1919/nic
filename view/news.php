@@ -16,9 +16,19 @@
     <link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../jquery-ui-1.12.1.custom/jquery-ui.min.css"/>
     <link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
 
+    <script>
+        $(function () {
+
+            $( "#news-date" ).datepicker({
+                maxDate: 0
+            });
+        });
+    </script>
 
     <!--[if lt IE 7]>
     <style type="text/css">
@@ -27,6 +37,7 @@
         }
     </style>
     <![endif]-->
+
 </head>
 <body>
 
@@ -40,7 +51,7 @@
 
     <div id="content" class="container">
 
-        <form action="read.php" id="read" method="post">
+        <form action="read.php" id*="read" method="post">
             <input type="hidden" id="positionId" name="positionId"/>
             <input type="hidden" value="news" name="content"/>
         </form>
@@ -66,7 +77,7 @@
 
                             <div class="form-group">
                                 <label for="">Date</label>
-                                <input class="form-control" type="date" name="date" required=""/>
+                                <input id="news-date" class="form-control" type="text" name="date" required=""/>
                             </div>
 
                             <div class="form-group">
@@ -76,7 +87,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Photo</label><br/>
-                                <input type="file" name="photo"/>
+                                <input type="file" name="photo" required/>
                             </div>
 
                             <input type="submit" value="Add" class="btn btn-primary btn-block"/>
