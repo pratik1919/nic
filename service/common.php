@@ -169,9 +169,9 @@ function getEvents($conn)
     return $r;
 }
 
-function addEvent($title, $date, $venue, $desc, $conn)
+function addEvent($title, $date, $venue, $desc, $time, $conn)
 {
-    $insertQuery = "INSERT INTO `event`(`title`, `date`, `venu`, `description`) VALUES ('$title', '$date', '$venue','$desc')";
+    $insertQuery = "INSERT INTO `event`(`title`, `date`, `venu`, `description`,`time` ) VALUES ('$title', '$date', '$venue','$desc','$time')";
     $conn->query($insertQuery);
 }
 
