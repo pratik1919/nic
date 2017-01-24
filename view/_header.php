@@ -33,6 +33,7 @@ $menu = getMenu($_SESSION['lang'], $conn);
         }
     </style>
     <![endif]-->
+   <!-- <script type="text/javascript" src="../js/custom.js"></script>For  validation-->
 </head>
 <body>
 
@@ -157,27 +158,27 @@ $menu = getMenu($_SESSION['lang'], $conn);
                 <h4 class="modal-title">Change Donation Information</h4>
             </div>
             <div class="modal-body">
-                <form class="form" action="../controller/c_addDonationInfo.php" method="post" enctype="multipart/form-data">
+                <form class="form" action="../controller/c_addDonationInfo.php" method="post" enctype="multipart/form-data" >
 
                     <input type="hidden" name="positionId"/>
                     <div class="form-group">
                         <label for="">First Line</label>
-                        <input class="form-control" type="text" name="first"/>
+                        <input class="form-control" id="firstline" type="text" name="first" required/>
                     </div>
 
                     <div class="form-group">
                         <label for="">Second Line</label>
-                        <input class="form-control" type="text" name="second"/>
+                        <input class="form-control" type="text" name="second" id="secondline" required/>
                     </div>
 
                     <div class="form-group">
                         <label for="">Third Line</label>
-                        <input class="form-control" type="text" name="third"/>
+                        <input class="form-control" type="text" name="third" id="thirdline" required />
                     </div>
 
                     <div class="form-group">
                         <label for="">Forth Line</label>
-                        <input class="form-control" type="text" name="forth"/>
+                        <input class="form-control" type="text" name="forth" id="fourthline" required />
                     </div>
 
                     <input type="submit" value="Change" class="btn btn-primary btn-block"/>
@@ -303,7 +304,7 @@ $menu = getMenu($_SESSION['lang'], $conn);
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Hi <?php echo $_SESSION['userUsername']; ?></b> <span
                                     class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="">Change Password</a></li>
+                                <li><a href="../view/a_Changepassword.php">Change Password</a></li>
                                 <li><a href="../controller/c_logout.php">Logout</a></li>
                             </ul>
                         </li>
