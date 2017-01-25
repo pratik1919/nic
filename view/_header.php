@@ -339,6 +339,7 @@ $menu = getMenu($_SESSION['lang'], $conn);
                                     class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="../view/a_Changepassword.php">Change Password</a></li>
+                                <li><a href="../view/addUser.php">Add User</a> </li>
                                 <li><a href="../controller/c_logout.php">Logout</a></li>
                             </ul>
                         </li>
