@@ -378,6 +378,11 @@ p{
 }
 
 .event{
-    padding: 5px;
-    border: 1px solid deepskyblue;
+    padding: 15px;
+    border: 1px solid #b9bdb6;
+}
+
+.event:hover{
+    background-color: #00A1F1;
+    color: white;
 }

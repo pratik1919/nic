@@ -122,7 +122,7 @@
                     <h3><?php echo $event['title']; ?></h3>
                     <h5 style="text-align: start;"><?php echo $event['date']; ?><span class="pull-right" "><?php echo $event['time']; ?></span></h5>
                     <h5><b><?php echo $event['venu']; ?></b></h5>
-                    <hr style="border: 2px dashed deepskyblue">
+                    <hr style="border: 2px solid cyan; margin-top: 0px;">
                     <p><?php echo $event['description']; ?></p>
                 </div>
             </div>
