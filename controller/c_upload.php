@@ -10,10 +10,9 @@ include'../service/common.php';
 
 if(isset($_FILES['file'])){
 
-    $pos = $_POST['positionId'];
-//    echo $pos;
+    $pos = strip_tags($_POST['positionId']);
 
-    $file = $_FILES['file'];
+    $file = strip_tags($_FILES['file']);
 
     $file_name = $file['name'];
     $file_tmp = $file['tmp_name'];

@@ -88,9 +88,19 @@ $menu = getMenu($_SESSION['lang'], $conn);
                     <input type="hidden" name="positionId"/>
                     <div class="form-group">
                         <label for="">Language</label>
-                        <select name="lang" id="">
-                            <option value="ne">Nepali</option>
-                            <option value="en">English</option>
+                        <select class="form-control " name="lang" id="">
+                            <?php
+                            if(isset($_SESSION["lang"])){
+                                $lang = $_SESSION["lang"];
+                                if($lang == "en"){
+                                    echo '<option value="en" selected>English</option>';
+                                    echo '<option value="ne">Nepali</option>';
+                                }else{
+                                    echo '<option value="ne">Nepali</option>';
+                                    echo '<option value="en">English2</option>';
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
 
@@ -162,6 +172,24 @@ $menu = getMenu($_SESSION['lang'], $conn);
 
                     <input type="hidden" name="positionId"/>
                     <div class="form-group">
+                        <label for="">Language: </label>
+                        <select class="form-control " name="lang" id="">
+                            <?php
+                                if(isset($_SESSION["lang"])){
+                                    $lang = $_SESSION["lang"];
+                                    if($lang == "en"){
+                                      echo '<option value="en" selected>English</option>';
+                                      echo '<option value="ne">Nepali</option>';
+                                    }else{
+                                        echo '<option value="ne">Nepali</option>';
+                                        echo '<option value="en">English2</option>';
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="">First Line</label>
                         <input class="form-control" id="firstline" type="text" name="first" required/>
                     </div>
@@ -227,10 +255,16 @@ $menu = getMenu($_SESSION['lang'], $conn);
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Donor List
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="donorsList.php?id=everest">Everest Bank Ltd.</a></li>
-                                <li><a href="donorsList.php?id=himalayan">Himalayan Bank Ltd.</a></li>
-                                <li><a href="donorsList.php?id=eSewa">eSewa</a></li>
-                                <li><a href="donorsList.php?id=gofundme">gofundme.com</a></li>
+                                <?php
+                                    $everest = base64_encode("id=everest");
+                                    $h = base64_encode("id=himalayan");
+                                    $e = base64_encode("id=eSewa");
+                                    $g = base64_encode("id=gofundme");
+                                ?>
+                                <li><a href="donorsList.php?<?php echo $everest; ?>">Everest Bank Ltd.</a></li>
+                                <li><a href="donorsList.php?<?php echo $h; ?>">Himalayan Bank Ltd.</a></li>
+                                <li><a href="donorsList.php?<?php echo $e; ?>">eSewa</a></li>
+                                <li><a href="donorsList.php?<?php echo $g; ?>">gofundme.com</a></li>
                             </ul>
                             <?php
 //                        }else{

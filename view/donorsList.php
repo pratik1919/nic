@@ -7,8 +7,12 @@
  */
 
 
-$med = $_GET['id'];
-
+$queryString = $_SERVER['QUERY_STRING'];
+//echo $queryString."<br>";
+$dQueryString = base64_decode($queryString);
+$splitedQS = explode("=",$dQueryString);
+//echo $splitedQS[0];
+$med = $splitedQS[1];
 ?>
 
 <!DOCTYPE html>
@@ -193,7 +197,7 @@ $med = $_GET['id'];
                 <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $row['date']; ?></td>
-                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo ucwords($row['name']); ?></td>
                     <td><?php echo $row['amount']; ?></td>
                     <td><?php echo $row['address']; ?></td>
                 </tr>

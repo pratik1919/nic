@@ -8,10 +8,10 @@
 
 include '../service/common.php';
 
-$positionID = $_POST['positionId'];
-$title = $_POST['title'];
-$date = $_POST['date'];
-$news = $_POST['news'];
+$positionID = strip_tags($_POST['positionId']);
+$title = strip_tags($_POST['title']);
+$date = strip_tags($_POST['date']);
+$news = strip_tags($_POST['news']);
 $photo =  $_FILES['photo']['name'];
 $photo_tmp = $_FILES['photo']['tmp_name'];
 move_uploaded_file($photo_tmp,"../img/$photo");

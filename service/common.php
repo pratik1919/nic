@@ -119,20 +119,26 @@ function getDonationInfo($position, $conn)
 }
 
 
-function addDonationInfo($first, $second, $third, $forth, $pos, $conn)
+function addDonationInfo($first, $second, $third, $forth, $pos, $lang, $conn)
 {
-    $select = $conn->prepare("SELECT * FROM `DontationInfo` WHERE `location_code` = ?");
-    $select->bind_param("s", $pos);
+    $f = $lang."_first";
+    $s = $lang."_second";
+    $t = $lang."_third";
+    $fo = $lang."_forth";
+    $select = $conn->prepare("SELECT ? FROM `DontationInfo` WHERE `location_code` = ?");
+    $select->bind_param("ss", $t, $pos);
     $select->execute();
     $r = $select->get_result();
     if (isset($r)) {
-        $delete = $conn->prepare("DELETE FROM `DontationInfo` WHERE `location_code` =  ?");
-        $delete->bind_param("s", $pos);
+        $delete = $conn->prepare("UPDATE `dontationinfo` SET `$f` = ?,`$s`=?,`$t`=?,`$fo`=? WHERE `location_code` =  ?");
+        $delete->bind_param("sssss", $first, $second, $third, $forth, $pos);
         $delete->execute();
+    }else{
+        $insertQuery = $conn->prepare("INSERT INTO `DontationInfo`(`location_code`, ?,?,?,?) VALUES (?,?,?,?,?)");
+        $insertQuery->bind_param("sssssssss", $f, $s, $t, $fo, $pos, $first, $second, $third, $forth);
+        $insertQuery->execute();
     }
-    $insertQuery = $conn->prepare("INSERT INTO `DontationInfo`(`location_code`, `first`, `second`, `third`, `forth`) VALUES (?,?,?,?,?)");
-    $insertQuery->bind_param("sssss",$pos, $first, $second, $third, $forth);
-    $insertQuery->execute();
+
 }
 
 

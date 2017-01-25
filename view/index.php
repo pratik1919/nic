@@ -94,10 +94,10 @@
                 $donationInfo = getDonationInfo('donation-1', $conn);
                 $row = $donationInfo->fetch_assoc();
                 ?>
-                <h3><?php echo $row['first']; ?></h3>
-                <h5><?php echo $row['second']; ?></h5>
-                <h4><?php echo $row['third']; ?></h4>
-                <h6><?php echo $row['forth']; ?></h6>
+                <h3><?php echo $row[$_SESSION['lang'].'_first']; ?></h3>
+                <h5><?php echo $row[$_SESSION['lang'].'_second']; ?></h5>
+                <h4><?php echo $row[$_SESSION['lang'].'_third']; ?></h4>
+                <h6><?php echo $row[$_SESSION['lang'].'_forth']; ?></h6>
             </div>
             <div class="col-md-3">
                 <?php
@@ -113,10 +113,10 @@
                 $donationInfo = getDonationInfo('donation-2', $conn);
                 $row = $donationInfo->fetch_assoc();
                 ?>
-                <h3><?php echo $row['first']; ?></h3>
-                <h5><?php echo $row['second']; ?></h5>
-                <h4><?php echo $row['third']; ?></h4>
-                <h6><?php echo $row['forth']; ?></h6>
+                <h3><?php echo $row[$_SESSION['lang'].'_first']; ?></h3>
+                <h5><?php echo $row[$_SESSION['lang'].'_second']; ?></h5>
+                <h4><?php echo $row[$_SESSION['lang'].'_third']; ?></h4>
+                <h6><?php echo $row[$_SESSION['lang'].'_forth']; ?></h6>
             </div>
 
             <div class="col-md-3">
@@ -133,10 +133,10 @@
                 $donationInfo = getDonationInfo('donation-3', $conn);
                 $row = $donationInfo->fetch_assoc();
                 ?>
-                <h3><?php echo $row['first']; ?></h3>
-                <h5><?php echo $row['second']; ?></h5>
-                <h4><?php echo $row['third']; ?></h4>
-                <h6><?php echo $row['forth']; ?></h6>
+                <h3><?php echo $row[$_SESSION['lang'].'_first']; ?></h3>
+                <h5><?php echo $row[$_SESSION['lang'].'_second']; ?></h5>
+                <h4><?php echo $row[$_SESSION['lang'].'_third']; ?></h4>
+                <h6><?php echo $row[$_SESSION['lang'].'_forth']; ?></h6>
             </div>
 
             <div class="col-md-3">
@@ -153,10 +153,10 @@
                 $donationInfo = getDonationInfo('donation-4', $conn);
                 $row = $donationInfo->fetch_assoc();
                 ?>
-                <h3><?php echo $row['first']; ?></h3>
-                <h5><?php echo $row['second']; ?></h5>
-                <h4><?php echo $row['third']; ?></h4>
-                <h6><?php echo $row['forth']; ?></h6>
+                <h3><?php echo $row[$_SESSION['lang'].'_first']; ?></h3>
+                <h5><?php echo $row[$_SESSION['lang'].'_second']; ?></h5>
+                <h4><?php echo $row[$_SESSION['lang'].'_third']; ?></h4>
+                <h6><?php echo $row[$_SESSION['lang'].'_forth']; ?></h6>
             </div>
         </div>
 

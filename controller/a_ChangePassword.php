@@ -14,9 +14,9 @@ $user = $_SESSION['userUsername'];
 if ($user) {
     if ($_POST['submit']) {
         //user is logged in
-        $oldPassword = $_POST['oldPassword'];
-        $newPassword = $_POST['newPassword'];
-        $repPassword = $_POST['confirmPassword'];
+        $oldPassword = strip_tags($_POST['oldPassword']);
+        $newPassword = strip_tags($_POST['newPassword']);
+        $repPassword = strip_tags($_POST['confirmPassword']);
 
         $getQuery = $conn->query("SELECT password FROM user WHERE username='$user'") or die("Query didn't work");
         $row = mysqli_fetch_assoc($getQuery);

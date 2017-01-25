@@ -8,10 +8,10 @@
 
 include '../service/common.php';
 
-$name = $_POST['name'];
-$amount = $_POST['amount'];
-$medium = $_POST['medium'];
-$date = $_POST['date'];
+$name = strip_tags($_POST['name']);
+$amount = strip_tags($_POST['amount']);
+$medium = strip_tags($_POST['medium']);
+$date = strip_tags($_POST['date']);
 
 addDonor($name, $amount, $medium, $date, $conn);
 

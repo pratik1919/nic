@@ -11,9 +11,9 @@ include('../config/dbConnect.php');
 
 if(isset($_POST['name'])){
 
-    $name = ucwords($_POST['name']);
-    $email = $_POST['email'];
-    $message = $_POST['message'];
+    $name = strip_tags(ucwords($_POST['name']));
+    $email = strip_tags($_POST['email']);
+    $message = strip_tags($_POST['message']);
 
         $admin_email = "pratik.budhathoki@gmail.com";
 

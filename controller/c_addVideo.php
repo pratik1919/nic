@@ -9,8 +9,8 @@
 
 include '../service/common.php';
 
-$positionID = $_POST['positionId'];
-$code = $_POST['code'];
+$positionID = strip_tags($_POST['positionId']);
+$code = strip_tags($_POST['code']);
 
 addVideo($code, $positionID, $conn);
 

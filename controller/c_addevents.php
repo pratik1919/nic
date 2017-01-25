@@ -9,11 +9,11 @@
 
 include '../service/common.php';
 
-$title = $_POST['title'];
-$date = $_POST['date'];
-$venue = $_POST['venue'];
-$desc = $_POST['description'];
-$time = $_POST['time'];
+$title = strip_tags($_POST['title']);
+$date = strip_tags($_POST['date']);
+$venue = strip_tags($_POST['venue']);
+$desc = strip_tags($_POST['description']);
+$time = strip_tags($_POST['time']);
 
 addEvent($title, $date, $venue, $desc, $time, $conn);
 

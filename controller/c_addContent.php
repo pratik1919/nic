@@ -9,10 +9,10 @@
 
 include '../service/common.php';
 
-$positionID = $_POST['positionId'];
-$title = $_POST['title'];
-$content = $_POST['content'];
-$lang = $_POST['lang'];
+$positionID = strip_tags($_POST['positionId']);
+$title = strip_tags($_POST['title']);
+$content = strip_tags($_POST['content']);
+$lang = strip_tags($_POST['lang']);
 
 addContent($title, $content, $positionID, $lang, $conn);
 

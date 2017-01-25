@@ -6,7 +6,7 @@ include '../service/common.php';
 if(isset($_FILES["uploadFile"]["tmp_name"])){
 
 //    $file = $_FILES["file"]["tmp_name"];
-    $medium = $_POST['med'];
+    $medium = strip_tags($_POST['med']);
 
     if(filesize($_FILES["uploadFile"]["tmp_name"]) > 0){
         $allowedTypes = array('xls', 'xlsx');
