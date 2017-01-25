@@ -202,3 +202,9 @@ function getOlderNews($conn)
     $r = $conn->query($select);
     return $r;
 }
+
+function addUser($name, $email, $password, $role, $username, $conn){
+    $insert = $conn->prepare("INSERT INTO `user`(`name`, `email`, `password`, `role`, `username`) VALUES (?,?,?,?,?)");
+    $insert->bind_param("sssss", $name, $email, $password, $role, $username);
+    $insert->execute();
+}
