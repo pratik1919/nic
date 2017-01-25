@@ -118,11 +118,11 @@
             while($event = $e->fetch_assoc()){
                 ?>
             <div class="col-lg-3">
-                <div class="thumbnail small-news" id="<?php echo $event['id']; ?>" onclick="submitForm(this);">
+                <div class="event small-news" id="<?php echo $event['id']; ?>" onclick="submitForm(this);">
                     <h3><?php echo $event['title']; ?></h3>
-                    <h5><?php echo $event['date']; ?></h5>
-                    <h5><?php echo $event['time']; ?></h5>
-                    <h5><?php echo $event['venu']; ?></h5>
+                    <h5 style="text-align: start;"><?php echo $event['date']; ?><span class="pull-right" "><?php echo $event['time']; ?></span></h5>
+                    <h5><b><?php echo $event['venu']; ?></b></h5>
+                    <hr style="border: 2px dashed deepskyblue">
                     <p><?php echo $event['description']; ?></p>
                 </div>
             </div>

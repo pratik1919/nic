@@ -38,11 +38,11 @@ html,
 }
 
 .btn-primary{
-    background-color: #001973 !important;
+    background-color: #4285F4 !important;
 }
 
 .nav li a:hover{
-    background-color: red !important;
+    background-color: #00A1F1 !important;
     color: #ffffff !important;
 }
 
@@ -237,8 +237,8 @@ p{
 }
 
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
-    background-color: #e10c0c !important;
-    border-color: #337ab7 !important;
+    background-color: #00A1F1 !important;
+    border-color: #00A1F1 !important;
 }
 
 .read-table:hover{
@@ -254,7 +254,7 @@ p{
     min-width: 250px;
     padding: 14px 14px 0;
     overflow:hidden;
-    background-color:#001973;
+    background-color:#4285F4;
 }
 #login-dp .help-block{
     font-size:12px
@@ -375,4 +375,9 @@ p{
 
 .changeBtnDiv{
     text-align: right;
+}
+
+.event{
+    padding: 5px;
+    border: 1px solid deepskyblue;
 }

@@ -224,11 +224,11 @@ $menu = getMenu($_SESSION['lang'], $conn);
 
 <div class="col-lg-2">
     <img src="../img/logo.png" alt=""/>
-    <div class="language"><a href="../controller/c_changeLanguage.php?lang=en">English</a> / <a href="../controller/c_changeLanguage.php?lang=ne">नेपाली</a></div>
 </div>
+
 <div class="col-md-10" style="padding: 0px;">
     <!--<div class="loginDiv"><a href="">login</a></div>-->
-    <nav class="navbar" style="background-color: #001973; border-radius: 0px;">
+    <nav class="navbar" style="background-color: #4285F4; border-radius: 0px;">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -349,7 +349,7 @@ $menu = getMenu($_SESSION['lang'], $conn);
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span
-                                    class="caret"></span></a>
+                                        class="caret"></span></a>
                             <ul id="login-dp" class="dropdown-menu">
                                 <li>
                                     <div class="row">
@@ -382,6 +382,13 @@ $menu = getMenu($_SESSION['lang'], $conn);
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="../controller/c_changeLanguage.php?lang=en"><img src="../img/english.png" height="15px" width="30px" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="../controller/c_changeLanguage.php?lang=ne"><img src="../img/Nepal.png" height="20px" width="30px" alt=""></a>
+                        </li>
+
                     </ul>
                 <?php
                 }
