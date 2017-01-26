@@ -208,3 +208,7 @@ function addUser($name, $email, $password, $role, $username, $conn){
     $insert->bind_param("sssss", $name, $email, $password, $role, $username);
     $insert->execute();
 }
+
+function remEvent($id, $conn){
+    $conn->query("DELETE FROM `event` WHERE id=$id");
+}
