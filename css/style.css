@@ -379,6 +379,7 @@ p{
 .event{
     padding: 15px;
     border: 1px solid #b9bdb6;
+    overflow: hidden;
 }
 
 .event:hover{

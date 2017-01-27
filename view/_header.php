@@ -182,7 +182,7 @@ $menu = getMenu($_SESSION['lang'], $conn);
                                       echo '<option value="ne">Nepali</option>';
                                     }else{
                                         echo '<option value="ne">Nepali</option>';
-                                        echo '<option value="en">English2</option>';
+                                        echo '<option value="en">English</option>';
                                     }
                                 }
                             ?>

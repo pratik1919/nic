@@ -59,13 +59,13 @@ $content = $_POST['content'];
         </form>
 
         <div class="row">
-
+            <h2><?php echo $row['title']; ?></h2>
+            <h4><?php echo $row['date']; ?></h4>
+            <hr style="margin-top: 0px;">
             <?php
             if($content == 'news'){
                 ?>
-                <h2><?php echo $row['title']; ?></h2>
-                <h4><?php echo $row['date']; ?></h4>
-                <hr style="margin-top: 0px;">
+
                 <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 450px; background-size: contain; background-repeat: no-repeat;"></div>
             <?php
             }

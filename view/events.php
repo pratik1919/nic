@@ -64,6 +64,24 @@
                             <form class="form" action="../controller/c_addevents.php" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
+                                    <label for="">Language: </label>
+                                    <select class="form-control " name="lang" id="">
+                                        <?php
+                                        if(isset($_SESSION["lang"])){
+                                            $lang = $_SESSION["lang"];
+                                            if($lang == "en"){
+                                                echo '<option value="en" selected>English</option>';
+                                                echo '<option value="ne">Nepali</option>';
+                                            }else{
+                                                echo '<option value="ne">Nepali</option>';
+                                                echo '<option value="en">English</option>';
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="">Event Title</label>
                                     <input class="form-control" type="text" name="title"  required=""/>
                                 </div>
@@ -128,12 +146,17 @@
                     <hr style="border: 2px solid cyan; margin-top: 0px;">
                     <p><?php echo $event['description']; ?></p>
                 </div>
-                <a href="../controller/deleteEvents.php?id=<?php echo $event['id'] ?>"/>Delete</a>
+                <?php
+                if (isset($_SESSION['userID'])) {
+                    ?>
+                    <a href="../controller/deleteEvents.php?id=<?php echo $event['id'] ?>"/>Delete</a>
+                    <?php
+                }
+                ?>
             </div>
             <?php
             }
             ?>
-
 
         </div>
     </div>

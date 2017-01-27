@@ -210,14 +210,22 @@ function getVideo($position, $conn)
 
 function getEvents($conn)
 {
-    $select = "SELECT * FROM `event`";
+    if($_SESSION['lang'] == 'en'){
+        $select = "SELECT * FROM `event`";
+    }else{
+        $select = "SELECT * FROM `ne_event`";
+    }
     $r = $conn->query($select);
     return $r;
 }
 
-function addEvent($title, $date, $venue, $desc, $time, $conn)
+function addEvent($title, $date, $venue, $desc, $time, $lang, $conn)
 {
-    $insertQuery = "INSERT INTO `event`(`title`, `date`, `venu`, `description`,`time` ) VALUES ('$title', '$date', '$venue','$desc','$time')";
+    if($lang == 'en'){
+        $insertQuery = "INSERT INTO `event`(`title`, `date`, `venu`, `description`,`time` ) VALUES ('$title', '$date', '$venue','$desc','$time')";
+    }else{
+        $insertQuery = "INSERT INTO `ne_event`(`title`, `date`, `venu`, `description`,`time` ) VALUES ('$title', '$date', '$venue','$desc','$time')";
+    }
     $conn->query($insertQuery);
 }
 
@@ -230,7 +238,11 @@ function getMenu($lang, $conn)
 
 function readEvents($pos, $conn)
 {
-    $select = "SELECT * FROM `event` WHERE `id` = $pos";
+    if($_SESSION['lang'] == 'en'){
+        $select = "SELECT * FROM `event` WHERE `id` = $pos";
+    }else{
+        $select = "SELECT * FROM `ne_event` WHERE `id` = $pos";
+    }
     $r = $conn->query($select);
     return $r;
 }
