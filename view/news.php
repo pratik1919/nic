@@ -51,7 +51,7 @@
 
     <div id="content" class="container">
 
-        <form action="read.php" id*="read" method="post">
+        <form action="read.php" id="read" method="post">
             <input type="hidden" id="positionId" name="positionId"/>
             <input type="hidden" value="news" name="content"/>
         </form>
@@ -70,6 +70,7 @@
                         <form class="form" action="../controller/c_addNews.php" method="post" enctype="multipart/form-data">
 
                             <input type="hidden" name="positionId"/>
+
                             <div class="form-group">
                                 <label for="">Title</label>
                                 <input class="form-control" type="text" name="title" required=""/>

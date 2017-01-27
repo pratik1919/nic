@@ -63,14 +63,15 @@ $content = $_POST['content'];
             <?php
             if($content == 'news'){
                 ?>
-                <div class="col-md-4 small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 350px;"></div>
+                <h2><?php echo $row['title']; ?></h2>
+                <h4><?php echo $row['date']; ?></h4>
+                <hr style="margin-top: 0px;">
+                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 450px; background-size: contain; background-repeat: no-repeat;"></div>
             <?php
             }
             ?>
 
-            <div class="col-md-8">
-                <h2><?php echo $row['title']; ?></h2>
-                <h4><?php echo $row['date']; ?></h4>
+            <div class="row" style="text-align: justify; line-height: 2em;">
                 <?php
                 if($content == 'news'){
                     ?>

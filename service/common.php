@@ -6,6 +6,8 @@
  * Time: 12:52 PM
  */
 
+
+
 include '../config/dbConnect.php';
 
 
@@ -27,7 +29,12 @@ function getDonor($med, $conn)
 
 
 function getNewsCount($conn){
-    $stmt1 = $conn->prepare("SELECT MAX(count) AS c FROM `news`");
+
+    if($_SESSION['lang'] == 'en'){
+        $stmt1 = $conn->prepare("SELECT MAX(count) AS c FROM `news`");
+    }else{
+        $stmt1 = $conn->prepare("SELECT MAX(count) AS c FROM `ne_news`");
+    }
     $stmt1->execute();
     $result = $stmt1->get_result();
     while ($row = $result->fetch_assoc()) {
@@ -35,6 +42,34 @@ function getNewsCount($conn){
     }
     return $count;
 }
+
+
+function addNeNews($title, $date, $news, $photo, $pos, $conn){
+
+    $stmt = $conn->prepare("SELECT * FROM `ne_news` WHERE `position_id` = ?");
+    $stmt->bind_param("i", $pos);
+    $stmt->execute();
+    while ($stmt->fetch()) {
+    }
+
+    if ($stmt->num_rows > 0) {
+        $count = getNewsCount($conn);
+        $newCount = $count + 1;
+        echo $newCount;
+        $stmt3 = $conn->prepare("UPDATE `ne_news` SET `position_id` = ? WHERE `position_id` = ?");
+        $stmt3->bind_param("ii", $newCount, $pos);
+        $stmt3->execute();
+
+        $stmt2 = $conn->prepare("UPDATE `ne_news` SET `count` = ?");
+        $stmt2->bind_param("i", $newCount);
+        $stmt2->execute();
+    }
+
+    $stmt4 = $conn->prepare("INSERT INTO `ne_news`(`title`, `date`, `news`, `photo`, `position_id`) VALUES (?,?,?,?,?)");
+    $stmt4->bind_param("ssssi", $title, $date, $news, $photo, $pos);
+    $stmt4->execute();
+}
+
 
 function addNews($title, $date, $news, $photo, $pos, $conn)
 {
@@ -92,7 +127,12 @@ function addContent($title, $content, $pos, $lang, $conn)
 
 function getNews($position, $conn)
 {
-    $select = $conn->prepare("SELECT * FROM `news` WHERE `position_id` = ?");
+    if($_SESSION['lang'] == 'en'){
+        $select = $conn->prepare("SELECT * FROM `news` WHERE `position_id` = ?");
+    }else{
+        $select = $conn->prepare("SELECT * FROM `ne_news` WHERE `position_id` = ?");
+    }
+
     $select->bind_param("s", $position);
     $select->execute();
     $r = $select->get_result();
@@ -198,7 +238,11 @@ function readEvents($pos, $conn)
 
 function getOlderNews($conn)
 {
-    $select = "SELECT * FROM `news` WHERE `position_id` > 5";
+    if($_SESSION['lang'] == 'en'){
+        $select = "SELECT * FROM `news` WHERE `position_id` > 5";
+    }else{
+        $select = "SELECT * FROM `ne_news` WHERE `position_id` > 5";
+    }
     $r = $conn->query($select);
     return $r;
 }

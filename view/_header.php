@@ -382,18 +382,19 @@ $menu = getMenu($_SESSION['lang'], $conn);
                                     </div>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="../controller/c_changeLanguage.php?lang=en"><img src="../img/english.png" height="15px" width="30px" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="../controller/c_changeLanguage.php?lang=ne"><img src="../img/Nepal.png" height="20px" width="30px" alt=""></a>
-                        </li>
-
+                        </li
                     </ul>
                 <?php
                 }
                 ?>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="../controller/c_changeLanguage.php?lang=en"><img src="../img/english.png" height="15px" width="30px" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="../controller/c_changeLanguage.php?lang=ne"><img src="../img/Nepal.png" height="20px" width="30px" alt=""></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
