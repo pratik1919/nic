@@ -19,7 +19,7 @@ $role = "null";
 $stmt = $conn->prepare("SELECT * FROM user WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
-$stmt->bind_result($id, $name, $email, $pass, $role, $uname);
+$stmt->bind_result($id, $name, $email, $pass, $uname);
 while ($stmt->fetch()){
     echo $name;
 }
