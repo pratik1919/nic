@@ -259,9 +259,9 @@ function getOlderNews($conn)
     return $r;
 }
 
-function addUser($name, $email, $password, $role, $username, $conn){
-    $insert = $conn->prepare("INSERT INTO `user`(`name`, `email`, `password`, `role`, `username`) VALUES (?,?,?,?,?)");
-    $insert->bind_param("sssss", $name, $email, $password, $role, $username);
+function addUser($name, $email, $password,  $username, $conn){
+    $insert = $conn->prepare("INSERT INTO `user`(`name`, `email`, `password`,  `username`) VALUES (?,?,?,?,?)");
+    $insert->bind_param("ssss", $name, $email, $password,  $username);
     $insert->execute();
 }
 
@@ -304,12 +304,12 @@ function checkEmail($email,$conn){
 }
 
 
-function checkEmail($email, $conn){
+/*function checkEmail($email, $conn){
 
     $select = "SELECT * FROM `user` WHERE `email` = '$email'";
     $exist = $conn->query($select);
     return $exist;
-}
+}*/
 
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
