@@ -13,8 +13,8 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $username = $_POST['username'];
-echo checkUser($username,$conn);
-checkEmail($email,$conn);
+/*echo checkUser($username,$conn);
+checkEmail($email,$conn);*/
 addUser($name, $email, $password,  $username, $conn);
 
 header('Location: ../view/index.php');
