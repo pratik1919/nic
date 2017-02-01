@@ -9,3 +9,4 @@
 include '../service/common.php';
 
 echo checkUser($_POST['username'], $conn);
+
