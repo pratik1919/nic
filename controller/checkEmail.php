@@ -9,3 +9,4 @@
 include '../service/common.php';
 
 echo checkEmail($_POST['email'], $conn);
+
