@@ -57,7 +57,6 @@ if(!isset($_SESSION["userID"])){
                         <label  for="">Email</label>
                         <input type="text" class="form-control" name="email" placeholder="Email" onchange="validateEmail()" required>
                         <span class="msg"  id="error-email">Email Address Already Exist</span>
-                        <!--<div> <span hidden="true" id="error-emailFormat">Invalid email address</span></div>-->
                     </div>
                     <div class="form-group">
                         <label  for="">Password</label>
