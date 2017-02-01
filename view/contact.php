@@ -14,40 +14,40 @@
     <meta charset="UTF-8">
     <title>National Innovation Center</title>
     <link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="../js/jquery.noty.js"></script>
+    <script src="../js/jquery-1.7.2.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/style.css"/>
     <link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
     <script src="../js/jquery.noty.packaged.min.js"></script>
+    <script src="../js/topRight.js"></script>
     <!--[if lt IE 7]>
     <style type="text/css">
         #wrapper {
             height: 100%;
         }
     </style>
+
     <![endif]-->
-    <script>
-        <?php
-        if(isset($_SESSION["message"])){
-        $message = $_SESSION["message"];
+    <?php
+    session_start();
+    if(isset($_SESSION["emailMessage"])){
+        $message = $_SESSION["emailMessage"];
         $messageType = $_SESSION["messageType"];
         ?>
-        alert("Hello");
-        notyMessage(<?php echo $message ?>,<?php echo $messageType ?>);
+        <script type="text/javascript">
+            $(document).ready(function () {
+                noty({
+                    text: '<?php echo $message ?>',
+                    layout: 'topRight',
+                    type: '<?php echo $messageType ?>'
+                });
+            });
+        </script>
         <?php
-        unset($_SESSION["message"]);
-        }
-        ?>
-        function notyMessage(message,messageType) {
-            noty({ text: message});
-            noty({
-             text: message,
-             layout: 'topRight',
-             type: messageType
-             });
-        }
-    </script>
+        unset($_SESSION["emailMessage"]);
+    }
+    ?>
+
 </head>
 <body>
 
@@ -77,7 +77,7 @@
             </form>
         </div>
     </div>
-
+    <div style="height: 50px;"> </div>
 
     <div id="footer">
         <?php

@@ -52,7 +52,9 @@ if(isset($_FILES["uploadFile"]["tmp_name"])){
 //            end of excel code
             fclose($file);
 
-            header("Location: ../view/donorsList.php?id=$medium");
+
+            $path = base64_encode("id=$medium");
+            header("Location: ../view/donorsList.php?$path");
 
         }
     }else{

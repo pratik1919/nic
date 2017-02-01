@@ -18,11 +18,9 @@ $news = strip_tags($_POST['news']);
 $photo =  $_FILES['photo']['name'];
 $photo_tmp = $_FILES['photo']['tmp_name'];
 move_uploaded_file($photo_tmp,"../img/$photo");
-
-
 if($lang == 'en'){
-    addNews($title, $date, $news, $photo, $positionID, $conn);
+    addNews($title, $date,  nl2br($news), $photo, $positionID, $conn);
 }else{
-    addNeNews($title, $date, $news, $photo, $positionID, $conn);
+    addNeNews($title, $date,  nl2br($news), $photo, $positionID, $conn);
 }
 header('Location: ../view/news.php');

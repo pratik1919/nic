@@ -25,16 +25,32 @@
 <!--        </div>-->
 
         <div class="col-md-4">
-            <h3>सम्पर्क ठेगाना</h3>
+            <?php
+            if($_SESSION['lang'] == 'en'){
+                ?>
+            <h3>Contact Info</h3>
+                <p>
+                <br/><span class="glyphicon glyphicon-home"></span> Shivabhakta Marg 304, Lazimpat, Kathmandu Nepal <br>
+                <br/><span class="glyphicon glyphicon-phone"></span> Phone: +977 442 8090 or +977 9841592361 <br>
+                    <br/><span class="glyphicon glyphicon-info-sign"></span> Write email to Dr. Mahabir Pun for further
+                    information: <br><br>
 
-            <p>शिव भक्त मार्ग - ३०४,लाजिम्पाट   ,<br/>
-                काठमाडौँ, नेपाल, <br/> फोन +९७७ ४४२ ८०९० वा +९७७ ९८४१५९२३६१
-                <br/>  Shivabhakta Marg 304, <br/> Lazimpat, Kathmandu Nepal
-                <br/>  Phone: +977 442 8090 or +977 9841592361
-                <br/> थप जानकारीका लागि महाबीर पुन लाई इमेल गर्नु होस् ( Write email to Dr. Mahabir Pun for further
-                information: ) <br/>
-                nicnepal.mahabir@gmail.com
-                <br/>
+            <?php
+            }else{
+                ?>
+            <h3>सम्पर्क ठेगाना</h3><br>
+
+            <p><span class="glyphicon glyphicon-home"></span> शिव भक्त मार्ग - ३०४,लाजिम्पाट ,
+                काठमाडौँ, नेपाल. <br/><br>
+                <span class="glyphicon glyphicon-phone"></span> फोन +९७७ ४४२ ८०९० वा +९७७ ९८४१५९२३६१ <br>
+
+                <br/><span class="glyphicon glyphicon-info-sign"></span> थप जानकारीका लागि महाबीर पुन लाई इमेल गर्नु होस् <br/><br>
+            <?php
+            }
+            ?>
+
+                <span class="glyphicon glyphicon-envelope"></span> nicnepal.mahabir@gmail.com
+
             <h3>Newsletter</h3>
             https://t.co/mPrMRxIlpv
             </p>

@@ -5,6 +5,10 @@
  * Date: 1/23/2017
  * Time: 7:10 PM
  */
+session_start();
+if(!isset($_SESSION["userID"])){
+    header("Location:index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -69,7 +73,7 @@
         </div>
     </div>
 </div>
-
+<div style="height: 50px;"> </div>
 <div id="footer">
     <?php
     include '_footer.php';

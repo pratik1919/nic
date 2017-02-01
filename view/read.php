@@ -66,12 +66,12 @@ $content = $_POST['content'];
             if($content == 'news'){
                 ?>
 
-                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 450px; background-size: contain; background-repeat: no-repeat;"></div>
+                <div class="small-news col-lg-4" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 450px; background-size: contain; background-repeat: no-repeat;"></div>
             <?php
             }
             ?>
 
-            <div class="row" style="text-align: justify; line-height: 2em;">
+            <div class="col-lg-8" style="text-align: justify; line-height: 2em;">
                 <?php
                 if($content == 'news'){
                     ?>
@@ -158,7 +158,7 @@ $content = $_POST['content'];
 
 
     </div>
-
+    <div style="height: 50px;"> </div>
 
     <div id="footer">
         <?php

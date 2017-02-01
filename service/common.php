@@ -7,7 +7,6 @@
  */
 
 
-
 include '../config/dbConnect.php';
 
 
@@ -266,5 +265,28 @@ function addUser($name, $email, $password, $role, $username, $conn){
 }
 
 function remEvent($id, $conn){
-    $conn->query("DELETE FROM `event` WHERE id=$id");
+
+    if($_SESSION['lang'] == 'en'){
+        $conn->query("DELETE FROM `event` WHERE id=$id");
+    }else{
+        $conn->query("DELETE FROM `ne_event` WHERE id=$id");
+    }
+}
+
+
+function checkEmail($email, $conn){
+
+    $select = "SELECT * FROM `user` WHERE `email` = '$email'";
+    $exist = $conn->query($select);
+    return $exist;
+}
+
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }

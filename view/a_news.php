@@ -59,7 +59,7 @@
 
 </form>
 </div>
-
+    <div style="height: 50px;"> </div>
 <div id="footer">
     <?php
     include '_footer.php';

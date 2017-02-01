@@ -28,19 +28,32 @@ if ($user) {
             if ($newPassword == $repPassword) {
 
                 if (strlen($newPassword) > 15 || strlen($newPassword) < 6) {
-                    echo "Password must be betwwen 6 & 15";
+                    $_SESSION['emailMessage']='Password must be between 6 & 15';
+                    $_SESSION['messageType']='change';
+                    header("Location:../view/a_Changepassword.php");
+
                 } else {
                     $querychange = $conn->query("UPDATE user SET password='$newPassword' WHERE username='$user'");
+                    $_SESSION['emailMessage']='Password changed successfully';
+                    $_SESSION['messageType']='information';
+                    header("Location:../view/a_Changepassword.php");
 
-                    session_destroy();
                 }
-            } else
-                echo("New Password don't matched");
+            } else {
+                $_SESSION['emailMessage'] = 'New Password does not match!';
+                $_SESSION['messageType'] = 'change';
+                header("Location:../view/a_Changepassword.php");
+            }
 
-        } else
-            echo("Old Password doesn't matched");
+        } else {
+            $_SESSION['emailMessage'] = 'Old Password does not matched';
+            $_SESSION['messageType'] = 'change';
+            header("Location:../view/a_Changepassword.php");
+        }
     }else{
-        echo"Password changed successfully";
+        $_SESSION['emailMessage']='Password changed successfully';
+        $_SESSION['messageType']='information';
+        header("Location:../view/a_Changepassword.php");
     }
 
 }else{

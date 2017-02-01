@@ -84,7 +84,9 @@ $med = $splitedQS[1];
                             <label for="">Upload Excel File: </label>
                             <input type="file" name="uploadFile" required=""/>
                         </div>
-                        <input class="btn btn-primary btn-block" type="submit"/>
+                        <div class="addDiv">
+                            <input class="btn btn-primary btn-block" type="submit"/>
+                        </div>
 
                     </form>
 
@@ -104,9 +106,11 @@ $med = $splitedQS[1];
         <?php
         if (isset($_SESSION['userID'])) {
             ?>
+            <div class="addDiv">
 
-            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#addDonorModal">Add Donors
-            </button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#addDonorModal"><span class="glyphicon glyphicon-plus"></span> Add Donors
+            </button></div>
+
             <?php
         }
         ?>
@@ -127,40 +131,6 @@ $med = $splitedQS[1];
                 </div>
             </div>
         </div>
-        <!---->
-        <!--        <div class="row">-->
-        <!---->
-        <!--            यदि तपाई पनि यस् महादान अभियानलाई सहयोग गर्न चाहनुहुन्छ भने, निम्न अनुसार सहयोग गर्न सक्नु हुने छ !-->
-        <!---->
-        <!--            1. राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 00100105201853, एभरेष्ट बैङ्क, नयाँ बानेश्वर शाखा काठमाडौँ Swift Code – EVBLNPKA-->
-        <!--            2. राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 01906322060017, हिमालायन बैङ्क , ठमेल शाखा,काठमाडौँ Swift Code – HIMANPKA-->
-        <!--            3. नेपालमा eSewa Nepalको माध्यमबाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन चाहनु हुन्छ भने यहाँ Click गर्नुहोस् – www.nicnepal.org/donation-->
-        <!--            4. बिदेशमा रहनु हुनेहरुले gofundme.com बाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन यहाँ Click गर्नुहोस् – www.gofundme.com/nic-nepal-->
-        <!--            आर्थिक सहयोग गर्ने चाहनेहरूले यी बैङ्कहरूमा नगद जम्मा गरेर भौचरको फोटो nicnepal.mahabir@gmail.com मा पठाउनु होला अथवा 9841592361 मा महाबीर पुन लाइ फोन गर्नुस ।-->
-        <!--        </div>-->
-
-
-        <!--        <div class="container">-->
-        <!--            --><?php
-        //            $donor = getDonor($conn);
-        //
-        //            $i = 1;
-        //            while($row = $donor->fetch_assoc()){
-        //                ?>
-        <!--            <div class="col-md-4 donorList">-->
-        <!--                <h2>Rs --><?php //echo $row['amount']; ?><!--/-</h2>-->
-        <!--                <h3>--><?php //echo $row['name']; ?><!--</h3>-->
-        <!--                <h4>--><?php //echo $row['date']; ?><!--</h4>-->
-        <!--                <h4>--><?php //echo $row['medium']; ?><!--</h4>-->
-        <!--            </div>-->
-        <!---->
-        <!--                --><?php
-        //                $i++;
-        //            }
-        //            ?>
-        <!--        </div>-->
-
-
         <?php
 
         switch ($med) {
@@ -207,33 +177,41 @@ $med = $splitedQS[1];
             ?>
         </table>
 
-        <hr/>
-        <div class="row donationInfo">
-            यदि तपाई पनि यस् महादान अभियानलाई सहयोग गर्न चाहनुहुन्छ भने, निम्न अनुसार सहयोग गर्न सक्नु हुने छ!
-            <br/>
-            <ol>
-                <li>राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 00100105201853, एभरेष्ट बैङ्क, नयाँ बानेश्वर शाखा काठमाडौँ
-                    Swift Code – EVBLNPKA
-                </li>
-                <li>राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 01906322060017, हिमालायन बैङ्क , ठमेल शाखा,काठमाडौँ Swift
-                    Code – HIMANPKA
-                </li>
-                <li>नेपालमा eSewa Nepal को माध्यमबाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन चाहनु हुन्छ भने यहाँ
-                    Click गर्नुहोस्< – www.nicnepal.org/donation
-                </li>
-                <li>बिदेशमा रहनु हुनेहरुले gofundme.com बाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन यहाँ Click
-                    गर्नुहोस<a href="https://www.gofundme.com/nic-nepal"> – www.gofundme.com/nic-nepal
-                    </a> आर्थिक सहयोग गर्ने चाहनेहरूले यी बैङ्कहरूमा नगद जम्मा गरेर भौचरको फोटो
-                    nicnepal.mahabir@gmail.com मा पठाउनु होला अथवा 9841592361 मा महाबीर पुन लाइ फोन गर्नुस ।
-                </li>
-            </ol>
+        <?php
+        if($_SESSION['lang'] == 'en'){
+            ?>
+            <hr/>
+            <div class="row donationInfo">
+                यदि तपाई पनि यस् महादान अभियानलाई सहयोग गर्न चाहनुहुन्छ भने, निम्न अनुसार सहयोग गर्न सक्नु हुने छ!
+                <br/>
+                <ol>
+                    <li>राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 00100105201853, एभरेष्ट बैङ्क, नयाँ बानेश्वर शाखा काठमाडौँ
+                        Swift Code – EVBLNPKA
+                    </li>
+                    <li>राष्ट्रिय आविष्कार केन्द्र, खाता नम्बर 01906322060017, हिमालायन बैङ्क , ठमेल शाखा,काठमाडौँ Swift
+                        Code – HIMANPKA
+                    </li>
+                    <li>नेपालमा eSewa Nepal को माध्यमबाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन चाहनु हुन्छ भने यहाँ
+                        Click गर्नुहोस्< – www.nicnepal.org/donation
+                    </li>
+                    <li>बिदेशमा रहनु हुनेहरुले gofundme.com बाट राष्ट्रिय आविष्कार केन्द्रको लागि पैसा पठाउन यहाँ Click
+                        गर्नुहोस<a href="https://www.gofundme.com/nic-nepal"> – www.gofundme.com/nic-nepal
+                        </a> आर्थिक सहयोग गर्ने चाहनेहरूले यी बैङ्कहरूमा नगद जम्मा गरेर भौचरको फोटो
+                        nicnepal.mahabir@gmail.com मा पठाउनु होला अथवा 9841592361 मा महाबीर पुन लाइ फोन गर्नुस ।
+                    </li>
+                </ol>
 
-        </div>
+            </div>
+        <?php
+        }
+        ?>
+
     </div>
 
     <script>
         $('#donation-table').dataTable();
     </script>
+    <div style="height: 50px;"> </div>
 
     <div id="footer">
         <?php

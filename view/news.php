@@ -83,7 +83,7 @@
 
                             <div class="form-group">
                                 <label for="">Content</label><br/>
-                                <textarea style="width: 100%;" name="news" id="" cols="30" rows="10"
+                                <textarea style="width: 100%;white-space: pre-wrap;" name="news" id="" cols="30" rows="10"
                                           required=""></textarea>
                             </div>
                             <div class="form-group">
@@ -232,7 +232,7 @@
 
     </div>
 
-
+    <div style="height: 50px;"> </div>
     <div id="footer">
         <?php
         include '_footer.php';

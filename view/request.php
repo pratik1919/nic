@@ -62,7 +62,7 @@
             <embed src="../uploads/<?php echo $content; ?>" style="width: 100% !important; height: 1180px; position: relative;"></embed>
         </div>
     </div>
-
+    <div style="height: 50px;"> </div>
     <div id="footer">
         <?php
         include '_footer.php';

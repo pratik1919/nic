@@ -14,6 +14,6 @@ $title = strip_tags($_POST['title']);
 $content = strip_tags($_POST['content']);
 $lang = strip_tags($_POST['lang']);
 
-addContent($title, $content, $positionID, $lang, $conn);
+addContent($title, nl2br($content), $positionID, $lang, $conn);
 
 header('Location: ../view/index.php');

@@ -5,6 +5,10 @@
  * Date: 1/23/2017
  * Time: 7:10 PM
  */
+session_start();
+if(!isset($_SESSION["userID"])){
+    header("Location:index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +20,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/style.css"/>
     <link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
-
+    <script src="../js/jquery.noty.packaged.min.js"></script>
+<!--    <script src="../js/topRight.js"></script>-->
 
     <!--[if lt IE 7]>
     <style type="text/css">
@@ -25,6 +30,26 @@
         }
     </style>
     <![endif]-->
+
+    <?php
+    if(isset($_SESSION["emailMessage"])){
+        $message = $_SESSION["emailMessage"];
+        $messageType = $_SESSION["messageType"];
+        ?>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                noty({
+                    text: '<?php echo $message ?>',
+                    timeout: 2500,
+                    layout: 'topRight',
+                    type: '<?php echo $messageType ?>'
+                });
+            });
+        </script>
+        <?php
+        unset($_SESSION["emailMessage"]);
+    }
+    ?>
 
 </head>
 <body>
@@ -54,15 +79,16 @@
                 <div class="form-group">
                     <label  for="">Confirm Password</label>
                     <input type="password"  class="form-control" name="confirmPassword" placeholder="Confirm Password" required>
-
                 </div>
-                <input type='submit' name='submit' value='Change Password'>
+                <div style="text-align: right;">
+                    <input class="btn btn-primary" type='submit' name='submit' value='Change Password'>
+                </div>
             </form>
         </div>
     </div>
 </div>
 </div>
-
+<div style="height: 50px;"> </div>
 <div id="footer">
     <?php
     include '_footer.php';

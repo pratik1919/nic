@@ -6,7 +6,7 @@
  * Time: 1:08 PM
  */
 
-
+session_start();
 include('../config/dbConnect.php');
 
 if(isset($_POST['name'])){
@@ -33,7 +33,6 @@ if(isset($_POST['name'])){
         $mail->Host = "smtp.gmail.com";
 // set the SMTP port for the GMAIL server
         $mail->Port = "465";
-        $mail->From = $admin_email;
         $mail->FromName='NIC';
         $mail->AddAddress("pratik.budhathoki@deerwalk.edu.np");
         $mail->Subject  =  'Contact Us Email';
@@ -42,13 +41,16 @@ if(isset($_POST['name'])){
 
         if($mail->Send())
         {
-            $_SESSION['message']='Admin credentials have been sent to admin email address';
+            $_SESSION['emailMessage']='Contact email has been changed';
+            $_SESSION['messageType']='information';
 
             header("Location:../view/contact.php");
         }
         else
         {
-            $_SESSION['message']=$mail->ErrorInfo;
+            $_SESSION['emailMessage']="Mail not sent! Check internet connection.";
+            $_SESSION['messageType']='warning';
+            header("Location:../view/contact.php");
         }
 
 

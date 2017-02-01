@@ -17,6 +17,6 @@ $date = strip_tags($_POST['date']);
 $venue = strip_tags($_POST['venue']);
 $desc = strip_tags($_POST['description']);
 $time = strip_tags($_POST['time']);
-addEvent($title, $date, $venue, $desc, $time, $lang, $conn);
+addEvent($title, $date, $venue, nl2br($desc), $time, $lang, $conn);
 
 header('Location: ../view/events.php');
