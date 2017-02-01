@@ -103,10 +103,10 @@
                 <?php
                 if (isset($_SESSION['userID'])) {
                 ?>
-                <div class="changeBtnDiv">
-                    <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="donation-2" data-toggle="modal" data-target="#addDonationModal">
-                    </button>
-                </div>
+                    <div class="changeBtnDiv">
+                        <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="donation-2" data-toggle="modal" data-target="#addDonationModal">
+                        </button>
+                    </div>
                 <?php
                 }
 

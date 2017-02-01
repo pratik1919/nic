@@ -12,10 +12,10 @@ include '../service/common.php';
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
-$role = $_POST['role'];
 $username = $_POST['username'];
-
-addUser($name, $email, $password, $role, $username, $conn);
+echo checkUser($username,$conn);
+checkEmail($email,$conn);
+addUser($name, $email, $password,  $username, $conn);
 
 header('Location: ../view/index.php');
 

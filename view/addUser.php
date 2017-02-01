@@ -30,6 +30,9 @@ if(!isset($_SESSION["userID"])){
     </style>
     <![endif]-->
 
+    <script type="text/javascript" src="../js/custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
 </head>
 <body>
 <div id="wrapper">
@@ -43,31 +46,33 @@ if(!isset($_SESSION["userID"])){
             <div class="col-md-12">
                 <h4 style="color: #ffffff">Change Password</h4>
 
-                <form class="form" role="form" method="post"
+                <form name="myForm" class="form" role="form" method="post"
                       action="../controller/a_addUser.php" accept-charset="UTF-8"
-                      id="login-nav">
+                      id="login-nav" >
                     <div class="form-group">
                         <label  for="">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Full Name" required>
+                        <input type="text" class="form-control" name="name" placeholder="Full Name"onchange=" checkName()" required>
                     </div>
                     <div class="form-group">
                         <label  for="">Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Email" required>
-
+                        <input type="text" class="form-control" name="email" placeholder="Email" onchange="validateEmail()" required>
+                        <span class="msg"  id="error-email">Email Address Already Exist</span>
+                        <!--<div> <span hidden="true" id="error-emailFormat">Invalid email address</span></div>-->
                     </div>
                     <div class="form-group">
                         <label  for="">Password</label>
-                        <input type="password"  class="form-control" name="password" placeholder="Password" required>
+                        <input type="password"  id="password" class="form-control" name="password" placeholder="Password" onchange="passLength()" required>
                     </div>
-                    <div class="form-group">
+                   <!-- <div class="form-group">
                         <label  for="">Role</label>
                         <input type="text"  class="form-control" name="role" placeholder="Role" required>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <label  for="">Username</label>
-                        <input type="text"  class="form-control" name="username" placeholder="Username" required>
+                        <input type="text" id="username" class="form-control" name="username" placeholder="Username" onchange="validateUsername()" required>
+                        <span class="error" id="error-username">Username already exist.</span>
                     </div>
-                    <input type='submit' name='submit' value='Add User'>
+                    <input type='submit' id="addUser" name='submit' value='Add User'>
                 </form>
             </div>
         </div>

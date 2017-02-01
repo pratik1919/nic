@@ -139,10 +139,9 @@ html,
 }
 
 .donation-medium{
-    /*background-image: url("../img/stock-photo-99699559.jpg");*/
+    background-image: url("../img/stock-photo-99699559.jpg");
     background: cover;
     background-position: center;
-    background-color: #ea4335;
     color: #ffffff;
     padding-left: 30px;
     padding-right: 30px;
@@ -150,9 +149,9 @@ html,
     min-height: 375px;
 
 
-    /*-webkit-box-shadow: inset 0px 0px 111px 60px rgba(0,0,0,0.53);*/
-    /*-moz-box-shadow: inset 0px 0px 111px 60px rgba(0,0,0,0.53);*/
-    /*box-shadow: inset 0px 0px 111px 60px rgba(0,0,0,0.53);*/
+    -webkit-box-shadow: inset 0px 0px 111px 60px rgba(0,0,0,0.53);
+    -moz-box-shadow: inset 0px 0px 111px 60px rgba(0,0,0,0.53);
+    box-shadow: inset 0px 0px 111px 60px rgba(0,0,0,0.53);
 }
 
 .donation-medium .col-md-3{
@@ -308,7 +307,6 @@ p{
     background-size: cover;
     position: relative;
     margin-bottom: 10px;
-    background-position: center;
 }
 
 .small-news :hover{
@@ -389,19 +387,9 @@ p{
     color: white;
 }
 
-.option{
-    position: absolute;
+.error{
     display: none;
-    right: 15px;
-
 }
-
-
-.event:hover .option{
-    display: block;
-}
-
-.addDiv{
-    text-align: right;
-    margin-bottom: 10px;
+.msg{
+    display: none;
 }

@@ -11,13 +11,13 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Student Management</title>
+    <title>National Innovation Center</title>
     <link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Ultra" rel="stylesheet">
 </head>
-<body font-family: 'Kaushan Script', cursive;">
+<body 'font-family': 'Kaushan Script', cursive;">
 <div style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; position: absolute;">
     <div style="text-align: center;">
         <div class="container" style="text-align: center;">

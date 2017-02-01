@@ -7,6 +7,7 @@
  */
 
 
+
 include '../config/dbConnect.php';
 
 
@@ -271,6 +272,35 @@ function remEvent($id, $conn){
     }else{
         $conn->query("DELETE FROM `ne_event` WHERE id=$id");
     }
+}
+
+function checkUser($username, $conn){
+    $checkdata="SELECT * FROM `user` WHERE `username` ='$username'";
+
+    $query = $conn->query($checkdata);
+
+    if($query->num_rows > 0)
+    {
+        echo "username already exist";
+
+    }
+    else
+    {
+        echo "OK";
+    }
+}
+
+function checkEmail($email,$conn){
+    $checkEmail = "SELECT * FROM `user` WHERE `email`='$email'";
+    $query = $conn->query($checkEmail);
+
+    if($query->num_rows > 0){
+        echo "Email already exist.";
+    }
+    else{
+        echo "ok";
+    }
+
 }
 
 
