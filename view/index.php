@@ -40,7 +40,7 @@
 
 
         <div class="container">
-            <div class="col-md-4" style="position: absolute; z-index: -1; zoom: 80%">
+            <div class="col-md-4" style="position: relative; z-index: -1; zoom: 80%">
                 <img src="../img/mahabripun_final.png" alt=""/>
             </div>
 

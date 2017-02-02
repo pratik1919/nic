@@ -44,13 +44,16 @@
 <div id="wrapper">
 
     <div id="header" class="row">
-        <?php include '_header.php'; ?>
+        <?php
+        include '_header.php';
+        $e = getEvents($conn);
+        ?>
     </div>
     <!-- #header -->
     <div id="content">
         <div class="container">
 
-            <!--    donation info model-->
+            <!--    add event model-->
             <div id="addEventsModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
 
@@ -123,6 +126,10 @@
             </form>
 
 
+
+            <?php
+            if($e->num_rows > 0 || isset($_SESSION['userID'])){
+            ?>
             <?php
             if (isset($_SESSION['userID'])) {
                 ?>
@@ -169,6 +176,13 @@
 
         </div>
     </div>
+    <?php
+    }else{
+        ?>
+        <h2>No current upcoming events</h2>
+        <?php
+    }
+    ?>
     <div style="height: 50px;"> </div>
     <div id="footer">
         <?php

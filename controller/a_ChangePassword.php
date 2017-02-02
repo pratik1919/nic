@@ -14,7 +14,7 @@ $user = $_SESSION['userUsername'];
 if ($user) {
     if ($_POST['submit']) {
         //user is logged in
-        $oldPassword = strip_tags($_POST['oldPassword']);
+        $oldPassword = md5(strip_tags($_POST['oldPassword']));
         $newPassword = strip_tags($_POST['newPassword']);
         $repPassword = strip_tags($_POST['confirmPassword']);
 
@@ -26,6 +26,7 @@ if ($user) {
         //check password
         if ($oldPassword == $oldPassword1) {
             if ($newPassword == $repPassword) {
+                $n = md5($newPassword);
 
                 if (strlen($newPassword) > 15 || strlen($newPassword) < 6) {
                     $_SESSION['emailMessage']='Password must be between 6 & 15';
@@ -33,7 +34,7 @@ if ($user) {
                     header("Location:../view/a_Changepassword.php");
 
                 } else {
-                    $querychange = $conn->query("UPDATE user SET password='$newPassword' WHERE username='$user'");
+                    $querychange = $conn->query("UPDATE user SET password='$n' WHERE username='$user'");
                     $_SESSION['emailMessage']='Password changed successfully';
                     $_SESSION['messageType']='information';
                     header("Location:../view/a_Changepassword.php");

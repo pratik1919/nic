@@ -231,7 +231,9 @@ $menu = getMenu($_SESSION['lang'], $conn);
 
 
 <div class="col-lg-2">
+    <a href="index.php">
     <img src="../img/logo.png" alt=""/>
+    </a>
 </div>
 
 <div class="col-md-10" style="padding: 0px;">
@@ -349,7 +351,7 @@ $menu = getMenu($_SESSION['lang'], $conn);
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle"
-                               data-toggle="dropdown"><b>Hi <?php echo $_SESSION['userUsername']; ?></b> <span
+                               data-toggle="dropdown"><b>Hi <?php echo ucwords($_SESSION['userUsername']); ?></b> <span
                                         class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="../view/a_Changepassword.php">Change Password</a></li>

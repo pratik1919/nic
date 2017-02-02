@@ -44,12 +44,18 @@
 <div id="wrapper">
 
     <div id="header" class="row">
-        <?php include '_header.php'; ?>
+        <?php
+        include '_header.php';
+
+        $news = News($conn);
+        ?>
     </div>
     <!-- #header -->
 
 
     <div id="content" class="container">
+
+
 
         <form action="read.php" id="read" method="post">
             <input type="hidden" id="positionId" name="positionId"/>
@@ -101,6 +107,10 @@
 
             </div>
         </div>
+
+        <?php
+        if($news->num_rows > 0 || isset($_SESSION['userID'])){
+        ?>
 
         <div class="row">
             <div class="col-md-3">
@@ -231,6 +241,13 @@
 
 
     </div>
+    <?php
+    }else{
+            ?>
+        <h2>News are being uploaded</h2>
+    <?php
+    }
+    ?>
 
     <div style="height: 50px;"> </div>
     <div id="footer">

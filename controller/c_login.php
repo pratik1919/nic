@@ -11,7 +11,8 @@ session_start();
 include '../config/dbConnect.php';
 
 $username = strip_tags($_POST['username']);
-$password = strip_tags($_POST['password']);
+$p = strip_tags($_POST['password']);
+$password = md5($p);
 
 $stored_password = "null";
 $role = "null";

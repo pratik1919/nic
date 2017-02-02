@@ -46,7 +46,7 @@
 
             $f = getContent('overall', $conn);
             $row = $f->fetch_assoc();
-            $content = $row['content'];
+            $content = $row['ne'];
 
             //            $file1 = "nic/uploads/$content";
             //            header('Content-type: application/pdf');

@@ -60,10 +60,6 @@ if(!isset($_SESSION["userID"])){
                         <input type="password"  class="form-control" name="password" placeholder="Password" required>
                     </div>
                     <div class="form-group">
-                        <label  for="">Role</label>
-                        <input type="text"  class="form-control" name="role" placeholder="Role" required>
-                    </div>
-                    <div class="form-group">
                         <label  for="">Username</label>
                         <input type="text"  class="form-control" name="username" placeholder="Username" required>
                     </div>

@@ -62,7 +62,9 @@ session_start();
         <div style="width: 50%; display: inline-block;">
             <div class="highlight login-div">
                 <div>
+                    <a href="index.php">
                     <img src="../img/logo.png" alt=""/>
+                    </a>
                 </div>
 
                 <hr/>

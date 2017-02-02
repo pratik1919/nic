@@ -138,6 +138,20 @@ function getNews($position, $conn)
     return $r;
 }
 
+
+function News($conn)
+{
+    if($_SESSION['lang'] == 'en'){
+        $select = $conn->prepare("SELECT * FROM `news`");
+    }else{
+        $select = $conn->prepare("SELECT * FROM `ne_news`");
+    }
+    $select->execute();
+    $r = $select->get_result();
+    return $r;
+}
+
+
 function getContent($position, $conn)
 {
     $select = $conn->prepare("SELECT * FROM `contents` WHERE `location_code` = ?");
@@ -218,6 +232,7 @@ function getEvents($conn)
     return $r;
 }
 
+
 function addEvent($title, $date, $venue, $desc, $time, $lang, $conn)
 {
     if($lang == 'en'){
@@ -258,9 +273,9 @@ function getOlderNews($conn)
     return $r;
 }
 
-function addUser($name, $email, $password, $role, $username, $conn){
-    $insert = $conn->prepare("INSERT INTO `user`(`name`, `email`, `password`, `role`, `username`) VALUES (?,?,?,?,?)");
-    $insert->bind_param("sssss", $name, $email, $password, $role, $username);
+function addUser($name, $email, $password, $username, $conn){
+    $insert = $conn->prepare("INSERT INTO `user`(`name`, `email`, `password`, `username`) VALUES (?,?,?,?)");
+    $insert->bind_param("ssss", $name, $email, $password, $username);
     $insert->execute();
 }
 
