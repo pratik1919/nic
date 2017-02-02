@@ -405,3 +405,10 @@ p{
     text-align: right;
     margin-bottom: 10px;
 }
+
+.error{
+    display: none;
+    background-color: red;
+    color: #ffffff;
+    position: absolute;
+}

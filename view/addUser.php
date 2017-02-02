@@ -52,8 +52,8 @@ if(!isset($_SESSION["userID"])){
                     </div>
                     <div class="form-group">
                         <label  for="">Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Email" required>
-
+                        <input type="text" class="form-control" name="email" placeholder="Email" id="email" required="" onchange="checkEmail();">
+                        <div class="error email">Email already exists</div>
                     </div>
                     <div class="form-group">
                         <label  for="">Password</label>
@@ -61,9 +61,12 @@ if(!isset($_SESSION["userID"])){
                     </div>
                     <div class="form-group">
                         <label  for="">Username</label>
-                        <input type="text"  class="form-control" name="username" placeholder="Username" required>
+                        <input type="text"  class="form-control" name="username" id="username" placeholder="Username" required="" onchange="checkUsername();">
+                        <div class="error username">Username already exists</div>
                     </div>
-                    <input type='submit' name='submit' value='Add User'>
+                    <div class="addDiv">
+                        <input class="btn btn-primary" type='submit' name='submit' id = "registerButton" value='Add User'>
+                    </div>
                 </form>
             </div>
         </div>
@@ -75,5 +78,59 @@ if(!isset($_SESSION["userID"])){
     include '_footer.php';
     ?>
 </div>
+
+
+<script>
+    function checkUsername(){
+        var username = document.getElementById('username').value;
+
+        $.ajax({
+            type:'POST',
+            url:'../service/usernameExists.php',
+            data:'username='+username,
+            success:function(data){
+
+                var jsonData = JSON.parse(data);
+                //alert(jsonData);
+                if(jsonData.message == "fail"){
+
+                    $("#username").attr('style', 'border: 1px solid blue');
+                    $(".username").attr('style', 'display: none;');
+                    $("#registerButton").prop('disabled', false);
+                }else{
+                    $("#username").attr('style', 'border: 2px solid red');
+                    $(".username").attr('style', 'display: block;');
+                    $("#registerButton").prop('disabled', true);
+                }
+            }
+        })
+    }
+
+    function checkEmail(){
+        var username = document.getElementById('email').value;
+
+        $.ajax({
+            type:'POST',
+            url:'../service/emailExist.php',
+            data:'username='+username,
+            success:function(data){
+
+                var jsonData = JSON.parse(data);
+                //alert(jsonData);
+                if(jsonData.message == "fail"){
+
+                    $("#email").attr('style', 'border: 1px solid blue');
+                    $(".email").attr('style', 'display: none;');
+                    $("#registerButton").prop('disabled', false);
+                }else{
+                    $("#email").attr('style', 'border: 2px solid red');
+                    $(".email").attr('style', 'display: block;');
+                    $("#registerButton").prop('disabled', true);
+                }
+            }
+        })
+    }
+
+</script>
 </body>
 </html>

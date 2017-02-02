@@ -305,3 +305,40 @@ function generateRandomString($length = 10) {
     }
     return $randomString;
 }
+
+
+function validateUsername($conn, $username){
+
+    $query_select = "select * from user WHERE username='$username'" ;
+
+    $result = mysqli_query($conn,$query_select);
+
+    $data =array();
+
+    if(mysqli_num_rows($result)>0){
+        $data['message']='success';
+    }
+    else{
+        $data['message']='fail';
+    }
+
+    return json_encode($data);
+}
+
+function validateEmail($conn, $email){
+
+    $query_select = "select * from user WHERE email='$email'" ;
+
+    $result = mysqli_query($conn,$query_select);
+
+    $data =array();
+
+    if(mysqli_num_rows($result)>0){
+        $data['message']='success';
+    }
+    else{
+        $data['message']='fail';
+    }
+
+    return json_encode($data);
+}
