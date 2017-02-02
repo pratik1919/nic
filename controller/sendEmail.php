@@ -41,7 +41,7 @@ if(isset($_POST['name'])){
 
         if($mail->Send())
         {
-            $_SESSION['emailMessage']='Contact email has been changed';
+            $_SESSION['emailMessage']='Contact email has been send';
             $_SESSION['messageType']='information';
 
             header("Location:../view/contact.php");
