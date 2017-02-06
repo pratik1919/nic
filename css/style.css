@@ -390,16 +390,13 @@ p{
 }
 
 .option{
-    position: absolute;
-    display: none;
+    /*position: absolute;*/
+    position: relative;
+    /*display: none;*/
     right: 15px;
-
+    margin-left: 15px;
 }
 
-
-.event:hover .option{
-    display: block;
-}
 
 .addDiv{
     text-align: right;

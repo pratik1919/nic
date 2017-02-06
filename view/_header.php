@@ -279,7 +279,7 @@ $menu = getMenu($_SESSION['lang'], $conn);
                             <?php
                         } else {
                             ?>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">डोनोर लिस्त <span
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">दाता सूची<span
                                         class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <?php

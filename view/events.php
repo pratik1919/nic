@@ -9,7 +9,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head lang="en">
     <meta charset="UTF-8">
     <title>National Innovation Center</title>
@@ -120,6 +120,58 @@
             </div>
 
 
+
+            <!--    edit event model-->
+            <div id="editEventsModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Event</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form" action="../controller/editEvent.php" method="post">
+
+                                <input type="hidden" id="eid" name="eid">
+
+                                <div class="form-group">
+                                    <label for="">Event Title</label>
+                                    <input class="form-control" type="text" name="title"  required="" id="title"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Date</label>
+                                    <input id="datetime-local1" class="form-control" type="text" name="date" required=""/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Time</label>
+                                    <input  class="form-control" type="time" id="time" name="time" required=""/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Venue</label>
+                                    <input class="form-control" id="venu" type="text" name="venue" required=""/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Description</label>
+                                    <textarea class="form-control" id="description" name="description" id="" cols="30" rows="10" width="100%" required=""></textarea>
+                                </div>
+
+                                <input type="submit" value="Change" class="btn btn-primary btn-block"/>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
             <form action="read.php" id="read" method="post">
                 <input type="hidden" id="positionId" name="positionId"/>
                 <input type="hidden" value="event" name="content"/>
@@ -145,19 +197,20 @@
             while($event = $e->fetch_assoc()){
                 ?>
             <div class="col-lg-3">
+                <?php
+                if (isset($_SESSION['userID'])) {
+                    ?>
+                    <div class="option">
+                        <a href="../controller/deleteEvents.php?id=<?php echo $event['id'] ?>" class="btn btn-default glyphicon glyphicon-trash"/></a>
+                        <button href="#" id="<?php echo $event['id'] ?>" onclick="fetchEvent('<?php echo $event['id'] ?>')" data-toggle="modal" data-target="#editEventsModal" class="btn btn-default glyphicon glyphicon-pencil"/></button>
+                    </div>
+
+                    <?php
+                }
+                ?>
 
                 <div class="event small-news" id="<?php echo $event['id']; ?>" onclick="submitForm(this);">
-                    <?php
-                    if (isset($_SESSION['userID'])) {
-                        ?>
-                        <div class="option">
-                            <a href="../controller/deleteEvents.php?id=<?php echo $event['id'] ?>" class="btn btn-default glyphicon glyphicon-trash"/></a>
-                            <a href="../controller/editEvents.php?id=<?php echo $event['id'] ?>" class="btn btn-default glyphicon glyphicon-pencil"/></a>
-                        </div>
 
-                        <?php
-                    }
-                    ?>
                     <h3><?php echo $event['title']; ?></h3>
                     <h5 style="text-align: start;"><?php echo $event['date']; ?>
                         <span class="pull-right" ">
@@ -198,6 +251,26 @@
             var id = '#read';
             $(id).submit();
         }
+
+        function fetchEvent(id) {
+            $.ajax({
+                url:"../controller/fetchEvent.php",
+                type:"POST",
+                data:{id:id},
+                success:function (data) {
+                    var parsedData = JSON.parse(data);
+                    $("#eid").val(parsedData.id);
+                    $("#title").val(parsedData.title);
+                    $("#datetime-local1").val(parsedData.date);
+                    $("#time").val(parsedData.time);
+                    $("#venu").val(parsedData.venu);
+                    $("#description").val(parsedData.description);
+                },error:function (err) {
+
+                }
+            })
+        }
+
     </script>
 </body>
 </html>

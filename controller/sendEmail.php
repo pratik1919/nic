@@ -15,7 +15,7 @@ if(isset($_POST['name'])){
     $email = strip_tags($_POST['email']);
     $message = strip_tags($_POST['message']);
 
-        $admin_email = "pratik.budhathoki@gmail.com";
+//        $admin_email = "pratik.budhathoki@gmail.com";
 
         require_once('../PHPMailer-master/PHPMailerAutoload.php');
         $mail = new PHPMailer();
@@ -25,19 +25,19 @@ if(isset($_POST['name'])){
         $mail->SMTPAuth = true;
 //$mail->SMTPDebug = 1;
 // GMAIL username
-        $mail->Username = "pratik.budhathoki@deerwalk.edu.np";
+        $mail->Username = "info.nicNepalsite@gmail.com";
 // GMAIL password
-        $mail->Password = "pratima19";
+        $mail->Password = "NICmailPassword";
         $mail->SMTPSecure = "ssl";
 // sets GMAIL as the SMTP server
         $mail->Host = "smtp.gmail.com";
 // set the SMTP port for the GMAIL server
         $mail->Port = "465";
         $mail->FromName='NIC';
-        $mail->AddAddress("pratik.budhathoki@deerwalk.edu.np");
+        $mail->AddAddress("nicnepal.mahabir@gmail.com");
         $mail->Subject  =  'Contact Us Email';
         $mail->IsHTML(true);
-        $mail->Body    = 'Hello! '.$name.' wants to contact NIC. <br><br>His email: '.$email.' <br><br>Says: '.$message.' <br><br>Best Wishes,<br>NIC';
+        $mail->Body    = 'Hello! NIC,<br><br> '.$name.' wants to contact NIC. <br><br>His email: '.$email.' <br><br>Says:<br> '.$message.' <br><br>Best Wishes,<br>NIC';
 
         if($mail->Send())
         {

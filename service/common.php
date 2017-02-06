@@ -233,6 +233,18 @@ function getEvents($conn)
 }
 
 
+
+function getEvent($id, $conn)
+{
+    if($_SESSION['lang'] == 'en'){
+        $select = "SELECT * FROM `event` WHERE `id` = $id";
+    }else{
+        $select = "SELECT * FROM `ne_event` WHERE `id` = $id";
+    }
+    $r = $conn->query($select);
+    return $r;
+}
+
 function addEvent($title, $date, $venue, $desc, $time, $lang, $conn)
 {
     if($lang == 'en'){
@@ -341,4 +353,13 @@ function validateEmail($conn, $email){
     }
 
     return json_encode($data);
+}
+
+function editEvent($id, $title, $date, $time, $venue, $description, $conn){
+    if($_SESSION['lang'] == 'en'){
+        $insertQuery = "UPDATE `event` SET `title`='$title',`date`='$date',`time`='$time',`venu`='$venue',`description`='$description' WHERE `id` = $id";
+    }else{
+        $insertQuery = "UPDATE `ne_event` SET `title`='$title',`date`='$date',`time`='$time',`venu`='$venue',`description`='$description' WHERE `id` = $id";
+    }
+    $conn->query($insertQuery);
 }

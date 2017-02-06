@@ -15,6 +15,7 @@
     <title>National Innovation Center</title>
     <link rel="icon" href="../img/logo.png" type="image/png" sizes="16x16">
     <script src="../js/jquery-1.7.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/style.css"/>
     <link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
