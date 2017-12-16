@@ -31,7 +31,7 @@
             <h3>Contact Info</h3>
                 <p>
                 <br/><span class="glyphicon glyphicon-home"></span> Shivabhakta Marg 304, Lazimpat, Kathmandu Nepal <br>
-                <br/><span class="glyphicon glyphicon-phone"></span> Phone: +977 442 8090 or +977 9841592361 <br>
+                <br/><span class="glyphicon glyphicon-phone"></span> Phone: <a style="color: #8bae7e; text-decoration: none;" href="tel:+9774428090">+977 4428090</a> or <a style="color: #8bae7e; text-decoration: none;" href="tel:+9779841592361">+977 9841592361</a> <br>
                     <br/><span class="glyphicon glyphicon-info-sign"></span> Write email to Dr. Mahabir Pun for further
                     information: <br><br>
 
@@ -40,19 +40,21 @@
                 ?>
             <h3>सम्पर्क ठेगाना</h3><br>
 
-            <p><span class="glyphicon glyphicon-home"></span> शिव भक्त मार्ग - ३०४,लाजिम्पाट ,
-                काठमाडौँ, नेपाल. <br/><br>
-                <span class="glyphicon glyphicon-phone"></span> फोन +९७७ ४४२ ८०९० वा +९७७ ९८४१५९२३६१ <br>
+            <p><span class="glyphicon glyphicon-home"></span> शिवभक्त मार्ग - ३०४,लाजिम्पाट ,
+                काठमाडौँ, नेपाल <br/><br>
+                <span class="glyphicon glyphicon-phone"></span> फोन <a style="color: #8bae7e; text-decoration: none;" href="tel:+9774428090">+९७७ ४४२८०९० </a> वा <a style="color: #8bae7e; text-decoration: none;" href="tel:+9779841592361">+९७७ ९८४१५९२३६१</a> <br>
 
-                <br/><span class="glyphicon glyphicon-info-sign"></span> थप जानकारीका लागि महाबीर पुन लाई इमेल गर्नु होस् <br/><br>
+                <br/><span class="glyphicon glyphicon-info-sign"></span> थप जानकारीका लागि महाबीर पुनलाई इमेल गर्नु होस् <br/><br>
             <?php
             }
             ?>
 
-                <span class="glyphicon glyphicon-envelope"></span> nicnepal.mahabir@gmail.com
+                <span class="glyphicon glyphicon-envelope"></span><a href="mailto:nicnepal.mahabir@gmail.com" style="color: #8bae7e; text-decoration: none;"> nicnepal.mahabir@gmail.com </a>
 
             <h3>Newsletter</h3>
+            <a style="color: #8bae7e; text-decoration: none;" href="https://t.co/mPrMRxIlpv">
             https://t.co/mPrMRxIlpv
+            </a>
             </p>
         </div>
 
@@ -62,5 +64,5 @@
     </div>
 </div>
 <div class="last-foot">
-    <h5>Copyright © <?php echo date("o"); ?> National Innovation Center Nepal</h5>
+    <h5>Copyright © <?php echo date("o"); ?> National Innovation Center Nepal &nbsp; <span style="color: #c5c9c9;position: absolute;right: 15px;"><a href="http://www.dwit.edu.np/" style="color: #c5c9c9; text-decoration:none;">Powered by Deerwalk Institute Of Technology</a></span></h5>
 </div>

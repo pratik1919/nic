@@ -178,22 +178,27 @@ function addDonationInfo($first, $second, $third, $forth, $pos, $lang, $conn)
     $s = $lang."_second";
     $t = $lang."_third";
     $fo = $lang."_forth";
-    $select = $conn->prepare("SELECT ? FROM `DontationInfo` WHERE `location_code` = ?");
-    $select->bind_param("ss", $t, $pos);
+   
+    
+    $select = $conn->prepare("SELECT ? FROM dontationinfo WHERE location_code = ?");
+    $select->bind_param("ss", $lang, $pos);
     $select->execute();
+    while ($select->fetch()){
+
+    }
+      
     $r = $select->get_result();
     if (isset($r)) {
         $delete = $conn->prepare("UPDATE `dontationinfo` SET `$f` = ?,`$s`=?,`$t`=?,`$fo`=? WHERE `location_code` =  ?");
         $delete->bind_param("sssss", $first, $second, $third, $forth, $pos);
         $delete->execute();
     }else{
-        $insertQuery = $conn->prepare("INSERT INTO `DontationInfo`(`location_code`, ?,?,?,?) VALUES (?,?,?,?,?)");
+        $insertQuery = $conn->prepare("INSERT INTO `dontationinfo`(`location_code`, ?,?,?,?) VALUES (?,?,?,?,?)");
         $insertQuery->bind_param("sssssssss", $f, $s, $t, $fo, $pos, $first, $second, $third, $forth);
         $insertQuery->execute();
     }
 
 }
-
 
 function addVideo($code, $pos, $conn)
 {

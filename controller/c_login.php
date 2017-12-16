@@ -22,7 +22,7 @@ $stmt->bind_param("s", $username);
 $stmt->execute();
 $stmt->bind_result($id, $name, $email, $pass, $uname);
 while ($stmt->fetch()){
-    echo $name;
+    
 }
 
 
@@ -37,14 +37,16 @@ if($stmt->num_rows > 0) {
         $_SESSION['userUsername'] = $uname;
         $_SESSION['name'] = $name;
         header('Location: ../view/index.php');
+       
     }else{
         header('Location: ../view/login.php');
+        $_SESSION['notLogin'] = "0";
     }
 }else{
     header('Location: ../view/login.php');
+    $_SESSION['notLogin'] = "0";
 }
 
 
 $stmt->close();
-$mysqli->close();
 

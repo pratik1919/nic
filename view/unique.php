@@ -5,7 +5,7 @@
  * Date: 12/6/2016
  * Time: 4:12 PM
  */
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -49,14 +49,7 @@
 
             $f = getContent('unique', $conn);
             $row = $f->fetch_assoc();
-            $content = $row['ne'];
-
-            //            $file1 = "nic/uploads/$content";
-            //            header('Content-type: application/pdf');
-            //            header('Content-Disposition: inline; filename="' . $file1. '"');
-            //            header('Content-Transfer-Encoding: binary');
-            //            header('Accept-Ranges: bytes');
-            //            @readfile($file1);
+            $content = $row[$_SESSION['lang']];
             ?>
 
             <embed src="../uploads/<?php echo $content; ?>" style="width: 100% !important; height: 1180px; position: relative;"></embed>

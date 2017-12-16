@@ -5,6 +5,7 @@
  * Date: 1/10/2017
  * Time: 3:31 PM
  */
+ session_start();
 
 ?>
 
@@ -42,11 +43,17 @@
     <div id="content">
         <div class="container">
 
-            <?php
-
+          <?php
+            if (isset($_SESSION['userID'])) {
+                ?>
+                <button class="btn btn-block btn-primary" data-position-id="overall" data-toggle="modal" data-target="#changeFileModal">
+                    Change file
+                </button>
+                <?php
+            }
             $f = getContent('overall', $conn);
             $row = $f->fetch_assoc();
-            $content = $row['ne'];
+            $content = $row[$_SESSION['lang']];
 
             //            $file1 = "nic/uploads/$content";
             //            header('Content-type: application/pdf');
@@ -68,6 +75,12 @@
     </div>
     <!-- #footer -->
 </div>
+<script>
+    $('#changeFileModal').on('show.bs.modal', function(e){
+        var positionId = $(e.relatedTarget).data('position-id');
+        $(e.currentTarget).find('input[name="positionId"]').val(positionId);
 
+    });
+</script>
 </body>
 </html>

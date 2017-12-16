@@ -288,10 +288,10 @@ $menu = getMenu($_SESSION['lang'], $conn);
                                 $e = base64_encode("id=eSewa");
                                 $g = base64_encode("id=gofundme");
                                 ?>
-                                <li><a href="donorsList.php?<?php echo $everest; ?>">एवेर्स्त बैंक लिमिटेड</a></li>
-                                <li><a href="donorsList.php?<?php echo $h; ?>">हिमालअयन बैंक लिमिटेड</a></li>
-                                <li><a href="donorsList.php?<?php echo $e; ?>">एसेवा </a></li>
-                                <li><a href="donorsList.php?<?php echo $g; ?>">गोफुन्ड्मे.कोम् </a></li>
+                                <li><a href="donorsList.php?<?php echo $everest; ?>">एभरेस्ट बैँक मार्फत</a></li>
+                                <li><a href="donorsList.php?<?php echo $h; ?>">हिमालयन बैँक मार्फत</a></li>
+                                <li><a href="donorsList.php?<?php echo $e; ?>">इसेवा मार्फत </a></li>
+                                <li><a href="donorsList.php?<?php echo $g; ?>">गो-फन्डमी.कम मार्फत </a></li>
                             </ul>
                             <?php
                         }
@@ -307,9 +307,10 @@ $menu = getMenu($_SESSION['lang'], $conn);
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="conceptPaper.php">Concept Paper</a></li>
-                                <li><a href="nvm.php">Need Vision Mission Goal</a></li>
+                                <!--<li><a href="nvm.php">Need Vision Mission Goal</a></li>
                                 <li><a href="unique.php ">Uniqueness & Sustainability</a></li>
                                 <li><a href="request.php">Our Request</a></li>
+                                <li><a href="proposal.php">Proposal to Government</a></li>-->
                             </ul>
                             <?php
                         } else {
@@ -318,31 +319,17 @@ $menu = getMenu($_SESSION['lang'], $conn);
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="conceptPaper.php">अवधारणा पत्र</a></li>
-                                <li><a href="nvm.php">आवश्यक, दृष्टि, लक्ष्य</a></li>
+                                <!--<li><a href="nvm.php">आवश्यक, दृष्टि, लक्ष्य</a></li>
                                 <li><a href="unique.php ">अद्वितीय र स्थिरता</a></li>
-                                <li><a href="request.php">हाम्रो अनुरोध</a></li>
+                                <li><a href="request.php">हाम्रो अनुरोध</a></li>-->
+                                <li><a href="proposal.php">सरकारलाई बुझाईएको प्रस्ताव</a></li>
                             </ul>
                             <?php
                         }
                         ?>
                     </li>
-                    <!--                    <li><a href="news.php">News</a></li>-->
-                    <!--                    <li><a href="events.php">Coming Events</a></li>-->
-                    <!--                    <li><a href="participate.php">Participate</a></li>-->
-                    <!--                    <li><a href="#">Contact Us</a></li>-->
-                    <!--                    <li><a href="donorsList.php">Donors List</a></li>-->
+ <li><a href="85.php">85 Degrees East</a></li>
                 </ul>
-                <!--                <form class="navbar-form navbar-left">-->
-                <!--                    <div class="input-group">-->
-                <!--                        <input type="text" class="form-control" placeholder="Search">-->
-                <!---->
-                <!--                        <div class="input-group-btn">-->
-                <!--                            <button class="btn btn-default" type="submit">-->
-                <!--                                <i class="glyphicon glyphicon-search"></i>-->
-                <!--                            </button>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </form>-->
 
 
                 <?php
@@ -364,55 +351,53 @@ $menu = getMenu($_SESSION['lang'], $conn);
                 } else {
                     ?>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span
-                                        class="caret"></span></a>
-                            <ul id="login-dp" class="dropdown-menu">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h4 style="color: #ffffff">Login</h4>
-
-                                            <form class="form" role="form" method="post"
-                                                  action="../controller/c_login.php" accept-charset="UTF-8"
-                                                  id="login-nav">
-                                                <div class="form-group">
-                                                    <label class="sr-only" for="username">Username</label>
-                                                    <input type="text" class="form-control" name="username"
-                                                           placeholder="Username" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="sr-only" for="Password">Password</label>
-                                                    <input type="password" class="form-control" name="password"
-                                                           placeholder="Password" required>
-
-                                                    <div class="help-block text-right"><a href="password.php">Forget the
-                                                            password
-                                                            ?</a></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="submit" value="Sign in"
-                                                           class="btn btn-primary btn-block">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+<!--                    <ul class="nav navbar-nav navbar-right">-->
+<!--                        <li class="dropdown">-->
+<!--                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span-->
+<!--                                        class="caret"></span></a>-->
+<!--                            <ul id="login-dp" class="dropdown-menu">-->
+<!--                                <li>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-12">-->
+<!--                                            <h4 style="color: #ffffff">Login</h4>-->
+<!---->
+<!--                                            <form class="form" role="form" method="post"-->
+<!--                                                  action="../controller/c_login.php" accept-charset="UTF-8"-->
+<!--                                                  id="login-nav">-->
+<!--                                                <div class="form-group">-->
+<!--                                                    <label class="sr-only" for="username">Username</label>-->
+<!--                                                    <input type="text" class="form-control" name="username"-->
+<!--                                                           placeholder="Username" required>-->
+<!--                                                </div>-->
+<!--                                                <div class="form-group">-->
+<!--                                                    <label class="sr-only" for="Password">Password</label>-->
+<!--                                                    <input type="password" class="form-control" name="password"-->
+<!--                                                           placeholder="Password" required>-->
+<!---->
+<!--                                                    <div class="help-block text-right"><a href="password.php">Forget the-->
+<!--                                                            password-->
+<!--                                                            ?</a></div>-->
+<!--                                                </div>-->
+<!--                                                <div class="form-group">-->
+<!--                                                    <input type="submit" value="Sign in"-->
+<!--                                                           class="btn btn-primary btn-block">-->
+<!--                                                </div>-->
+<!--                                            </form>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                    </ul>-->
                     <?php
                 }
                 ?>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="../controller/c_changeLanguage.php?lang=en"><img src="../img/english.png" height="15px"
-                                                                                  width="30px" alt=""></a>
+                        <a href="../controller/c_changeLanguage.php?lang=en">English</a>
                     </li>
                     <li>
-                        <a href="../controller/c_changeLanguage.php?lang=ne"><img src="../img/Nepal.png" height="20px"
-                                                                                  width="30px" alt=""></a>
+                        <a href="../controller/c_changeLanguage.php?lang=ne">नेपाली</a>
                     </li>
                 </ul>
             </div>

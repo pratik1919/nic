@@ -5,7 +5,7 @@
  * Date: 12/7/2016
  * Time: 1:02 PM
  */
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -163,29 +163,12 @@
             </div>
             </div>
             <div class="col-md-6">
-                <?php
-                $news = getNews(3, $conn);
-                $row = $news->fetch_assoc();
-                ?>
-                <?php
-                if (isset($_SESSION['userID'])) {
-                    ?>
-                    <button class="btn btn-block btn-primary" data-position-id="3" data-toggle="modal" data-target="#addNewsModal">
-                        Change News
-                    </button>
-                <?php
-                }
-                ?>
-                <div class="small-news">
-                <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 610px;" id="3" onclick="submitForm(this)">
-                    <div class="news-content">
-                        <h4 class="backgroundOverlayBlue"><span style="z-index: 100"><?php echo $row['date']; ?></span></h4>
-                        <p class="backgroundOverlayRed"><span style="z-index: 100"><?php echo $row['title']; ?></span></p>
-                    </div>
-
+                 <div class="fb-page" data-href="https://www.facebook.com/mahabirnwp/" height="610" data-width="500" data-tabs="timeline"
+                     data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                     data-show-facepile="true">
                 </div>
             </div>
-                </div>
+                
             <div class="col-md-3">
                 <?php
                 $news = getNews(4, $conn);
@@ -244,7 +227,13 @@
     <?php
     }else{
             ?>
-        <h2>News are being uploaded</h2>
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="margin-bottom: 30px;">
+            <div class="fb-page" data-href="https://www.facebook.com/mahabirnwp/" height="610" data-width="500" data-tabs="timeline"
+                 data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                 data-show-facepile="true">
+            </div>
+        </div>
     <?php
     }
     ?>

@@ -12,8 +12,9 @@ include'../config/dbConnect.php';
 if(isset($_POST['s'])){
     $id = $_POST['id'];
     $menu = $_POST['menu'];
+    
 
-    $conn->query("UPDATE `header` SET `nepali`= '$menu' WHERE `id` = $id");
+    $conn->query("UPDATE `header` SET `ne`= '$menu' WHERE `id` = $id");
 }
 ?>
 

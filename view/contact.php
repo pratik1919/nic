@@ -5,7 +5,7 @@
  * Date: 12/6/2016
  * Time: 4:12 PM
  */
-
+session_start();
 ?>
 
 <!DOCTYPE html>

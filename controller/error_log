@@ -1,0 +1,42 @@
+[07-Feb-2017 22:27:59 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php:25) in /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php on line 39
+[07-Feb-2017 22:27:59 America/Chicago] PHP Fatal error:  Call to a member function close() on null in /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php on line 49
+[07-Feb-2017 22:31:05 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php:25) in /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php on line 39
+[07-Feb-2017 22:31:05 America/Chicago] PHP Fatal error:  Call to a member function close() on null in /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php on line 49
+[07-Feb-2017 22:31:47 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php:25) in /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php on line 39
+[07-Feb-2017 22:31:47 America/Chicago] PHP Fatal error:  Call to a member function close() on null in /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php on line 49
+[07-Feb-2017 22:34:14 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php:25) in /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php on line 39
+[07-Feb-2017 22:35:08 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php:25) in /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php on line 39
+[07-Feb-2017 22:36:44 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php:25) in /home/mbpnicnepal/public_html/nic/nic/controller/c_login.php on line 39
+[08-Feb-2017 02:29:39 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 182
+[08-Feb-2017 02:31:35 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 182
+[08-Feb-2017 02:33:40 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 182
+[08-Feb-2017 02:33:45 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 182
+[08-Feb-2017 02:37:48 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 182
+[08-Feb-2017 02:37:50 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 182
+[08-Feb-2017 02:37:58 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 182
+[08-Feb-2017 02:40:03 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 188
+[08-Feb-2017 02:40:11 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 188
+[08-Feb-2017 02:40:20 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 188
+[08-Feb-2017 02:41:41 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 189
+[08-Feb-2017 02:41:45 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 189
+[08-Feb-2017 02:41:52 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 189
+[08-Feb-2017 02:42:08 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 189
+[08-Feb-2017 02:42:11 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 189
+[08-Feb-2017 02:48:45 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 183
+[08-Feb-2017 03:20:13 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 184
+[08-Feb-2017 03:20:44 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 184
+[08-Feb-2017 03:22:01 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 184
+[08-Feb-2017 03:22:03 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 184
+[08-Feb-2017 03:22:24 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 184
+[08-Feb-2017 03:25:49 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 183
+[08-Feb-2017 03:27:55 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 183
+[08-Feb-2017 03:29:35 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/nic/nic/service/common.php on line 185
+[10-Feb-2017 08:09:47 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home/mbpnicnepal/public_html/controller/fetchEvent.php on line 14
+[13-Feb-2017 03:27:04 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/service/common.php on line 114
+[13-Feb-2017 10:28:14 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home/mbpnicnepal/public_html/controller/fetchEvent.php on line 14
+[15-Feb-2017 17:18:44 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/service/common.php on line 114
+[17-Feb-2017 20:59:52 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home/mbpnicnepal/public_html/controller/fetchEvent.php on line 14
+[18-Feb-2017 07:36:40 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home/mbpnicnepal/public_html/controller/fetchEvent.php on line 14
+[06-Mar-2017 07:37:19 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/service/common.php on line 114
+[18-Mar-2017 07:10:27 America/Chicago] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/mbpnicnepal/public_html/service/common.php on line 114
+[21-Mar-2017 10:01:26 America/Chicago] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home/mbpnicnepal/public_html/controller/fetchEvent.php on line 14

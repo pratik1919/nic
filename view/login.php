@@ -5,6 +5,7 @@
  * Date: 12/7/2016
  * Time: 9:46 AM
  */
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -27,11 +28,24 @@
         <div style="width: 50%; display: inline-block;">
             <div class="highlight login-div">
                 <div>
+                    <a href="index.php">
                     <img src="../img/logo.png" alt=""/>
+                    </a>
                 </div>
 
                 <hr/>
-                <h5 style="background-color: red; color: #ffffff;">User not found</h5>
+
+<?php
+if(isset($_SESSION['notLogin'])){
+?>
+<h5 style="background-color: red; color: #ffffff;">Userame or password not matched</h5>
+
+
+<?php
+session_unset();
+}
+?>
+                
                 <br/>
                 <form class="form-horizontal"  method="post" action="../controller/c_login.php">
                     <!--        <legend><h2>System Login</h2></legend>-->

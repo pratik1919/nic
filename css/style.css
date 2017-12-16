@@ -128,7 +128,6 @@ html,
 
 .paragraph{
     margin: 20px 74px 10px;
-    font-family: fantasy;
     font-size: 19px;
     min-height: 147px;
 }
@@ -147,7 +146,7 @@ html,
     padding-left: 30px;
     padding-right: 30px;
     font-family: -webkit-pictograph;
-    min-height: 375px;
+   
 
 
     /*-webkit-box-shadow: inset 0px 0px 111px 60px rgba(0,0,0,0.53);*/

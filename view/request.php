@@ -5,7 +5,7 @@
  * Date: 12/6/2016
  * Time: 4:12 PM
  */
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +49,7 @@
 
             $f = getContent('request', $conn);
             $row = $f->fetch_assoc();
-            $content = $row['ne'];
+            $content = $row[$_SESSION['lang']];
 
             //            $file1 = "nic/uploads/$content";
             //            header('Content-type: application/pdf');

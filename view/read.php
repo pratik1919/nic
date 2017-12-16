@@ -41,10 +41,10 @@ $content = $_POST['content'];
     <!-- #header -->
 
     <?php
-    if($content == 'news'){
+    if ($content == 'news') {
         $c = getNews($pos, $conn);
     }
-    if($content == 'event'){
+    if ($content == 'event') {
         $c = readEvents($pos, $conn);
     }
     $row = $c->fetch_assoc();
@@ -63,22 +63,23 @@ $content = $_POST['content'];
             <h4><?php echo $row['date']; ?></h4>
             <hr style="margin-top: 0px;">
             <?php
-            if($content == 'news'){
+            if ($content == 'news') {
                 ?>
 
-                <div class="small-news col-lg-4" style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 450px; background-size: contain; background-repeat: no-repeat;"></div>
-            <?php
+                <div class="small-news col-lg-4"
+                     style="background-image: url('../img/<?php echo $row['photo']; ?>'); height: 450px; background-size: contain; background-repeat: no-repeat;"></div>
+                <?php
             }
             ?>
 
             <div class="col-lg-8" style="text-align: justify; line-height: 2em;">
                 <?php
-                if($content == 'news'){
+                if ($content == 'news') {
                     ?>
                     <p><?php echo $row['news']; ?></p>
                     <?php
-                }else{
-   ?>
+                } else {
+                    ?>
                     <p><?php echo $row['description']; ?></p>
 
                     <?php
@@ -89,29 +90,32 @@ $content = $_POST['content'];
 
 
         <?php
-        if($content == 'news'){
+        if ($content == 'news') {
             ?>
             <div class="row" style="margin-top: 25px;">
                 <h4 style="text-align: center">Other News</h4>
                 <hr/>
                 <?php
-                for($i=1; $i <= 5; $i++){
-                    if($i != $pos){
+                for ($i = 1; $i <= 5; $i++) {
+                    if ($i != $pos) {
                         $news = getNews($i, $conn);
                         $row = $news->fetch_assoc();
                         ?>
 
                         <div class="col-lg-3 small-news" style="padding: 5px;">
 
-                            <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')" id="<?php echo $i; ?>" onclick="submitForm(this)">
+                            <div class="small-news" style="background-image: url('../img/<?php echo $row['photo']; ?>')"
+                                 id="<?php echo $i; ?>" onclick="submitForm(this)">
                                 <div class="news-content">
-                                    <h4 class="backgroundOverlayBlue"><span style="z-index: 100"><?php echo $row['date']; ?></span></h4>
-                                    <p class="backgroundOverlayRed"><span style="z-index: 100"><?php echo $row['title']; ?></span></p>
+                                    <h4 class="backgroundOverlayBlue"><span
+                                                style="z-index: 100"><?php echo $row['date']; ?></span></h4>
+                                    <p class="backgroundOverlayRed"><span
+                                                style="z-index: 100"><?php echo $row['title']; ?></span></p>
                                 </div>
 
                             </div>
                         </div>
-                    <?php
+                        <?php
                     }
                 }
                 ?>
@@ -130,13 +134,13 @@ $content = $_POST['content'];
                     <tbody>
                     <?php
                     $oldNews = getOlderNews($conn);
-                    while($row = $oldNews->fetch_assoc()){
+                    while ($row = $oldNews->fetch_assoc()) {
                         ?>
                         <tr id="<?php echo $row['position_id']; ?>" onclick="submitForm(this)">
                             <td><?php echo $row['date']; ?></td>
                             <td><?php echo $row['title']; ?></td>
                         </tr>
-                    <?php
+                        <?php
                     }
                     ?>
                     </tbody>
@@ -146,34 +150,29 @@ $content = $_POST['content'];
             </div>
 
 
-
-
-        <?php
+            <?php
         }
         ?>
 
 
-
-
-
-
     </div>
-    <div style="height: 50px;"> </div>
+    <div style="height: 50px;"></div>
+</div>
 
-    <div id="footer">
-        <?php
-        include '_footer.php';
-        ?>
-    </div>
-    <!-- #footer -->
+<div id="footer">
+    <?php
+    include '_footer.php';
+    ?>
+</div>
+<!-- #footer -->
 
-    <script>
-        function submitForm(item){
-            var pos = $(item).attr("id");
-            document.getElementById('positionId').value = pos;
-            var id = '#read';
-            $(id).submit();
-        }
-    </script>
+<script>
+    function submitForm(item) {
+        var pos = $(item).attr("id");
+        document.getElementById('positionId').value = pos;
+        var id = '#read';
+        $(id).submit();
+    }
+</script>
 </body>
 </html>

@@ -5,14 +5,15 @@
  * Date: 12/26/2016
  * Time: 12:25 PM
  */
+session_start();
 
 include'../service/common.php';
 
 if(isset($_FILES['file'])){
 
-    $pos = strip_tags($_POST['positionId']);
+    $pos = $_POST['positionId'];
 
-    $file = strip_tags($_FILES['file']);
+    $file = $_FILES['file'];
 
     $file_name = $file['name'];
     $file_tmp = $file['tmp_name'];
@@ -27,11 +28,10 @@ if(isset($_FILES['file'])){
     if(in_array($file_ext, $allowed)){
         if($file_error == 0){
                 $pos = $_POST['positionId'];
-                    $file_name_new = $pos . '.' . $file_ext;
+                    $file_name_new = $_SESSION['lang'].'_'.$pos . '.' . $file_ext;
                     $file_dest = '../uploads/' . $file_name_new;
-            echo $pos;
                     if(move_uploaded_file($file_tmp, $file_dest)){
-                        addContent('Null', $file_name_new, $pos, $conn);
+                        addContent('Null', $file_name_new, $pos, $_SESSION['lang'], $conn);
                         if($pos == 'conceptPaper'){
                             header('Location: ../view/conceptPaper.php');
                         }elseif($pos == 'nvm'){
@@ -41,7 +41,7 @@ if(isset($_FILES['file'])){
                         }elseif($pos == 'request'){
                             header('Location: ../view/request.php');
                         }elseif($pos == 'overall'){
-                            header('Location: ../view/index.php');
+                            header('Location: ../view/proposal.php');
                         }
                     }
 

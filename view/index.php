@@ -5,6 +5,7 @@
  * Date: 12/6/2016
  * Time: 4:12 PM
  */
+session_start();
 
 ?>
 
@@ -29,10 +30,67 @@
 </head>
 <body>
 
+<!--eSewa Model model-->
+<div id="esewaModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ea4335; color: white;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Donate through E-Sewa</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form" action="http://esewa.com.np/donate/main" method="POST">
+
+                    <div class="form-group">
+                    <label for="">Amount in Rupees:</label>
+                    <input class="form-control" name="amt" type="number">
+                    </div>
+                    <input value="c851d56b-71a7-4a23-b273-2a90e29bd9e2" name="refid" type="hidden">
+
+                    <input value="http://localhost/nic/view/success.php" type="hidden" name="surl">
+
+                    <input value="http://localhost/nic/view/failure.php" type="hidden" name="furl">
+
+                    <input class="btn btn-primary" value="Donate" type="submit">
+
+                </form>
+            </div>
+            <div class="modal-footer" style="background-color: #ea4335;">
+                <button id="clbtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!--    Read Model model-->
+<div id="readMoreModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change File</h4>
+            </div>
+            <div class="modal-body">
+                <div id="name"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="clbtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 <div id="wrapper">
 
     <div id="header" class="row">
-        <?php include '_header.php'; ?>
+        <?php include '_header.php';   ?>
+
     </div>
     <!-- #header -->
 
@@ -40,7 +98,7 @@
 
 
         <div class="container">
-            <div class="col-md-4" style="position: relative; z-index: -1; zoom: 80%">
+            <div class="col-md-4" style="position: relative ; z-index: -1; zoom: 80%">
                 <img src="../img/mahabripun_final.png" alt=""/>
             </div>
 
@@ -94,28 +152,51 @@
                 $donationInfo = getDonationInfo('donation-1', $conn);
                 $row = $donationInfo->fetch_assoc();
                 ?>
-                <h3><?php echo $row[$_SESSION['lang'].'_first']; ?></h3>
+                <h5><?php echo $row[$_SESSION['lang'].'_first']; ?></h5>
                 <h5><?php echo $row[$_SESSION['lang'].'_second']; ?></h5>
-                <h4><?php echo $row[$_SESSION['lang'].'_third']; ?></h4>
+                <?php
+        if($_SESSION['lang'] == 'ne') {
+            ?>
+           <h5> राष्ट्रिय आविष्कार केन्द्र </h5>
+            <?php
+            }else{
+            ?>
+            <h5>Beneficiary: &nbsp; Rashtriya Awishkar Kendra</h5>
+            <?php
+            }
+            ?>
+         
+                <h5><?php echo $row[$_SESSION['lang'].'_third']; ?></h5>
                 <h6><?php echo $row[$_SESSION['lang'].'_forth']; ?></h6>
             </div>
             <div class="col-md-3">
                 <?php
                 if (isset($_SESSION['userID'])) {
                 ?>
-                    <div class="changeBtnDiv">
-                        <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="donation-2" data-toggle="modal" data-target="#addDonationModal">
-                        </button>
-                    </div>
+                <div class="changeBtnDiv">
+                    <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="donation-2" data-toggle="modal" data-target="#addDonationModal">
+                    </button>
+                </div>
                 <?php
                 }
 
                 $donationInfo = getDonationInfo('donation-2', $conn);
                 $row = $donationInfo->fetch_assoc();
                 ?>
-                <h3><?php echo $row[$_SESSION['lang'].'_first']; ?></h3>
+                <h5><?php echo $row[$_SESSION['lang'].'_first']; ?></h5>
                 <h5><?php echo $row[$_SESSION['lang'].'_second']; ?></h5>
-                <h4><?php echo $row[$_SESSION['lang'].'_third']; ?></h4>
+                <?php
+        if($_SESSION['lang'] == 'ne') {
+            ?>
+           <h5> राष्ट्रिय आविष्कार केन्द्र </h5>
+            <?php
+            }else{
+            ?>
+            <h5>Beneficiary: &nbsp; Rashtriya Awishkar Kendra</h5>
+            <?php
+            }
+            ?>
+                <h5><?php echo $row[$_SESSION['lang'].'_third']; ?></h5>
                 <h6><?php echo $row[$_SESSION['lang'].'_forth']; ?></h6>
             </div>
 
@@ -124,7 +205,7 @@
                 if (isset($_SESSION['userID'])) {
                     ?>
                     <div class="changeBtnDiv">
-                        <button class="btn btn-default glyphicon glyphicon-pencil" data-position-id="donation-3" data-toggle="modal" data-target="#addDonationModal">
+                        <button class="btn btn-default glyphicon glyphicon-pencil"  >
                         </button>
                     </div>
                     <?php
@@ -133,9 +214,9 @@
                 $donationInfo = getDonationInfo('donation-3', $conn);
                 $row = $donationInfo->fetch_assoc();
                 ?>
-                <h3><?php echo $row[$_SESSION['lang'].'_first']; ?></h3>
+                <h5><?php echo $row[$_SESSION['lang'].'_first']; ?></h5>
                 <h5><?php echo $row[$_SESSION['lang'].'_second']; ?></h5>
-                <h4><?php echo $row[$_SESSION['lang'].'_third']; ?></h4>
+                <h5 data-toggle="modal" data-target="#esewaModal"><?php echo $row[$_SESSION['lang'].'_third']; ?></h5>
                 <h6><?php echo $row[$_SESSION['lang'].'_forth']; ?></h6>
             </div>
 
@@ -153,9 +234,9 @@
                 $donationInfo = getDonationInfo('donation-4', $conn);
                 $row = $donationInfo->fetch_assoc();
                 ?>
-                <h3><?php echo $row[$_SESSION['lang'].'_first']; ?></h3>
+                <h5><?php echo $row[$_SESSION['lang'].'_first']; ?></h5>
                 <h5><?php echo $row[$_SESSION['lang'].'_second']; ?></h5>
-                <h4><?php echo $row[$_SESSION['lang'].'_third']; ?></h4>
+                <a href="https://www.gofundme.com/nic-nepal" style="text-decoration: none; color: white;"><h5><?php echo $row[$_SESSION['lang'].'_third']; ?></h5></a>
                 <h6><?php echo $row[$_SESSION['lang'].'_forth']; ?></h6>
             </div>
         </div>
@@ -187,7 +268,7 @@
                         <p><?php echo $row[$_SESSION['lang']]; ?></p>
                         </div>
 
-                        <div class="left"><a href="nvm.php">more</a></div class="left">
+                        <div class="left"><a href="more.php?read=landing-2">more</a></div class="left">
                     </div>
 
                     <div class="col-md-4">
@@ -210,7 +291,8 @@
                             <p><?php echo $row[$_SESSION['lang']]; ?></p>
                         </div>
 
-                        <div class="left"><a href="request.php">more</a></div class="left">
+                        <div class="left"><a href="more.php?read=landing-3">more</a></div class="left">
+
                     </div>
 
                     <div class="col-md-4">
@@ -233,7 +315,8 @@
                             <p><?php echo $row[$_SESSION['lang']]; ?></p>
                         </div>
 
-                        <div class="left"><a href="unique.php">more</a></div class="left">
+                        <div class="left"><a href="more.php?read=landing-4">more</a></div class="left">
+
                     </div>
 
                 </div>

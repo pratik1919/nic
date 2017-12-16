@@ -5,7 +5,7 @@
  * Date: 12/7/2016
  * Time: 1:02 PM
  */
-
+session_start();
 
 $queryString = $_SERVER['QUERY_STRING'];
 //echo $queryString."<br>";
@@ -105,9 +105,11 @@ $med = $splitedQS[1];
 
         <?php
         if (isset($_SESSION['userID'])) {
+            $file = "template_donorInfo.xlsx";
             ?>
-            <div class="addDiv">
 
+            <div class="addDiv">
+                <a class="btn btn-primary" href='../controller/fileDownload.php'><span class="glyphicon glyphicon-download-alt"></span> Download Template</a>
             <button class="btn btn-primary" data-toggle="modal" data-target="#addDonorModal"><span class="glyphicon glyphicon-plus"></span> Add Donors
             </button></div>
 
